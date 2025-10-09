@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Connexion - Vines</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <img src="logovines.png" alt="Logo Vines" class="logo">
+            <nav>
+                <a href="index.html">Accueil</a>
+            </nav>
+        </div>
+    </header>
 
+    <main>
+        <div class="form-container">
+            <h2>Connexion</h2>
+            <form method="post" action="login.php">
+                <label for="login">Login :</label>
+                <input type="text" id="login" name="login" required>
+
+                <label for="mdp">Mot de passe :</label>
+                <input type="password" id="mdp" name="mdp" required>
+
+                <button type="submit">Connexion</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-columns">
+            <div>
+                <h4>Assistance</h4>
+                <ul>
+                    <li><a href="#">Problèmes de connexion</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">
+            &copy; 2025 Vines - Tous droits réservés
+        </p>
+    </footer>
 </body>
 </html>
