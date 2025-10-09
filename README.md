@@ -4,9 +4,9 @@
 
 ## 📌 Sujet
 
-**SAÉ 3 - FI 2 : Création de pages web statiques**
+**SAÉ 3 - FI BUT2 : Création de pages web statiques**
 
-Ce projet consiste à créer plusieurs pages web à l’aide de HTML et CSS dans le cadre du module *FI 2 - Code HTML*.  
+Ce projet consiste à créer plusieurs pages web à l’aide de HTML et CSS dans le cadre du module *FI BUT2 - Code HTML*.  
 Les pages demandées sont les suivantes :
 
 - Page d’accueil (à faire)
@@ -31,7 +31,7 @@ Les pages doivent permettre une **navigation fictive** via des liens HTML entre 
 
 - HTML5
 - CSS3
-- (ce qu'on utilise pour les liens)
+- (ce qu'on utilise pour les images)
 
 ---
 
