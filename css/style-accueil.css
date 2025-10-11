@@ -88,7 +88,49 @@ section {
 footer {
     background-color: #2D5A27;
     color: white;
-    text-align: center;
-    padding: 15px;
+    padding: 20px;
+    text-align: left;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.footer-columns div {
+    min-width: 150px;
+    margin: 10px;
+}
+
+.footer-columns h4 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-columns ul li {
+    margin-bottom: 8px;
+}
+
+.footer-columns ul li a {
+    color: white;
+    text-decoration: none;
     font-size: 14px;
+}
+
+.footer-columns ul li a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    text-align: center;
+    font-size: 13px;
+    margin: 10px 0 0 0;
 }
