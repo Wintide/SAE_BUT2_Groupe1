@@ -21,7 +21,7 @@ PERES Thomas
   - [Connaissances requises](#connaissances-requises)  
   - [Ressources matérielles](#ressources-matérielles)  
   - [Ressources logicielles](#ressources-logicielles)  
-  - [Identifiants obligatoires](#identifiants-obligatoires-:)
+  - [Identifiants obligatoires](#identifiants-obligatoires)
 
 # Introduction
 
