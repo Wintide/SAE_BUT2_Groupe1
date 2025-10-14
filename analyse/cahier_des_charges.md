@@ -1,4 +1,4 @@
-<p alignt="right">
+<p align="right">
 **INFI2-A**
 </p>
 
