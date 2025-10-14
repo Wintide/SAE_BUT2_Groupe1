@@ -39,11 +39,11 @@ Les pages doivent permettre une **navigation fictive** via des liens HTML entre 
 
 Vines/  
 │  
-├── analyse/ *#dossier des fichier d'analyse du projet*
+├── analyse/ *#dossier des fichier d'analyse du projet*  
 │  ├── Cahier des charges  
 │  ├── misc.md  
 │  └── ADB.md  
-├── conception/ *#dossier des éléments de conception*
+├── conception/ *#dossier des éléments de conception*  
 ├── doc/ *#Documentation du projet*  
 ├── spec/  *#dossier des spécifications*  
 ├── src/                         *#dossier containant nos pages web*  
