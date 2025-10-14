@@ -1,6 +1,4 @@
-<p align="right">
-**INFI2-A**
-</p>
+<p align="right">INFI2-A</p>
 
 AYMARD Thomas								  
 CROCHET Thomas  
