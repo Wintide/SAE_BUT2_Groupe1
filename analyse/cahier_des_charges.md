@@ -23,7 +23,7 @@ PERES Thomas
   - [Ressources logicielles](#ressources-logicielles)  
   - [Identifiants obligatoires](#identifiants-obligatoires-:)
 
-# Introduction {#introduction}
+# Introduction
 
 Ce document constitue le cahier des charges pour le projet SAE IN3SA01.
 
@@ -39,16 +39,16 @@ Les documents référencés sont les suivant :
 - Fichier csv des Unités Centrales  
 - Le fichier csv des Écrans
 
-# Enoncé {#enoncé}
+# Enoncé
 
-### **Description du problème à résoudre** {#description-du-problème-à-résoudre}
+### **Description du problème à résoudre**
 
 La gestion de parc informatique est un enjeu stratégique pour les entreprises de toutes tailles. Cependant, elle peut rapidement devenir complexe avec l’augmentation du nombre de machines. L’information sur les équipements peut être peu accessible et non centralisée, ce qui rend sa mise à jour difficile.  
 Aussi, le suivi du cycle de vie du matériel peut générer des erreurs et manquer de traçabilité.
 
 Pour y remédier, il est essentiel de développer un plateforme web de gestion de parc informatique, permettant à différents utilisateurs d’accéder à des fonctionnalités adaptées à leur rôle, et ce en assurant la centralisation, la fiabilité et la sécurité des données.
 
-### **Contexte** {#contexte}
+### **Contexte**
 
 Le projet SAE IN3SA01, réparti sur les semestres 3 et 4, consiste à développer une plateforme web de gestion de parc informatique. Ce projet regroupe plusieurs compétences issues de différentes unités d’enseignement (développement web, bases de données, communication, anglais, sécurité, etc.).
 
@@ -56,7 +56,7 @@ Les technologies principales imposées sont : PHP pour le développement côté 
 
 Il faut également utiliser un dépôt GitHub partagé avec les enseignants, contenant le code et la documentation.
 
-### **Objectifs** {#objectifs}
+### **Objectifs**
 
 La plateforme a pour objectif de centraliser la gestion du parc informatique au sein d’une application unique et collaborative. Elle doit permettre de distinguer plusieurs profils d’utilisateurs (administrateur système, administrateur web, technicien et visiteur), chacun disposant de droits spécifiques, afin de garantir un usage adapté et sécurisé.
 
@@ -66,7 +66,7 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 
 # Pré-requis {#pré-requis}
 
-### **Connaissances requises** {#connaissances-requises}
+### **Connaissances requises**
 
 - Développement web : **HTML, CSS, PHP, JavaScript**.  
 - Gestion de base de données : **SQL (MySQL/MariaDB)**.  
@@ -75,13 +75,13 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 - Outils de gestion de version (**GitHub/GitLab**).  
 - Communication écrite et orale
 
-### **Ressources matérielles** {#ressources-matérielles}
+### **Ressources matérielles**
 
 - **Raspberry Pi 4** avec carte SD (système \+ serveur).  
 - Postes de développement pour le code (IDE recommandé : VS Code, PHPStorm, etc.).  
 - Réseau local pour accès SSH.
 
-### **Ressources logicielles**	 {#ressources-logicielles}
+### **Ressources logicielles**
 
 - OS Linux (Raspberry Pi OS).  
 - MySQL via phpMyAdmin  
@@ -89,7 +89,7 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 - IDE (PHPStorm)  
 - XAMPP 
 
-#### **Identifiants obligatoires :** {#identifiants-obligatoires-:}
+#### **Identifiants obligatoires :**
 
 - Admin web : adminweb / adminweb  
 - Admin système : sysadmin / sysadmin  
