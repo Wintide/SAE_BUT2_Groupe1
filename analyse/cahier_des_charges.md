@@ -89,7 +89,7 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 - IDE (PHPStorm)  
 - XAMPP 
 
-#### **Identifiants obligatoires :**
+#### **Identifiants obligatoires**
 
 - Admin web : adminweb / adminweb  
 - Admin système : sysadmin / sysadmin  
