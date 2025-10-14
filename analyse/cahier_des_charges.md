@@ -8,7 +8,7 @@ PERES Thomas
 
 
 
-<h1>Cahier des charges</h1> 
+**Cahier des charges**
 Plateforme de gestion de parc informatique
 
 ![Logo](logo.jpg)
