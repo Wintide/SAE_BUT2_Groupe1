@@ -6,7 +6,8 @@ PERES Thomas
 
 **Cahier des charges** Plateforme de gestion de parc informatique
 
-![][image1]
+<img src="logo.jpg"
+     style="float: left; margin-right: 10px;" />
 
 # SOMMAIRE
 
@@ -98,6 +99,4 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 
 # Priorités
 
-<img src="https://fr.m.wikipedia.org/wiki/Fichier:UVSQ_Logo.svg"
-     style="float: left; margin-right: 10px;" />
 
