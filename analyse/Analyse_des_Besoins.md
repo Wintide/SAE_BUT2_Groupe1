@@ -7,7 +7,7 @@ PERES Thomas
 **Analyse des besoins**  
  Plateforme de gestion de parc informatique
 
-**![][image1]**
+![Logo](logo.jpg)
 
 # **SOMMAIRE**
 
