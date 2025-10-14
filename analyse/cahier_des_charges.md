@@ -1,11 +1,10 @@
-<p align="left">
+
 AYMARD Thomas								  
 CROCHET Thomas  
 MESSAGER Romain  
 MIQUEL Adrien  
 PERES Thomas
 **INFI2-A**
-</p>
 
 **Cahier des charges** Plateforme de gestion de parc informatique
 
