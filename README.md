@@ -52,7 +52,9 @@ Vines/
 │   ├── technicien.html         *# Page technicien*  
 │   │  
 │   ├── css/ *#dossier des styles*   
-│   │   └── style.css           *# Feuille de style principale*  
+│   │   └── style-login.css           *# Feuille de style de la page de login*  
+│   │   └── style-acceuil.css         *# Feuille de style de la page d'acceuil*  
+│   │   └── style-tech.css         *# Feuille de style de la page du technicien*  
 │   │  
 │   └── images/  
 │__   └── logo.png            *# Logo utilisé dans le header*  
