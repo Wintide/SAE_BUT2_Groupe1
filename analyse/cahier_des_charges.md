@@ -64,7 +64,7 @@ L’application doit offrir la possibilité de maintenir un inventaire complet, 
 
 De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d’identifier le matériel hors service, tout en permettant sa réactivation en cas de remise en état. Enfin, une interface claire, intuitive et pédagogique sera mise en place, comprenant une page d’accueil avec un texte explicatif ainsi qu’une vidéo de présentation des fonctionnalités.
 
-# Pré-requis {#pré-requis}
+# Pré-requis
 
 ### **Connaissances requises**
 
