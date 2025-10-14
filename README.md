@@ -39,15 +39,26 @@ Les pages doivent permettre une **navigation fictive** via des liens HTML entre 
 
 Vines/  
 │  
-├── index.html              *# Accueil*  
-├── login.html              *# Page de connexion*  
-├── technicien.html         *# Page technicien*  
-│  
-├── css/  
-│   └── style.css           *# Feuille de style principale*  
-│  
-├── images/  
-│   └── logo.png            *# Logo utilisé dans le header*  
+├── analyse/ *#dossier des fichier d'analyse du projet*  
+│  ├── Cahier des charges  
+│  ├── misc.md  
+│  └── ADB.md  
+├── conception/ *#dossier des éléments de conception*  
+├── doc/ *#Documentation du projet*  
+├── spec/  *#dossier des spécifications*  
+├── src/                         *#dossier containant nos pages web*  
+│   ├── index.html              *# Accueil*  
+│   ├── login.html              *# Page de connexion*  
+│   ├── technicien.html         *# Page technicien*  
+│   │  
+│   ├── css/ *#dossier des styles*   
+│   │   └── style-login.css           *# Feuille de style de la page de login*  
+│   │   └── style-acceuil.css         *# Feuille de style de la page d'acceuil*  
+│   │   └── style-tech.css         *# Feuille de style de la page du technicien*  
+│   │  
+│   └── images/  
+│__   └── logo.png            *# Logo utilisé dans le header*  
+├── test/ *#Dossier des fichiers de test*
 │  
 └── README.md               *# Ce fichier*
 
@@ -58,11 +69,11 @@ Vines/
 ## 🧑‍💻 Auteurs / Groupe
 
 - Projet : **Vines**
-- Membres du groupe : 
-  - AYMARD Thomas
-  - CROCHET Thomas
-  - MESSAGER Adrien
-  - MIQUEL Romain
-  - PERES Thomas
+- Membres du groupe :
+    - AYMARD Thomas
+    - CROCHET Thomas
+    - MESSAGER Adrien
+    - MIQUEL Romain
+    - PERES Thomas
 
 ---
