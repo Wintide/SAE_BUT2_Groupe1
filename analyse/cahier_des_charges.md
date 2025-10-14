@@ -24,6 +24,8 @@ Plateforme de gestion de parc informatique
 
 - [Pré-requis](#pré-requis)  
   - [Identifiants obligatoires](#identifiants-obligatoires)
+ 
+- [Priorités](#priorités)
 
 # Introduction
 
@@ -76,5 +78,8 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 - Système RPi : sae2025 / \!sae2025\!
 
 # Priorités
+
+- Page webs statiques d’accueil, de connexion, et celle du technicien (HTML/CSS seulement)  
+- Charte graphique du site (logo, esthétiques du site)
 
 
