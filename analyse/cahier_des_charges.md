@@ -6,8 +6,7 @@ PERES Thomas
 
 **Cahier des charges** Plateforme de gestion de parc informatique
 
-<img src="logo.jpg"
-     style="float: left; margin-right: 10px;" />
+![Logo](logo.jpg)
 
 # SOMMAIRE
 
