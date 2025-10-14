@@ -77,7 +77,8 @@ De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d�
 - Technicien de base : tech1 / tech1  
 - Système RPi : sae2025 / \!sae2025\!
 
-# Priorités
+# Priorités 
+(à dater du 14/10/2025)
 
 - Page webs statiques d’accueil, de connexion, et celle du technicien (HTML/CSS seulement)  
 - Charte graphique du site (logo, esthétiques du site)
