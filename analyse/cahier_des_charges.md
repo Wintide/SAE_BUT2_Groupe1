@@ -23,9 +23,6 @@ Plateforme de gestion de parc informatique
   - [Objectifs](#objectifs)
 
 - [Pré-requis](#pré-requis)  
-  - [Connaissances requises](#connaissances-requises)  
-  - [Ressources matérielles](#ressources-matérielles)  
-  - [Ressources logicielles](#ressources-logicielles)  
   - [Identifiants obligatoires](#identifiants-obligatoires)
 
 # Introduction
@@ -70,29 +67,6 @@ L’application doit offrir la possibilité de maintenir un inventaire complet, 
 De plus, la plateforme devra intégrer la gestion d’une liste de rebut afin d’identifier le matériel hors service, tout en permettant sa réactivation en cas de remise en état. Enfin, une interface claire, intuitive et pédagogique sera mise en place, comprenant une page d’accueil avec un texte explicatif ainsi qu’une vidéo de présentation des fonctionnalités.
 
 # Pré-requis
-
-### **Connaissances requises**
-
-- Développement web : **HTML, CSS, PHP, JavaScript**.  
-- Gestion de base de données : **SQL (MySQL/MariaDB)**.  
-- Administration système de base sous Linux.  
-- Sécurisation des accès et gestion des utilisateurs.  
-- Outils de gestion de version (**GitHub/GitLab**).  
-- Communication écrite et orale
-
-### **Ressources matérielles**
-
-- **Raspberry Pi 4** avec carte SD (système \+ serveur).  
-- Postes de développement pour le code (IDE recommandé : VS Code, PHPStorm, etc.).  
-- Réseau local pour accès SSH.
-
-### **Ressources logicielles**
-
-- OS Linux (Raspberry Pi OS).  
-- MySQL via phpMyAdmin  
-- Client Git (GitHub/GitLab).  
-- IDE (PHPStorm)  
-- XAMPP 
 
 #### **Identifiants obligatoires**
 
