@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Technicien - Vines</title>
+    <link rel="stylesheet" href="css/style-tech.css">
 </head>
 <body>
 <header>
@@ -13,42 +14,164 @@
             <a href="login.html" class="right-link">Login</a>
         </nav>
     </div>
-    <main>
-        <div class="main-">
-            <div class="main-filtrage">
-                <form action="" method="post">
-                    <select name="">
-                </form>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-columns">
-            <div>
-                <h4>Assistance</h4>
-                <ul>
-                    <li><a href="#">Problèmes de connexion</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Informations</h4>
-                <ul>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Mentions légales</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Nos Contactes</h4>
-                <ul>
-                    <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
-                    <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <p class="copyright">
-            &copy; 2025 Vines - Tous droits réservés
-        </p>
-    </footer>
 </header>
+<main>
+    <div class="main-filtrage">
+        <div class="filters">
+            <label for="filter-type">Type :</label>
+            <select id="filter-type" name="filter-type">
+                <option value="all">Tous</option>
+                <option value="uc">Unités centrales</option>
+                <option value="moniteur">Moniteurs</option>
+            </select>
+
+            <label for="filter-local">Localisation :</label>
+            <select id="filter-local" name="filter-local">
+                <option value="all">Toutes</option>
+                <option value="batA">Bât. A</option>
+                <option value="batB">Bât. B</option>
+                <option value="batC">Bât. C</option>
+            </select>
+
+            <label for="filter-date">Année d’achat :</label>
+            <select id="filter-date" name="filter-date">
+                <option value="all">Toutes</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+
+            <label for="filter-search">Recherche :</label>
+            <input type="text" id="filter-search" placeholder="Rechercher un modèle, ID...">
+        </div>
+        <button class="btn-add">Ajouter une machine</button>
+    </div>
+
+    <div class="main-inventory">
+        <h2>Inventaire actuel</h2>
+        <div class="inventory-actual">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Modèle</th>
+                    <th>Numéro de série</th>
+                    <th>Localisation</th>
+                    <th>Achat</th>
+                    <th>Fin de garantie</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UC-001</td>
+                    <td>Unité centrale</td>
+                    <td>Dell Optiplex 7090</td>
+                    <td>SN-4587A</td>
+                    <td>Bât. A - Salle 102</td>
+                    <td>12/03/2023</td>
+                    <td>12/03/2026</td>
+                    <td class="actions">
+                        <button class="btn-view">Consulter</button>
+                        <button class="btn-edit">Modifier</button>
+                        <button class="btn-delete">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MON-003</td>
+                    <td>Moniteur</td>
+                    <td>HP EliteDisplay</td>
+                    <td>SN-9920Z</td>
+                    <td>Bât. A - Salle 102</td>
+                    <td>20/07/2022</td>
+                    <td>20/07/2025</td>
+                    <td class="actions">
+                        <button class="btn-view">Consulter</button>
+                        <button class="btn-edit">Modifier</button>
+                        <button class="btn-delete">Supprimer</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Matériel au rebut</h2>
+        <div class="inventory-rebus">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Modèle</th>
+                    <th>Numéro de série</th>
+                    <th>Localisation</th>
+                    <th>Achat</th>
+                    <th>Fin de garantie</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>UC-010</td>
+                    <td>Unité centrale</td>
+                    <td>HP Pro</td>
+                    <td>SN-7782X</td>
+                    <td>Bât. B - Atelier</td>
+                    <td>15/06/2018</td>
+                    <td>15/06/2021</td>
+                    <td class="actions">
+                        <button class="btn-view">Consulter</button>
+                        <button class="btn-restore">Remise en service</button>
+                        <button class="btn-delete">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MON-023</td>
+                    <td>Moniteur</td>
+                    <td>Samsung</td>
+                    <td>SN-4412X</td>
+                    <td>Bât. A - Stock</td>
+                    <td>02/05/2022</td>
+                    <td>02/05/2025</td>
+                    <td class="actions">
+                        <button class="btn-view">Consulter</button>
+                        <button class="btn-restore">Remise en service</button>
+                        <button class="btn-delete">Supprimer</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Assistance</h4>
+            <ul>
+                <li><a href="#">Problèmes de connexion</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Informations</h4>
+            <ul>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Mentions légales</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Nos Contactes</h4>
+            <ul>
+                <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
+                <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">
+        &copy; 2025 Vines - Tous droits réservés
+    </p>
+</footer>
 </body>
 </html>
