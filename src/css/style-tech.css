@@ -130,7 +130,7 @@ main {
 .inventory-grid {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 10px;
     padding-bottom: 50px;
@@ -142,7 +142,6 @@ main {
     right: 0;
     transform: translate(-10px, -10px);
     width: 45px;
-    height: 45px;
     background: none;
     border: none;
     cursor: pointer;
