@@ -112,45 +112,104 @@ main {
     background-color: #244a20;
 }
 
+.main-inventory {
+    margin-top: 30px;
+}
+
 .main-inventory h2 {
-    margin: 20px 0 12px;
     color: #2D5A27;
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.inventory-actual,
-.inventory-rebus {
-    margin-bottom: 30px;
+.rebus h2 {
+    color: #B71C1C;
 }
 
-table {
+.inventory-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 10px;
+    padding-bottom: 50px;
+}
+
+.bin-toggle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-10px, -10px);
+    width: 45px;
+    height: 45px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.bin-toggle img {
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+}
+
+.bin-toggle:hover {
+    opacity: 1;
+    transform: translate(-10px, -10px) scale(1.1);
+}
+
+.card {
     background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-th, td {
-    padding: 10px 14px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 8px 0 5px;
+    color: #2D5A27;
+    font-size: 18px;
+}
+
+.card p {
     font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
 }
 
-th {
-    background-color: #2D5A27;
-    color: white;
-    font-weight: bold;
+.uc {
+    border-top: 5px solid #2D5A27;
 }
 
-tr:hover {
-    background-color: #f4f9f4;
+.monitor {
+    border-top: 5px solid #1E88E5;
+}
+
+.rebus-card {
+    border-top: 5px solid #B71C1C;
+    background-color: #FCEAEA;
+    opacity: 0.9;
 }
 
 .actions {
     display: flex;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -166,13 +225,11 @@ tr:hover {
 
 .btn-view { background-color: #3B7E3B; }
 .btn-edit { background-color: #E6B800; color: #111; }
-.btn-delete { background-color: #C0392B; }
 .btn-restore { background-color: #1976D2; }
 
-.btn-view:hover { filter: brightness(0.9); }
-.btn-edit:hover { filter: brightness(0.9); }
-.btn-delete:hover { filter: brightness(0.9); }
-.btn-restore:hover { filter: brightness(0.9); }
+.actions button:hover {
+    filter: brightness(0.9);
+}
 
 footer {
     background-color: #2D5A27;

@@ -49,100 +49,65 @@
     </div>
 
     <div class="main-inventory">
-        <h2>Inventaire actuel</h2>
-        <div class="inventory-actual">
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Modèle</th>
-                    <th>Numéro de série</th>
-                    <th>Localisation</th>
-                    <th>Achat</th>
-                    <th>Fin de garantie</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>UC-001</td>
-                    <td>Unité centrale</td>
-                    <td>Dell Optiplex 7090</td>
-                    <td>SN-4587A</td>
-                    <td>Bât. A - Salle 102</td>
-                    <td>12/03/2023</td>
-                    <td>12/03/2026</td>
-                    <td class="actions">
-                        <button class="btn-view">Consulter</button>
-                        <button class="btn-edit">Modifier</button>
-                        <button class="btn-delete">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>MON-003</td>
-                    <td>Moniteur</td>
-                    <td>HP EliteDisplay</td>
-                    <td>SN-9920Z</td>
-                    <td>Bât. A - Salle 102</td>
-                    <td>20/07/2022</td>
-                    <td>20/07/2025</td>
-                    <td class="actions">
-                        <button class="btn-view">Consulter</button>
-                        <button class="btn-edit">Modifier</button>
-                        <button class="btn-delete">Supprimer</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <h2>Inventaire Actif</h2>
+        <div class="inventory-grid">
+            <div class="card uc">
+                <img src="images/uc.png" alt="Unité centrale">
+                <h3>Dell Optiplex 7090</h3>
+                <p>UC-001</p>
+                <div class="actions">
+                    <button class="btn-view">Consulter</button>
+                    <button class="btn-edit">Modifier</button>
+                </div>
+            </div>
 
-        <h2>Matériel au rebut</h2>
-        <div class="inventory-rebus">
-            <table>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Modèle</th>
-                    <th>Numéro de série</th>
-                    <th>Localisation</th>
-                    <th>Achat</th>
-                    <th>Fin de garantie</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>UC-010</td>
-                    <td>Unité centrale</td>
-                    <td>HP Pro</td>
-                    <td>SN-7782X</td>
-                    <td>Bât. B - Atelier</td>
-                    <td>15/06/2018</td>
-                    <td>15/06/2021</td>
-                    <td class="actions">
-                        <button class="btn-view">Consulter</button>
-                        <button class="btn-restore">Remise en service</button>
-                        <button class="btn-delete">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>MON-023</td>
-                    <td>Moniteur</td>
-                    <td>Samsung</td>
-                    <td>SN-4412X</td>
-                    <td>Bât. A - Stock</td>
-                    <td>02/05/2022</td>
-                    <td>02/05/2025</td>
-                    <td class="actions">
-                        <button class="btn-view">Consulter</button>
-                        <button class="btn-restore">Remise en service</button>
-                        <button class="btn-delete">Supprimer</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="card monitor">
+                <img src="images/monitor.png" alt="Moniteur">
+                <h3>HP EliteDisplay 24"</h3>
+                <p>SN-9920Z</p>
+                <div class="actions">
+                    <button class="btn-view">Consulter</button>
+                    <button class="btn-edit">Modifier</button>
+                </div>
+            </div>
+
+            <div class="card uc">
+                <img src="images/uc.png" alt="Unité centrale">
+                <h3>HP ProDesk 400</h3>
+                <p>UC-002</p>
+                <div class="actions">
+                    <button class="btn-view">Consulter</button>
+                    <button class="btn-edit">Modifier</button>
+                </div>
+            </div>
+
+            <div class="card monitor">
+                <img src="images/monitor.png" alt="Moniteur">
+                <h3>Dell UltraSharp U27</h3>
+                <p>SN-5538B</p>
+                <div class="actions">
+                    <button class="btn-view">Consulter</button>
+                    <button class="btn-edit">Modifier</button>
+                </div>
+            </div>
+            <button class="bin-toggle">
+                <img src="images/trashcan.png" alt="Afficher le rebus">
+            </button>
+        </div>
+    </div>
+
+    <div class="main-inventory rebus">
+        <h2>Inventaire de Rebus</h2>
+        <div class="inventory-grid">
+            <div class="card rebus-card">
+                <img src="images/uc.png" alt="Unité centrale">
+                <h3>HP Pro</h3>
+                <p>UC-014</p>
+                <div class="actions">
+                    <button class="btn-view">Consulter</button>
+                    <button class="btn-restore">Remise en service</button>
+                </div>
+            </div>
         </div>
     </div>
 </main>
