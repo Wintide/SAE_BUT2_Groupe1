@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Technicien - Vines</title>
+    <link rel="stylesheet" href="css/style-tech.css">
 </head>
 <body>
+<header>
+    <div class="header-content">
+        <img src="logovines.png" alt="Logo Vines" class="logo">
+        <nav>
+            <a href="index.html" class="center-link">Acceuil</a>
+            <a href="login.html" class="right-link">Login</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="main-filtrage">
+        <div class="filters">
+            <label for="filter-type">Type :</label>
+            <select id="filter-type" name="filter-type">
+                <option value="all">Tous</option>
+                <option value="uc">Unités centrales</option>
+                <option value="moniteur">Moniteurs</option>
+            </select>
+
+            <label for="filter-local">Localisation :</label>
+            <select id="filter-local" name="filter-local">
+                <option value="all">Toutes</option>
+                <option value="batA">Bât. A</option>
+                <option value="batB">Bât. B</option>
+                <option value="batC">Bât. C</option>
+            </select>
+
+            <label for="filter-date">Année d’achat :</label>
+            <select id="filter-date" name="filter-date">
+                <option value="all">Toutes</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+
+            <label for="filter-search">Recherche :</label>
+            <input type="text" id="filter-search" placeholder="Rechercher un modèle, ID...">
+        </div>
+        <button class="btn-add">Ajouter une machine</button>
+    </div>
 
 </body>
 </html>
