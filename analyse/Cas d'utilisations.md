@@ -111,7 +111,7 @@ PERES Thomas
 
 ## Changer statut matériel
 
-| Nom : Changer le statut d’un matériel si remis en service<br> Description : Le technicien modifie le statut du matériel pour refléter qu’il est à nouveau opérationnel et consultable dans les listes normales du parc<br>. Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
+| Nom : Changer le statut d’un matériel si remis en service<br> Description : Le technicien modifie le statut du matériel pour refléter qu’il est à nouveau opérationnel et consultable dans les listes normales du parc.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la liste du rebut 2\) Il sélectionne le matériel 3\) Il clique sur l’option “Restaurer” 4\) Le système demande une confirmation 5\) Le technicien confirme 6\) Le système change le statut du matériel et le réintègre dans l’inventaire 7\) Message de confirmation Alternatif: I) Remise en service multiple 1\) Le technicien sélectionne plusieurs matériels à restaurer 2\) Le système demande confirmation 3\) Le système change le statut des matériels et les réintègre dans l’inventaire 7\) Message de confirmation Exception: I) Erreur technique/réseau 1\) Le système ne parvient pas à mettre à jour le statut 2\) Message d’erreur  |
 
