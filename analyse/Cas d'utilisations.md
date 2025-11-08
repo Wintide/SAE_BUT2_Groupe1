@@ -45,7 +45,7 @@ PERES Thomas
 
 [Consultation des logs](#consultation-des-logs)
 
-# **Utilisateur** {#utilisateur}
+# Utilisateur
 
 ## **Consulter inventaire** {#consulter-inventaire}
 
@@ -53,7 +53,7 @@ PERES Thomas
 | :---- |
 | Scénarios Nominal:  1\) L’utilisateur accède à la page d’accueil 2\) Il sélectionne l’option consulter l’inventaire 3\) Le système affiche la liste des éléments visibles publiquements 4\) L’utilisateur filtre/trie 5\) Mise à jour de l’affichage 6\) L’utilisateur consulte le détail d’un élément Alternatif: I) Accès via une catégorie 1\) L’utilisateur clique directement sur une catégorie publique 2\) Le système affiche les éléments correspondants 3\) L’utilisateur consulte le détail d’un élément II) Utilisation de la barre de recherche 1\) L’utilisateur saisit un mot-clé dans la barre de recherche 2\) Le système affiche les résultats correspondants 3\) L’utilisateur consulte le détail d’un élément Exception: I) Inventaire vide ou aucun résultat 1\) Le système affiche “Aucun élément disponible/trouvé” II) Erreur technique 1\) Le système ne parvient pas à récupérer les donné 2\) Message du système “Erreur de connexion”  |
 
-# **Technicien** {#technicien}
+# Technicien 
 
 ## **Connection platerforme** {#connection-platerforme}
 
@@ -117,7 +117,7 @@ PERES Thomas
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la liste du rebut 2\) Il sélectionne le matériel 3\) Il clique sur l’option “Restaurer” 4\) Le système demande une confirmation 5\) Le technicien confirme 6\) Le système change le statut du matériel et le réintègre dans l’inventaire 7\) Message de confirmation Alternatif: I) Remise en service multiple 1\) Le technicien sélectionne plusieurs matériels à restaurer 2\) Le système demande confirmation 3\) Le système change le statut des matériels et les réintègre dans l’inventaire 7\) Message de confirmation Exception: I) Erreur technique/réseau 1\) Le système ne parvient pas à mettre à jour le statut 2\) Message d’erreur  |
 
-# **Administrateur web** {#administrateur-web}
+# Administrateur web 
 
 ## **Ajouter technicien** {#ajouter-technicien}
 
@@ -133,7 +133,7 @@ PERES Thomas
 
 ## 
 
-# Administrateur système {#administrateur-système}
+# Administrateur système
 
 ## **Consultation des logs** {#consultation-des-logs}
 
