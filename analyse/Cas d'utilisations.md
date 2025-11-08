@@ -49,7 +49,7 @@ PERES Thomas
 
 ## Consulter inventaire
 
-| Nom : Consulter une partie de l’inventaire<br> Description : Il permet de visualiser certaines informations sur les éléments disponibles (catégorie, description, numéro), sans pouvoir les modifier ni accéder aux sections réservées.v Acteur : Utilisateur non inscrit (visiteur)v Portée : boîte noire<br> Niveau : Utilisateur |
+| Nom : Consulter une partie de l’inventaire<br> Description : Il permet de visualiser certaines informations sur les éléments disponibles (catégorie, description, numéro), sans pouvoir les modifier ni accéder aux sections réservées.v Acteur : Utilisateur non inscrit (visiteur)<br> Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal:  1\) L’utilisateur accède à la page d’accueil 2\) Il sélectionne l’option consulter l’inventaire 3\) Le système affiche la liste des éléments visibles publiquements 4\) L’utilisateur filtre/trie 5\) Mise à jour de l’affichage 6\) L’utilisateur consulte le détail d’un élément Alternatif: I) Accès via une catégorie 1\) L’utilisateur clique directement sur une catégorie publique 2\) Le système affiche les éléments correspondants 3\) L’utilisateur consulte le détail d’un élément II) Utilisation de la barre de recherche 1\) L’utilisateur saisit un mot-clé dans la barre de recherche 2\) Le système affiche les résultats correspondants 3\) L’utilisateur consulte le détail d’un élément Exception: I) Inventaire vide ou aucun résultat 1\) Le système affiche “Aucun élément disponible/trouvé” II) Erreur technique 1\) Le système ne parvient pas à récupérer les donné 2\) Message du système “Erreur de connexion”  |
 
@@ -57,7 +57,7 @@ PERES Thomas
 
 ## Connection platerforme 
 
-| Nom : Se connecter à la plateformev Description : La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.v Acteur : Technicienv Portée : boîte noire<br> Niveau : Utilisateur |
+| Nom : Se connecter à la plateforme<br> Description : La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.<br> Acteur : Technicienv Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la page de connexion de la plateforme 2\) Il saisit son identifiant et mot de passe 3\) Le système vérifie les informations 4\) Le système valide l'identité du technicien 5\) Le système redirige le technicien vers la page d’accueil/ tableau de bord Alternatif: Exception: I) Identifiants incorrects 1\) Le système affiche un message “Identifiant ou mot de passe incorrect” 2\) Le technicien peut réessayer II) Erreur technique/réseau 1\) Le système ne parvient pas à vérifier les identifiants 2\) Message du système “Erreur de connexion”  |
 
@@ -77,7 +77,7 @@ PERES Thomas
 
 ## Modifier information
 
-| Nom : Modifier une information d’un matériel existantv Description : Les modifications peuvent concerner, par exemple, l’état, la localisation, la description ou toute information administrative liée au matériel.<br> Acteur : Technicien<br> Portée : boîte noirev Niveau : Utilisateur |
+| Nom : Modifier une information d’un matériel existant<br> Description : Les modifications peuvent concerner, par exemple, l’état, la localisation, la description ou toute information administrative liée au matériel.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la fiche/au détail d’un élément 2\) Il sélectionne “Editer” 3\) Le système affiche la fenêtre de modification 4\) Le technicien modifie les champs nécessaire 5\) Il valide les modifications 6\) Le système enregistre les changements et affiche un message de confirmation Alternatif: Exception: II) Erreur technique/réseau 1\) Le système ne parvient pas à enregistrer les modifications 2\) Envoie un message “Erreur lors de l’enregistrement”  |
 
