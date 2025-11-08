@@ -55,58 +55,85 @@ PERES Thomas
 **Portée :** boîte noire  
 **Niveau :** Utilisateur  
 
----
-
 ### Scénarios
 
 | Nominal | Alternatif | Exception |
 |----------|-------------|------------|
 | **1)** L’utilisateur accède à la page d’accueil  <br> **2)** Il sélectionne l’option consulter l’inventaire  <br> **3)** Le système affiche la liste des éléments visibles publiquement  <br> **4)** L’utilisateur filtre/trie  <br> **5)** Mise à jour de l’affichage  <br> **6)** L’utilisateur consulte le détail d’un élément | **I) Accès via une catégorie**  <br> 1) L’utilisateur clique directement sur une catégorie publique  <br> 2) Le système affiche les éléments correspondants  <br> 3) L’utilisateur consulte le détail d’un élément  <br><br> **II) Utilisation de la barre de recherche**  <br> 1) L’utilisateur saisit un mot-clé dans la barre de recherche  <br> 2) Le système affiche les résultats correspondants  <br> 3) L’utilisateur consulte le détail d’un élément | **I) Inventaire vide ou aucun résultat**  <br> 1) Le système affiche “Aucun élément disponible/trouvé”  <br><br> **II) Erreur technique**  <br> 1) Le système ne parvient pas à récupérer les données  <br> 2) Message du système “Erreur de connexion” |
 
-
-| Nom : Consulter une partie de l’inventaire<br> Description : Il permet de visualiser certaines informations sur les éléments disponibles (catégorie, description, numéro), sans pouvoir les modifier ni accéder aux sections réservées.<br> Acteur : Utilisateur non inscrit (visiteur)<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal:  1\) L’utilisateur accède à la page d’accueil 2\) Il sélectionne l’option consulter l’inventaire 3\) Le système affiche la liste des éléments visibles publiquements 4\) L’utilisateur filtre/trie 5\) Mise à jour de l’affichage 6\) L’utilisateur consulte le détail d’un élément Alternatif: I) Accès via une catégorie 1\) L’utilisateur clique directement sur une catégorie publique 2\) Le système affiche les éléments correspondants 3\) L’utilisateur consulte le détail d’un élément II) Utilisation de la barre de recherche 1\) L’utilisateur saisit un mot-clé dans la barre de recherche 2\) Le système affiche les résultats correspondants 3\) L’utilisateur consulte le détail d’un élément Exception: I) Inventaire vide ou aucun résultat 1\) Le système affiche “Aucun élément disponible/trouvé” II) Erreur technique 1\) Le système ne parvient pas à récupérer les donné 2\) Message du système “Erreur de connexion”  |
+---
 
 # Technicien 
 
 ## Connection platerforme 
 
-| Nom : Se connecter à la plateforme<br> Description : La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la page de connexion de la plateforme 2\) Il saisit son identifiant et mot de passe 3\) Le système vérifie les informations 4\) Le système valide l'identité du technicien 5\) Le système redirige le technicien vers la page d’accueil/ tableau de bord Alternatif: Exception: I) Identifiants incorrects 1\) Le système affiche un message “Identifiant ou mot de passe incorrect” 2\) Le technicien peut réessayer II) Erreur technique/réseau 1\) Le système ne parvient pas à vérifier les identifiants 2\) Message du système “Erreur de connexion”  |
+**Nom :** Se connecter à la plateforme  
+**Description :** La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la page de connexion de la plateforme  <br> 2) Il saisit son identifiant et son mot de passe  <br> 3) Le système vérifie les informations  <br> 4) Le système valide l’identité du technicien  <br> 5) Le système redirige le technicien vers la page d’accueil / tableau de bord | *(Aucun scénario alternatif spécifié)* | **I) Identifiants incorrects**  <br> 1) Le système affiche le message « Identifiant ou mot de passe incorrect »  <br> 2) Le technicien peut réessayer  <br><br> **II) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à vérifier les identifiants  <br> 2) Message du système « Erreur de connexion » |
 
 ## Consulter parc 
 
-| Nom : Consulter la liste complète du parc<br> Description : Le technicien peut visualiser toutes les informations pertinentes pour la gestion ou le suivi, mais sans modifier les éléments à moins que d’autres cas d’utilisation spécifiques ne le permettent.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la section “Inventaire” 2\) Le système affiche la liste complète des équipements 3\) Le technicien peut filtrer,trier ou rechercher 4\) Le système met à jour l’affichage selon les critères 5\) Le technicien consulte le détail des éléments Alternatif: Exception: I) Inventaire vide ou aucun résultat 1\) Le système affiche “Aucun élément disponible/trouvé” II) Erreur technique/réseau 1\) Le système ne parvient pas à charger les données 2\) Message du système “Erreur de connexion”  |
+**Nom :** Consulter la liste complète du parc  
+**Description :** Le technicien peut visualiser toutes les informations pertinentes pour la gestion ou le suivi, mais sans modifier les éléments à moins que d’autres cas d’utilisation spécifiques ne le permettent.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
 
-## 
+## Scénarios
 
-## 
-
-## 
-
-## 
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la section « Inventaire »  <br> 2) Le système affiche la liste complète des équipements  <br> 3) Le technicien peut filtrer, trier ou rechercher  <br> 4) Le système met à jour l’affichage selon les critères  <br> 5) Le technicien consulte le détail des éléments | *(Aucun scénario alternatif spécifié)* | **I) Inventaire vide ou aucun résultat**  <br> 1) Le système affiche « Aucun élément disponible/trouvé »  <br><br> **II) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à charger les données  <br> 2) Message du système « Erreur de connexion » |
 
 ## Modifier information
 
-| Nom : Modifier une information d’un matériel existant<br> Description : Les modifications peuvent concerner, par exemple, l’état, la localisation, la description ou toute information administrative liée au matériel.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la fiche/au détail d’un élément 2\) Il sélectionne “Editer” 3\) Le système affiche la fenêtre de modification 4\) Le technicien modifie les champs nécessaire 5\) Il valide les modifications 6\) Le système enregistre les changements et affiche un message de confirmation Alternatif: Exception: II) Erreur technique/réseau 1\) Le système ne parvient pas à enregistrer les modifications 2\) Envoie un message “Erreur lors de l’enregistrement”  |
+**Nom :** Modifier une information d’un matériel existant  
+**Description :** Les modifications peuvent concerner, par exemple, l’état, la localisation, la description ou toute information administrative liée au matériel.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la fiche ou au détail d’un élément  <br> 2) Il sélectionne « Éditer »  <br> 3) Le système affiche la fenêtre de modification  <br> 4) Le technicien modifie les champs nécessaires  <br> 5) Il valide les modifications  <br> 6) Le système enregistre les changements et affiche un message de confirmation | *(Aucun scénario alternatif spécifié)* | **II) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à enregistrer les modifications  <br> 2) Message du système « Erreur lors de l’enregistrement » |
 
 ## Ajouter machine formulaire
 
-| Nom : Ajouter une machine via un formulaire<br> Description : Les informations saisies permettent d’enregistrer le matériel avec toutes ses caractéristiques (type, localisation, état, description, etc.) pour qu’il soit consultable et gérable par le système.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la section “Ajouter un élément” 2\) Le système affiche le formulaire d’ajout avec les champs requis 3\) Le technicien saisit les informations de tous les champs 4\) Il valide le formulaire en cliquant sur enregistrer/valider 5\) Le système enregistre l’élément dans l’inventaire et affiche un message de confirmation Alternatif: I) Saisie partiels 1\) Le technicien remplit uniquement les champs obligatoires 2\) Il valide le formulaire en cliquant sur enregistrer/valider 3\) Le système enregistre l’élément dans l’inventaire et affiche un message de confirmation Exception: I) Formulaire incomplet 1\) Le technicien soumet un formulaire avec un champ obligatoire manquant 2\) Le système affiche un message d’erreur et indique le champs à remplir II) Erreur technique/réseau 1\) Le système ne parvient pas à enregistrer l’élément 2\) Message d’erreur  |
+**Nom :** Ajouter une machine via un formulaire  
+**Description :** Les informations saisies permettent d’enregistrer le matériel avec toutes ses caractéristiques (type, localisation, état, description, etc.) pour qu’il soit consultable et gérable par le système.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la section « Ajouter un élément »  <br> 2) Le système affiche le formulaire d’ajout avec les champs requis  <br> 3) Le technicien saisit les informations de tous les champs  <br> 4) Il valide le formulaire en cliquant sur enregistrer / valider  <br> 5) Le système enregistre l’élément dans l’inventaire et affiche un message de confirmation | **I) Saisie partielle**  <br> 1) Le technicien remplit uniquement les champs obligatoires  <br> 2) Il valide le formulaire en cliquant sur enregistrer / valider  <br> 3) Le système enregistre l’élément dans l’inventaire et affiche un message de confirmation | **I) Formulaire incomplet**  <br> 1) Le technicien soumet un formulaire avec un champ obligatoire manquant  <br> 2) Le système affiche un message d’erreur et indique le champ à remplir  <br><br> **II) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à enregistrer l’élément  <br> 2) Message du système « Erreur lors de l’enregistrement » |
 
 ## Ajouter machine CSV
 
-| Nom : Ajouter plusieurs machines via un fichier CSV<br> Description : Chaque ligne du fichier correspond à un matériel avec ses caractéristiques (type, localisation, état, description, etc.). Le système valide et enregistre les données pour que les machines soient consultables et gérables.<br> Acteur : Technicien <br>Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la section “Ajouter un élément” 2\) Il sélectionne l’option insertion via CSV 3\) Le système affiche une interface avec les instructions 4\) Le technicien sélectionne et insère le fichier CSV 5\) Le système valide le fichier (format, champ…) 6\) Le système enregistre toute les machines dans l’inventaires 7\) Le système affiche un message de confirmation et indique le nombre machines ajoutés Alternatif: I) Des lignes sont incorrectes 1\) Le fichier contient quelques lignes avec des erreurs 2\) Le système ajoute les lignes valides 3\) Il envoie un rapport avec les lignes qui ont été refusés Exception: I) Fichier autre que CSV 1\) Le fichier insérer n’est pas un CSV 2\) Le système envoie un message d’erreur “le fichier n’est pas un fichier csv” II) Fichier incorrect/mauvais format 1\) Le fichier CSV est invalide (colonnes manquantes/invalide, caractères non valides) 2\) Le système refuse l’import et affiche un message d’erreur III) Erreur technique/réseau 1\) Le système ne parvient pas à enregistrer les machines du fichier 2\) Le système affiche un message d’erreur  |
+**Nom :** Ajouter plusieurs machines via un fichier CSV  
+**Description :** Chaque ligne du fichier correspond à un matériel avec ses caractéristiques (type, localisation, état, description, etc.). Le système valide et enregistre les données pour que les machines soient consultables et gérables.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la section « Ajouter un élément »  <br> 2) Il sélectionne l’option d’insertion via CSV  <br> 3) Le système affiche une interface avec les instructions  <br> 4) Le technicien sélectionne et insère le fichier CSV  <br> 5) Le système valide le fichier (format, champs, etc.)  <br> 6) Le système enregistre toutes les machines dans l’inventaire  <br> 7) Le système affiche un message de confirmation et indique le nombre de machines ajoutées | **I) Des lignes sont incorrectes**  <br> 1) Le fichier contient quelques lignes avec des erreurs  <br> 2) Le système ajoute les lignes valides  <br> 3) Il envoie un rapport avec les lignes refusées | **I) Fichier autre que CSV**  <br> 1) Le fichier inséré n’est pas un CSV  <br> 2) Le système envoie un message d’erreur « Le fichier n’est pas un fichier CSV »  <br><br> **II) Fichier incorrect / mauvais format**  <br> 1) Le fichier CSV est invalide (colonnes manquantes, caractères non valides, etc.)  <br> 2) Le système refuse l’import et affiche un message d’erreur  <br><br> **III) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à enregistrer les machines du fichier  <br> 2) Le système affiche un message d’erreur |
 
 ## Supprimer machine
 
@@ -130,6 +157,8 @@ PERES Thomas
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la liste du rebut 2\) Il sélectionne le matériel 3\) Il clique sur l’option “Restaurer” 4\) Le système demande une confirmation 5\) Le technicien confirme 6\) Le système change le statut du matériel et le réintègre dans l’inventaire 7\) Message de confirmation Alternatif: I) Remise en service multiple 1\) Le technicien sélectionne plusieurs matériels à restaurer 2\) Le système demande confirmation 3\) Le système change le statut des matériels et les réintègre dans l’inventaire 7\) Message de confirmation Exception: I) Erreur technique/réseau 1\) Le système ne parvient pas à mettre à jour le statut 2\) Message d’erreur  |
 
+---
+
 # Administrateur web 
 
 ## Ajouter technicien
@@ -144,7 +173,7 @@ PERES Thomas
 | :---- |
 | Scénarios Nominal:  1)L’administrateur accède au information de la liste de rebut 2)Un bouton on/off sera présent, il appuie dessus 3\) Un avertissement s’affiche pour confirmer le changement, il appuie sur “oui” 4\) L’accès à la liste de rebut est bloqué au technicien. Alternatif: 3\*) Il appuie sur “non”   4\) Aucune option ne change, retour au information de la liste de rebut. Exception: I) Le système ne modifie pas la permission : 1- renvoie un message d’erreur  |
 
-## 
+---
 
 # Administrateur système
 
