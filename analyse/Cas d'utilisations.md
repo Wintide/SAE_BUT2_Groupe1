@@ -21,7 +21,7 @@ PERES Thomas
 
 [Consulter parc](#consulter-parc)
 
-[Modifier information	6](#modifier-information)
+[Modifier information](#modifier-information)
 
 [Ajouter machine formulaire](#ajouter-machine-formulaire)
 
@@ -139,10 +139,5 @@ PERES Thomas
 | :---- |
 | Scénarios Nominal:  1\) Un onglet “Log” est appuyer 2\) Vérifie les permissions de la personne 3\) Récupère les données des actions en mémoire 4\) Transmission et affichage des données Alternatif: Exception: I) Le système ne trouve pas les données/autre erreur lors du traitement: 1- renvoie un message d’erreur  |
 
-keep just in case :
-
-| Nom :  Description :  Acteur :  Portée :  Niveau :  |
-| :---- |
-| Scénarios Nominal:  Alternatif: Exception:  |
 
 
