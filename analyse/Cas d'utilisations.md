@@ -11,39 +11,39 @@ PERES Thomas
 
 **SOMMAIRE** 
 
-**[Utilisateur	3](#utilisateur)**
+**[Utilisateur](#utilisateur)**
 
-[Consulter inventaire	3](#consulter-inventaire)
+[Consulter inventaire](#consulter-inventaire)
 
-[**Technicien	4**](#technicien)
+[**Technicien**](#technicien)
 
-[Connection platerforme	4](#connection-platerforme)
+[Connection platerforme](#connection-platerforme)
 
-[Consulter parc	5](#consulter-parc)
+[Consulter parc](#consulter-parc)
 
 [Modifier information	6](#modifier-information)
 
-[Ajouter machine formulaire	7](#ajouter-machine-formulaire)
+[Ajouter machine formulaire](#ajouter-machine-formulaire)
 
-[Ajouter machine CSV	8](#ajouter-machine-csv)
+[Ajouter machine CSV](#ajouter-machine-csv)
 
-[Supprimer machine	9](#supprimer-machine)
+[Supprimer machine](#supprimer-machine)
 
-[Exportation CSV	9](#exportation-csv)
+[Exportation CSV](#exportation-csv)
 
-[Consulter rebut	11](#consulter-rebut)
+[Consulter rebut](#consulter-rebut)
 
-[Changer statut matériel	12](#changer-statut-matériel)
+[Changer statut matériel](#changer-statut-matériel)
 
-[**Administrateur web	13**](#administrateur-web)
+[**Administrateur web**](#administrateur-web)
 
-[Ajouter technicien	13](#ajouter-technicien)
+[Ajouter technicien](#ajouter-technicien)
 
-[Bloquer liste rebut	14](#bloquer-liste-rebut)
+[Bloquer liste rebut](#bloquer-liste-rebut)
 
-[**Administrateur système	15**](#administrateur-système)
+[**Administrateur système**](#administrateur-système)
 
-[Consultation des logs	15](#consultation-des-logs)
+[Consultation des logs](#consultation-des-logs)
 
 # **Utilisateur** {#utilisateur}
 
