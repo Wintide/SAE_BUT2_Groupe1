@@ -49,6 +49,21 @@ PERES Thomas
 
 ## Consulter inventaire
 
+**Nom :** Consulter une partie de l’inventaire  
+**Description :** Il permet de visualiser certaines informations sur les éléments disponibles (catégorie, description, numéro), sans pouvoir les modifier ni accéder aux sections réservées.  
+**Acteur :** Utilisateur non inscrit (visiteur)  
+**Portée :** boîte noire  
+**Niveau :** Utilisateur  
+
+---
+
+### Scénarios
+
+| Nominal | Alternatif | Exception |
+|----------|-------------|------------|
+| **1)** L’utilisateur accède à la page d’accueil  <br> **2)** Il sélectionne l’option consulter l’inventaire  <br> **3)** Le système affiche la liste des éléments visibles publiquement  <br> **4)** L’utilisateur filtre/trie  <br> **5)** Mise à jour de l’affichage  <br> **6)** L’utilisateur consulte le détail d’un élément | **I) Accès via une catégorie**  <br> 1) L’utilisateur clique directement sur une catégorie publique  <br> 2) Le système affiche les éléments correspondants  <br> 3) L’utilisateur consulte le détail d’un élément  <br><br> **II) Utilisation de la barre de recherche**  <br> 1) L’utilisateur saisit un mot-clé dans la barre de recherche  <br> 2) Le système affiche les résultats correspondants  <br> 3) L’utilisateur consulte le détail d’un élément | **I) Inventaire vide ou aucun résultat**  <br> 1) Le système affiche “Aucun élément disponible/trouvé”  <br><br> **II) Erreur technique**  <br> 1) Le système ne parvient pas à récupérer les données  <br> 2) Message du système “Erreur de connexion” |
+
+
 | Nom : Consulter une partie de l’inventaire<br> Description : Il permet de visualiser certaines informations sur les éléments disponibles (catégorie, description, numéro), sans pouvoir les modifier ni accéder aux sections réservées.<br> Acteur : Utilisateur non inscrit (visiteur)<br> Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal:  1\) L’utilisateur accède à la page d’accueil 2\) Il sélectionne l’option consulter l’inventaire 3\) Le système affiche la liste des éléments visibles publiquements 4\) L’utilisateur filtre/trie 5\) Mise à jour de l’affichage 6\) L’utilisateur consulte le détail d’un élément Alternatif: I) Accès via une catégorie 1\) L’utilisateur clique directement sur une catégorie publique 2\) Le système affiche les éléments correspondants 3\) L’utilisateur consulte le détail d’un élément II) Utilisation de la barre de recherche 1\) L’utilisateur saisit un mot-clé dans la barre de recherche 2\) Le système affiche les résultats correspondants 3\) L’utilisateur consulte le détail d’un élément Exception: I) Inventaire vide ou aucun résultat 1\) Le système affiche “Aucun élément disponible/trouvé” II) Erreur technique 1\) Le système ne parvient pas à récupérer les donné 2\) Message du système “Erreur de connexion”  |
