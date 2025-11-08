@@ -57,7 +57,7 @@ PERES Thomas
 
 ## Connection platerforme 
 
-| Nom : Se connecter à la plateforme<br> Description : La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.<br> Acteur : Technicienv Portée : boîte noire<br> Niveau : Utilisateur |
+| Nom : Se connecter à la plateforme<br> Description : La connexion permet au technicien d’accéder aux fonctionnalités protégées et de gérer ou consulter l’inventaire selon ses droits.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
 | :---- |
 | Scénarios Nominal: 1\) Le technicien accède à la page de connexion de la plateforme 2\) Il saisit son identifiant et mot de passe 3\) Le système vérifie les informations 4\) Le système valide l'identité du technicien 5\) Le système redirige le technicien vers la page d’accueil/ tableau de bord Alternatif: Exception: I) Identifiants incorrects 1\) Le système affiche un message “Identifiant ou mot de passe incorrect” 2\) Le technicien peut réessayer II) Erreur technique/réseau 1\) Le système ne parvient pas à vérifier les identifiants 2\) Message du système “Erreur de connexion”  |
 
