@@ -17,8 +17,8 @@ Plateforme de gestion de parc informatique
 
 # SOMMAIRE
 
-[Objectifs et portée](#objectifs-et-portee)
-- [Objectifs généraux](#objectifs-generaux)  
+[Objectifs et portée](#objectifs-et-portée)
+- [Objectifs généraux](#objectifs-généraux)  
 - [Intervenants](#intervenants)  
 - [Limites du système](#limites-du-systeme)
 
