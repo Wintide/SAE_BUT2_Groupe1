@@ -1,6 +1,6 @@
 <p align="right"><b>INFI2-A</b></p>
 
-AYMARD Thomas 
+AYMARD Thomas  
 CROCHET Thomas  
 MESSAGER Romain  
 MIQUEL Adrien  
