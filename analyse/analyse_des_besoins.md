@@ -20,30 +20,30 @@ Plateforme de gestion de parc informatique
 [Objectifs et portée](#objectifs-et-portée)
 - [Objectifs généraux](#objectifs-généraux)  
 - [Intervenants](#intervenants)  
-- [Limites du système](#limites-du-systeme)
+- [Limites du système](#limites-du-système)
 
-[Terminologie employée](#terminologie-employee)
-- [Glossaire partagé](#glossaire-partage)  
-- [Définitions métier](#definitions-metier)
+[Terminologie employée](#terminologie-employée)
+- [Glossaire partagé](#glossaire-partagé)  
+- [Définitions métier](#définitions-métier)
 
 [Cas d’utilisation](#cas-dutilisation)
 - [Acteurs](#acteurs)  
 - [Objectifs](#objectifs)  
-- [Scénarios](#scenarios)
+- [Scénarios](#scénarios)
 
-[Technologie employée](#technologie-employee)
+[Technologie employée](#technologie-employée)
 - [Exigences techniques](#exigences-techniques)  
 - [Interfaces](#interfaces)
 
 [Autres exigences](#autres-exigences)
-- [Processus, règles métier](#processus-regles-metier)  
-- [Performances, sécurité](#performances-securite)  
-- [Maintenance, portabilité](#maintenance-portabilite)
+- [Processus, règles métier](#processus-règles-métier)  
+- [Performances, sécurité](#performances-securité)  
+- [Maintenance, portabilité](#maintenance-portabilité)
 
 [Facteurs humains](#facteurs-humains)
 - [Ressources humaines](#ressources-humaines)   
 - [Aspects juridiques et politiques](#aspects-juridiques-et-politiques)  
-- [Conséquences humaines](#consequences-humaines)
+- [Conséquences humaines](#conséquences-humaines)
 
 ---
 
