@@ -6,12 +6,12 @@ MESSAGER Romain
 MIQUEL Adrien  
 PERES Thomas
 
-![Logo](logo.jpg)
-
 ---
 
 **Analyse des besoins**  
 Plateforme de gestion de parc informatique
+
+![Logo](logo.jpg)
 
 ---
 
