@@ -2,7 +2,9 @@ AYMARD Thomas          **INFI2-A**
 CROCHET Thomas  
 MESSAGER Romain  
 MIQUEL Adrien  
-PERES Thomas  
+PERES Thomas
+
+![Logo](logo.jpg)
 
 ---
 
