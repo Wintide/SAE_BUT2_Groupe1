@@ -137,25 +137,64 @@ PERES Thomas
 
 ## Supprimer machine
 
-| Nom : Supprimer une machine pour la placer dans la liste du rebut<br> Description : La suppression ne détruit pas les informations historiques mais déplace le matériel dans la section “Rebut”.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède au détail d’un matériel 2\) Il sélectionne l’option supprimer 3\) Le système demande une confirmation 4\) Le technicien confirme l’opération 5\) Le système retire le matériel de l’inventaire et le place dans la liste du rebut 6\) Le système affiche un message de confirmation Alternatif: I) Suppression multiple 1\) Le technicien sélectionne plusieurs machines à placer dans le rebut 2\) Le système demande confirmation 3\) Le technicien confirme l’opération 4\) Le système retire les machines de l’inventaire et les place dans la liste du rebut 5\) Le système affiche un message de confirmation Exception: I)Erreurs technique/réseau 1\) Le système ne parvient pas à placer le matériel dans le rebut 2\) Message d’erreur  |
+**Nom :** Supprimer une machine pour la placer dans la liste du rebut  
+**Description :** La suppression ne détruit pas les informations historiques mais déplace le matériel dans la section « Rebut ».  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède au détail d’un matériel  <br> 2) Il sélectionne l’option supprimer  <br> 3) Le système demande une confirmation  <br> 4) Le technicien confirme l’opération  <br> 5) Le système retire le matériel de l’inventaire et le place dans la liste du rebut  <br> 6) Le système affiche un message de confirmation | **I) Suppression multiple**  <br> 1) Le technicien sélectionne plusieurs machines à placer dans le rebut  <br> 2) Le système demande confirmation  <br> 3) Le technicien confirme l’opération  <br> 4) Le système retire les machines de l’inventaire et les place dans la liste du rebut  <br> 5) Le système affiche un message de confirmation | **I) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à placer le matériel dans le rebut  <br> 2) Message du système « Erreur lors du déplacement dans le rebut » |
 
 ## Exportation CSV
-| Nom : Exporter la liste du parc au format CSV<br> Description : Exporter l’inventaire complet du parc informatique dans un fichier CSV.<br> Acteur : Technicien <br>Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la section “Export” 2\) Le système génère le fichier CSV contenant toutes les informations du parc 3\) Le système propose le téléchargement du fichier au technicien 4\) Le technicien télécharge le fichier CSV sur son ordinateur Alternatif: I) Export avec filtres 1\) Le technicien applique des filtres 2\) Le système génère un CSV contenant uniquement les éléments correspondants 3\) Le système propose le téléchargement du fichier au technicien 4\) Le technicien télécharge le fichier CSV sur son ordinateur II) Sélection de colonnes 1)Le technicien choisit uniquement certaines colonnes 2\) Le système propose le téléchargement du fichier au technicien 3\) Le technicien télécharge le fichier CSV sur son ordinateur Exception: I) Inventaire vide 1\) L’inventaire ne contient aucun élément 2\) Message “Aucun élément à exporter” II) Erreur technique/réseau 1\) Le système ne parvient pas à générer le fichier 2\) Message d’erreur  |
+**Nom :** Exporter la liste du parc au format CSV  
+**Description :** Exporter l’inventaire complet du parc informatique dans un fichier CSV.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la section « Export »  <br> 2) Le système génère le fichier CSV contenant toutes les informations du parc  <br> 3) Le système propose le téléchargement du fichier au technicien  <br> 4) Le technicien télécharge le fichier CSV sur son ordinateur | **I) Export avec filtres**  <br> 1) Le technicien applique des filtres  <br> 2) Le système génère un CSV contenant uniquement les éléments correspondants  <br> 3) Le système propose le téléchargement du fichier au technicien  <br> 4) Le technicien télécharge le fichier CSV sur son ordinateur  <br><br> **II) Sélection de colonnes**  <br> 1) Le technicien choisit uniquement certaines colonnes  <br> 2) Le système propose le téléchargement du fichier au technicien  <br> 3) Le technicien télécharge le fichier CSV sur son ordinateur | **I) Inventaire vide**  <br> 1) L’inventaire ne contient aucun élément  <br> 2) Le système affiche le message « Aucun élément à exporter »  <br><br> **II) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à générer le fichier  <br> 2) Le système affiche un message d’erreur |
 
 ## Consulter rebut
-| Nom : Consulter la liste du rebut<br> Description Un technicien peut accéder à la liste des matériels retirés de l’inventaire actif et placés dans le rebut.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède clique sur l'icône liste de rebut 2\) Le système affiche la liste complète 3\) Le technicien consulte le détail d’un élément Alternatif: Exception: I) Liste vide 1\) La liste de rebut est vide 2\) Message “Aucun matériel mis au rebut” II) Erreur technique/réseau 1\) Le système ne peut afficher la liste de rebut 2\) Message d’erreur  |
+**Nom :** Consulter la liste du rebut  
+**Description :** Un technicien peut accéder à la liste des matériels retirés de l’inventaire actif et placés dans le rebut.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien clique sur l’icône « Liste de rebut »  <br> 2) Le système affiche la liste complète  <br> 3) Le technicien consulte le détail d’un élément | *(Aucun scénario alternatif spécifié)* | **I) Liste vide**  <br> 1) La liste de rebut est vide  <br> 2) Le système affiche le message « Aucun matériel mis au rebut »  <br><br> **II) Erreur technique / réseau**  <br> 1) Le système ne peut afficher la liste de rebut  <br> 2) Le système affiche un message d’erreur |
 
 ## Changer statut matériel
 
-| Nom : Changer le statut d’un matériel si remis en service<br> Description : Le technicien modifie le statut du matériel pour refléter qu’il est à nouveau opérationnel et consultable dans les listes normales du parc.<br> Acteur : Technicien<br> Portée : boîte noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal: 1\) Le technicien accède à la liste du rebut 2\) Il sélectionne le matériel 3\) Il clique sur l’option “Restaurer” 4\) Le système demande une confirmation 5\) Le technicien confirme 6\) Le système change le statut du matériel et le réintègre dans l’inventaire 7\) Message de confirmation Alternatif: I) Remise en service multiple 1\) Le technicien sélectionne plusieurs matériels à restaurer 2\) Le système demande confirmation 3\) Le système change le statut des matériels et les réintègre dans l’inventaire 7\) Message de confirmation Exception: I) Erreur technique/réseau 1\) Le système ne parvient pas à mettre à jour le statut 2\) Message d’erreur  |
+**Nom :** Changer le statut d’un matériel si remis en service  
+**Description :** Le technicien modifie le statut du matériel pour refléter qu’il est à nouveau opérationnel et consultable dans les listes normales du parc.  
+**Acteur :** Technicien  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) Le technicien accède à la liste du rebut  <br> 2) Il sélectionne le matériel  <br> 3) Il clique sur l’option « Restaurer »  <br> 4) Le système demande une confirmation  <br> 5) Le technicien confirme  <br> 6) Le système change le statut du matériel et le réintègre dans l’inventaire  <br> 7) Le système affiche un message de confirmation | **I) Remise en service multiple**  <br> 1) Le technicien sélectionne plusieurs matériels à restaurer  <br> 2) Le système demande confirmation  <br> 3) Le système change le statut des matériels et les réintègre dans l’inventaire  <br> 4) Le système affiche un message de confirmation | **I) Erreur technique / réseau**  <br> 1) Le système ne parvient pas à mettre à jour le statut  <br> 2) Le système affiche un message d’erreur |
+
+
+
+
+
+
+
 
 ---
 
@@ -163,25 +202,48 @@ PERES Thomas
 
 ## Ajouter technicien
 
-| Nom : Ajouter un technicien<br> Description : Ajoute un compte ‘technicien’ en renseignant le nom d’utilisateur et son mot de passe.<br> Acteur : Administrateur web<br> Portée : Boite noire<br> Niveau : Utilisateur |
-| :---- |
-| Scénarios Nominal:  1)L’admin accède à la liste des techniciens.2\) Il appuie sur un bouton “+” 3\) Un formulaire est rempli 4\) Le technicien est ajouté au système. 5\) Un message de confirmation apparaît.  Alternatif: Exception: I) Le système n’ajoute pas le technicien  1- renvoie un message d’erreur  |
+**Nom :** Ajouter un technicien  
+**Description :** Ajoute un compte « technicien » en renseignant le nom d’utilisateur et son mot de passe.  
+**Acteur :** Administrateur web  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|--------------|----------------|----------------|
+| 1) L’administrateur accède à la liste des techniciens  <br> 2) Il appuie sur le bouton « + »  <br> 3) Il remplit le formulaire d’ajout  <br> 4) Le système ajoute le technicien  <br> 5) Le système affiche un message de confirmation | *(Aucun scénario alternatif spécifié)* | **I) Le système n’ajoute pas le technicien**  <br> 1) Le système renvoie un message d’erreur |
 
 ## Bloquer liste rebut
 
-| Nom : Bloquer la liste de rebut<br> Description : L’administrateur web modifie l’accès au technicien d’accéder à la liste de rebut.<br> Acteur : Administrateur web<br>  Portée : Boite noire<br> Niveau : Utilisateur  |
-| :---- |
-| Scénarios Nominal:  1)L’administrateur accède au information de la liste de rebut 2)Un bouton on/off sera présent, il appuie dessus 3\) Un avertissement s’affiche pour confirmer le changement, il appuie sur “oui” 4\) L’accès à la liste de rebut est bloqué au technicien. Alternatif: 3\*) Il appuie sur “non”   4\) Aucune option ne change, retour au information de la liste de rebut. Exception: I) Le système ne modifie pas la permission : 1- renvoie un message d’erreur  |
+**Nom :** Bloquer la liste de rebut  
+**Description :** L’administrateur web modifie l’accès du technicien à la liste de rebut.  
+**Acteur :** Administrateur web  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
 
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|-------------|----------------|----------------|
+| 1) L’administrateur accède aux informations de la liste de rebut <br> 2) Il appuie sur le bouton **on/off** <br> 3) Un avertissement s’affiche, il appuie sur **Oui** <br> 4) L’accès à la liste de rebut est bloqué pour le technicien | 3*) Il appuie sur **Non** <br> 4) Aucune option ne change, retour aux informations de la liste de rebut | I) Le système ne modifie pas la permission <br> 1) Le système renvoie un message d’erreur |
 ---
 
 # Administrateur système
 
 ## Consultation des logs
 
-| Nom : Consulter les logs<br> Description : Affichage de toutes les actions faite avec le nom du technicien ou de l’administrateur.<br> Acteur : Administrateur système<br> Portée : Boite Noire<br> Niveau : Utilisateur  |
-| :---- |
-| Scénarios Nominal:  1\) Un onglet “Log” est appuyer 2\) Vérifie les permissions de la personne 3\) Récupère les données des actions en mémoire 4\) Transmission et affichage des données Alternatif: Exception: I) Le système ne trouve pas les données/autre erreur lors du traitement: 1- renvoie un message d’erreur  |
+**Nom :** Consulter les logs  
+**Description :** Affichage de toutes les actions effectuées avec le nom du technicien ou de l’administrateur.  
+**Acteur :** Administrateur système  
+**Portée :** Boîte noire  
+**Niveau :** Utilisateur  
+
+## Scénarios
+
+| **Nominal** | **Alternatif** | **Exception** |
+|-------------|----------------|----------------|
+| 1) L’administrateur appuie sur l’onglet **Log** <br> 2) Le système vérifie ses permissions <br> 3) Le système récupère les données des actions en mémoire <br> 4) Transmission et affichage des données | *(Aucun scénario alternatif spécifié)* | I) Le système ne trouve pas les données ou rencontre une erreur lors du traitement <br> 1) Le système renvoie un message d’erreur |
 
 
 
