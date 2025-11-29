@@ -51,8 +51,8 @@ Login: adminweb
 Mot de passe: adminweb
 
 Administrateur Système:  
-Login: adminsys   
-Mot de passe: adminsys
+Login: sysadmin
+Mot de passe: sysadmin
 
 Technicien(s):  
 Login: tech1   
