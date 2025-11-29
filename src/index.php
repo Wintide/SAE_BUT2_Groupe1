@@ -21,10 +21,12 @@
                         <a href="technicien.html" class="center-link">Technicien</a>
                     <?php elseif ($_SESSION['login'] === 'adminweb'): ?>
                         <a href="webadmin.html" class="center-link">Admin web</a>
+                    <?php elseif ($_SESSION['login'] === 'sysadmin'): ?>
+                        <a href="webadmin.html" class="center-link">Admin systeme</a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="right-link">
-                    <button id="userButton"><?= htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8') ?></button>
+                    <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                     <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
                         <a href="logout.php">Déconnexion</a>
                     </div>
