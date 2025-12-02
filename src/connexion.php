@@ -9,6 +9,7 @@ $pass = "root";
 $db = "vines";
 $conn = mysqli_connect($host, $user, $pass);
 
+$role = null;
 
 if (!$conn) {
     echo "<script>console.log('Erreur connexion serveur');</script>";
@@ -33,7 +34,7 @@ if (!$conn) {
                 if ($login == $row["login"] && md5($password) == $row["password"]) {
 
                     $valid = true;
-
+                    $role = $row["role"];
                     break;
                 }
 
@@ -49,6 +50,7 @@ if ($valid) {
 
     session_start();
 
+    $_SESSION['role'] = $role;
     $_SESSION['login'] = $login;
 
     header("location: index.php");

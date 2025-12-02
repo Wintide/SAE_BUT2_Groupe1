@@ -12,17 +12,17 @@
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
             <?php session_start();
-            $_SESSION['login'] = "tech1";?>
-            <?php if (empty($_SESSION['login'])): ?>
+            $_SESSION['role'] = "technicien";?>
+            <?php if (empty($_SESSION['role'])): ?>
                 <a href="login.html" class="right-link">Login</a>
             <?php else: ?>
-                <?php if (!empty($_SESSION['login'])): ?>
-                    <?php if ($_SESSION['login'] === 'tech1'): ?>
+                <?php if (!empty($_SESSION['role'])): ?>
+                    <?php if ($_SESSION['role'] === 'technicien'): ?>
                         <a href="technicien.html" class="center-link">Technicien</a>
-                    <?php elseif ($_SESSION['login'] === 'adminweb'): ?>
+                    <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
                         <a href="webadmin.html" class="center-link">Admin web</a>
-                    <?php elseif ($_SESSION['login'] === 'sysadmin'): ?>
-                        <a href="webadmin.html" class="center-link">Admin systeme</a>
+                    <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
+                        <a href="sysadmin.html" class="center-link">Admin systeme</a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="right-link">
