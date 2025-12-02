@@ -1,32 +1,30 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Accueil - Vines</title>
     <link rel="stylesheet" href="css/style-accueil.css">
-    <link rel="javascript" href="script/deconnexion.js">
 </head>
 <body>
 <header>
     <div class="header-content">
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <?php session_start();
-            $_SESSION['login'] = "tech1";?>
-            <?php if (empty($_SESSION['login'])): ?>
+            <?php if (empty($_SESSION['role'])): ?>
                 <a href="login.html" class="right-link">Login</a>
             <?php else: ?>
                 <?php if (!empty($_SESSION['login'])): ?>
-                    <?php if ($_SESSION['login'] === 'tech1'): ?>
+                    <?php if ($_SESSION['role'] === 'tech'): ?>
                         <a href="technicien.html" class="center-link">Technicien</a>
-                    <?php elseif ($_SESSION['login'] === 'adminweb'): ?>
-                        <a href="webadmin.html" class="center-link">Admin web</a>
-                    <?php elseif ($_SESSION['login'] === 'sysadmin'): ?>
-                        <a href="webadmin.html" class="center-link">Admin systeme</a>
+                    <?php elseif ($_SESSION['role'] === 'adminweb'): ?>
+                        <a href="webadmin.php" class="center-link">Admin web</a>
+                    <?php elseif ($_SESSION['role'] === 'sysadmin'): ?>
+                        <a href="webadmin.php" class="center-link">Admin systeme</a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="right-link">
-                    <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
+                    <button id="userButton"><?= htmlspecialchars($_SESSION['role'], ENT_QUOTES, 'UTF-8') ?></button>
                     <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
                         <a href="logout.php">Déconnexion</a>
                     </div>

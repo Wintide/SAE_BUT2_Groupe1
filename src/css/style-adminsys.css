@@ -50,16 +50,6 @@ nav .right-link {
     position: absolute;
     right: 30px;
 }
-
-#userButton {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 14px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 .user-overlay {
     display: none;
     position: absolute;
@@ -80,28 +70,6 @@ main {
     align-items: center;
     padding: 50px 20px;
     gap: 40px;
-}
-
-section {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.presentation h1 {
-    color: #2D5A27;
-    margin-bottom: 10px;
-}
-
-.video-section video {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-    margin-top: 15px;
 }
 
 footer {
