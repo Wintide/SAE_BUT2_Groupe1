@@ -62,7 +62,7 @@
             include 'charge_inventaire.php';
             $host = "localhost";
             $user = "root";
-            $pass = "";
+            $pass = "root";
             $db = "vines";
             $conn = mysqli_connect($host, $user, $pass);
 

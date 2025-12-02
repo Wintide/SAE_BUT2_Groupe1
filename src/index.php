@@ -15,16 +15,16 @@
                 <a href="login.html" class="right-link">Login</a>
             <?php else: ?>
                 <?php if (!empty($_SESSION['login'])): ?>
-                    <?php if ($_SESSION['role'] === 'tech'): ?>
-                        <a href="technicien.html" class="center-link">Technicien</a>
-                    <?php elseif ($_SESSION['role'] === 'adminweb'): ?>
+                    <?php if ($_SESSION['role'] === 'technicien'): ?>
+                        <a href="inventaire.php" class="center-link">Inventaire</a>
+                    <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
                         <a href="webadmin.php" class="center-link">Admin web</a>
-                    <?php elseif ($_SESSION['role'] === 'sysadmin'): ?>
+                    <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
                         <a href="webadmin.php" class="center-link">Admin systeme</a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <div class="right-link">
-                    <button id="userButton"><?= htmlspecialchars($_SESSION['role'], ENT_QUOTES, 'UTF-8') ?></button>
+                    <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                     <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
                         <a href="logout.php">Déconnexion</a>
                     </div>
