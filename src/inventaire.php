@@ -68,7 +68,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     <div class="main-inventory">
         <h2>Inventaire Actif</h2>
         <div class="inventory-grid">
-
             <?php
             include 'charge_inventaire.php';
             $host = "localhost";
@@ -88,58 +87,42 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
+                    $items_per_page = 24;
+                    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+                    $offset = ($page - 1) * $items_per_page;
+
+                    $total_items_query = "SELECT COUNT(*) AS total FROM materiel";
+                    $total_items = mysqli_fetch_assoc(mysqli_query($conn, $total_items_query))['total'];
+                    $total_pages = ceil($total_items / $items_per_page);
+
                     if (isset($_POST['filter-type'])) {
                         $type = $_POST['filter-type'];
-                        $element_par_page = 12; // nombre d’éléments par page
-                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                        if ($page < 1) $page = 1;
-                        $offset = ($page - 1) * $element_par_page;
-
                         switch ($type) {
-                            case "all":
-                                charge_all($conn, $element_par_page, $offset);
-
-                                break;
-
-                            case "uc":
-                                charge_devices($conn, $element_par_page, $offset);
-                                break;
-
-                            case "moniteur":
-                                charge_monitor($conn, $element_par_page, $offset);
-                                break;
+                            case "all":      charge_all($conn, $items_per_page, $offset); break;
+                            case "uc":       charge_devices($conn, $items_per_page, $offset); break;
+                            case "moniteur": charge_monitor($conn, $items_per_page, $offset); break;
                         }
                     } else {
-
-                        charge_all($conn);
+                        charge_all($conn, $items_per_page, $offset);
                     }
+
+
                 }
             }
             ?>
             <div class="invenroty-pages">
-                <input type="button" class="invenroty-page" value="Precedent" id="precedent">
-                <label for="num-page"></label>
-                <input type="number" min="1" max="10" value="1" id="num-page">
-                <input type="button" class="invenroty-page" value="Suivant" id="suivant">
-                <script>
-                    let num_page = document.getElementById("num-page");
-                    let precedent = document.getElementById("precedent");
-                    let suivant = document.getElementById("suivant");
-                    console.log(num_page.getAttribute("value"));
+                <?php if($page > 1): ?>
+                    <a href="?page=<?= $page - 1 ?>" class="invenroty-page">Précédent</a>
+                <?php endif; ?>
 
-                    precedent.onclick = function(){
-                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("min"))){
-                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))-1);
-                        }
+                <input type="number" min="1" value="<?= $page ?>"
+                       onchange="window.location='?page='+this.value">
 
-                    }
-                    suivant.onclick = function(){
-                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("max"))){
-                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))+1);
-                        }
-                    }
-                </script>
+                <?php if(mysqli_num_rows(mysqli_query($conn,"SELECT * FROM devices LIMIT $limit OFFSET ".($offset+$limit))) > 0): ?>
+                    <a href="?page=<?= $page + 1 ?>" class="invenroty-page">Suivant</a>
+                <?php endif; ?>
             </div>
+
         </div>
     </div>
 
