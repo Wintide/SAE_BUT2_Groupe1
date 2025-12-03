@@ -1,3 +1,9 @@
+<?php session_start();
+if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,8 +16,13 @@
     <div class="header-content">
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <a href="index.html" class="center-link">Acceuil</a>
-            <a href="login.html" class="right-link">Login</a>
+            <a href="index.php" class="center-link">Acceuil</a>
+            <div class="right-link">
+                <button id="userButton"><?= htmlspecialchars($_SESSION['role'], ENT_QUOTES, 'UTF-8') ?></button>
+                <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
+                    <a href="logout.php">Déconnexion</a>
+                </div>
+            </div>
         </nav>
     </div>
 </header>
