@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+$_SESSION['role'] = "technicien";?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,7 +15,7 @@
             <?php if (empty($_SESSION['role'])): ?>
                 <a href="login.html" class="right-link">Login</a>
             <?php else: ?>
-                <?php if (!empty($_SESSION['login'])): ?>
+                <?php if (!empty($_SESSION['role'])): ?>
                     <?php if ($_SESSION['role'] === 'technicien'): ?>
                         <a href="inventaire.php" class="center-link">Inventaire</a>
                     <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>

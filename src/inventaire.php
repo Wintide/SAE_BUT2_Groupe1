@@ -18,7 +18,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <nav>
             <a href="index.php" class="center-link">Acceuil</a>
             <div class="right-link">
-                <button id="userButton"><?= htmlspecialchars($_SESSION['role'], ENT_QUOTES, 'UTF-8') ?></button>
+                <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                 <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
                     <a href="logout.php">Déconnexion</a>
                 </div>
@@ -180,5 +180,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         &copy; 2025 Vines - Tous droits réservés
     </p>
 </footer>
+<script src="script/deconnexion.js" defer></script>
 </body>
 </html>

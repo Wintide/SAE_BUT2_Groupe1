@@ -36,19 +36,13 @@ nav {
     transform: translateY(-50%);
 }
 
-nav a {
+nav a{
     color: white;
     text-decoration: none;
     font-size: 18px;
     padding: 8px 14px;
     border-radius: 4px;
-    transition: background-color 0.3s;
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-nav .right-link {
-    position: absolute;
-    right: 30px;
 }
 
 #userButton {
@@ -56,10 +50,14 @@ nav .right-link {
     text-decoration: none;
     font-size: 18px;
     padding: 8px 14px;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+nav .right-link {
+    position: absolute;
+    right: 30px;
+}
 .user-overlay {
     display: none;
     position: absolute;
@@ -69,9 +67,8 @@ nav .right-link {
     border:1px solid #ccc;
     padding:8px;
     z-index:1000;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
-.user-overlay a { display:block; padding:4px 8px; color:#333; text-decoration:none; }
+.user-overlay a { display:block; padding:4px 8px; color:#333; text-decoration:none;}
 
 main {
     flex: 1;
