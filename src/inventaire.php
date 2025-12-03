@@ -90,30 +90,35 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Connecté à la BD !');</script>";
                     if (isset($_POST['filter-type'])) {
                         $type = $_POST['filter-type'];
-                        echo "<script>console.log($type);</script>";
+                        $element_par_page = 12; // nombre d’éléments par page
+                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        if ($page < 1) $page = 1;
+                        $offset = ($page - 1) * $element_par_page;
+
                         switch ($type) {
                             case "all":
-                                charge_all($conn);
+                                charge_all($conn, $element_par_page, $offset);
+
                                 break;
 
                             case "uc":
-                                charge_devices($conn);
+                                charge_devices($conn, $element_par_page, $offset);
                                 break;
 
                             case "moniteur":
-                                charge_monitor($conn);
+                                charge_monitor($conn, $element_par_page, $offset);
                                 break;
                         }
                     } else {
 
                         charge_all($conn);
                     }
-
                 }
             }
             ?>
             <div class="invenroty-pages">
                 <input type="button" class="invenroty-page" value="Precedent" id="precedent">
+                <label for="num-page"></label>
                 <input type="number" min="1" max="10" value="1" id="num-page">
                 <input type="button" class="invenroty-page" value="Suivant" id="suivant">
                 <script>

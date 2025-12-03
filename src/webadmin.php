@@ -16,7 +16,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <div class="header-content">
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <a href="index.php" class="center-link">Acceuil</a>
+            <a href="index.php" class="center-link">Accueil</a>
             <div class="right-link">
                 <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                 <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
