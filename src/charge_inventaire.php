@@ -3,7 +3,7 @@
 
 function charge_all($conn){
     echo "<script>console.log('Charge All');</script>";
-    $sql_uc = "select * from devices";
+    $sql_uc = "select * from devices limit 20";
     $resultat_uc = mysqli_query($conn, $sql_uc);
 
     if (mysqli_num_rows($resultat_uc) > 0) {
@@ -21,7 +21,7 @@ function charge_all($conn){
 
         }
     }
-    $sql_monitor = "select * from monitors";
+    $sql_monitor = "select * from monitors limit 20";
     $resultat_monitor = mysqli_query($conn, $sql_monitor);
 
     if (mysqli_num_rows($resultat_monitor) > 0) {
@@ -41,7 +41,7 @@ function charge_all($conn){
 }
 
 function charge_monitor($conn){
-    $sql_monitor = "select * from monitors";
+    $sql_monitor = "select * from monitors limit 20";
     echo "<script>console.log('Charge Monitors');</script>";
     $resultat_monitor = mysqli_query($conn, $sql_monitor);
 
@@ -63,7 +63,7 @@ function charge_monitor($conn){
 
 function charge_devices($conn){
     echo "<script>console.log('Charge devices');</script>";
-    $sql_uc = "select * from devices";
+    $sql_uc = "select * from devices limit 20";
     $resultat_uc = mysqli_query($conn, $sql_uc);
 
     if (mysqli_num_rows($resultat_uc) > 0) {

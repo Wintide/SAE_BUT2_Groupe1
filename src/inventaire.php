@@ -112,6 +112,29 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 }
             }
             ?>
+            <div class="invenroty-pages">
+                <input type="button" class="invenroty-page" value="Precedent" id="precedent">
+                <input type="number" min="1" max="10" value="1" id="num-page">
+                <input type="button" class="invenroty-page" value="Suivant" id="suivant">
+                <script>
+                    let num_page = document.getElementById("num-page");
+                    let precedent = document.getElementById("precedent");
+                    let suivant = document.getElementById("suivant");
+                    console.log(num_page.getAttribute("value"));
+
+                    precedent.onclick = function(){
+                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("min"))){
+                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))-1);
+                        }
+
+                    }
+                    suivant.onclick = function(){
+                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("max"))){
+                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))+1);
+                        }
+                    }
+                </script>
+            </div>
         </>
     </div>
 
