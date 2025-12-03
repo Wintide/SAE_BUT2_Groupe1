@@ -16,7 +16,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     <div class="header-content">
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <a href="index.php" class="center-link">Acceuil</a>
+            <a href="index.php" class="center-link">Accueil</a>
             <div class="right-link">
                 <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                 <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
@@ -68,6 +68,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     <div class="main-inventory">
         <h2>Inventaire Actif</h2>
         <div class="inventory-grid">
+
             <?php
             include 'charge_inventaire.php';
             $host = "localhost";
@@ -87,42 +88,60 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
-                    $items_per_page = 24;
-                    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-                    $offset = ($page - 1) * $items_per_page;
-
-                    $total_items_query = "SELECT COUNT(*) AS total FROM materiel";
-                    $total_items = mysqli_fetch_assoc(mysqli_query($conn, $total_items_query))['total'];
-                    $total_pages = ceil($total_items / $items_per_page);
-
                     if (isset($_POST['filter-type'])) {
                         $type = $_POST['filter-type'];
+                        $element_par_page = 12; // nombre d’éléments par page
+                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        if ($page < 1) $page = 1;
+                        $offset = ($page - 1) * $element_par_page;
+
                         switch ($type) {
-                            case "all":      charge_all($conn, $items_per_page, $offset); break;
-                            case "uc":       charge_devices($conn, $items_per_page, $offset); break;
-                            case "moniteur": charge_monitor($conn, $items_per_page, $offset); break;
+                            case "all":
+                                charge_all($conn, $element_par_page, $offset);
+
+                                break;
+
+                            case "uc":
+                                charge_devices($conn, $element_par_page, $offset);
+                                break;
+
+                            case "moniteur":
+                                charge_monitor($conn, $element_par_page, $offset);
+                                break;
                         }
                     } else {
-                        charge_all($conn, $items_per_page, $offset);
+
+                        charge_all($conn, 12, 0);
                     }
-
-
                 }
             }
             ?>
             <div class="invenroty-pages">
-                <?php if($page > 1): ?>
-                    <a href="?page=<?= $page - 1 ?>" class="invenroty-page">Précédent</a>
-                <?php endif; ?>
+                <input type="button" class="inventory-page" value="Precedent" id="precedent">
+                <label for="num-page"></label>
+                <input type="number" min="1" max="10" value="1" id="num-page">
+                <input type="button" class="inventory-page" value="Suivant" id="suivant">
+                <input type="hidden" id="page-input" name="page" value="<?= isset($_GET['page']) ? (int)$_GET['page'] : 1 ?>">
 
-                <input type="number" min="1" value="<?= $page ?>"
-                       onchange="window.location='?page='+this.value">
+                <script>
+                    let num_page = document.getElementById("num-page");
+                    let precedent = document.getElementById("precedent");
+                    let suivant = document.getElementById("suivant");
+                    console.log(num_page.getAttribute("value"));
 
-                <?php if(mysqli_num_rows(mysqli_query($conn,"SELECT * FROM devices LIMIT $limit OFFSET ".($offset+$limit))) > 0): ?>
-                    <a href="?page=<?= $page + 1 ?>" class="invenroty-page">Suivant</a>
-                <?php endif; ?>
+                    precedent.onclick = function(){
+                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("min"))){
+                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))-1);
+                        }
+
+                    }
+                    suivant.onclick = function(){
+                        if (Number(num_page.getAttribute("value"))!==Number(num_page.getAttribute("max"))){
+                            num_page.setAttribute("value", Number(num_page.getAttribute("value"))+1);
+                        }
+                    }
+                </script>
             </div>
-
         </div>
     </div>
 
@@ -168,6 +187,64 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         &copy; 2025 Vines - Tous droits réservés
     </p>
 </footer>
+
+<div id="model-consulter" class="model hidden">
+    <div class="model-content">
+        <span class="close">&times;</span>
+
+        <h2 id="model-title"></h2>
+
+        <p><strong>Type :</strong> <span id="model-type"></span></p>
+        <p><strong>Numéro de série :</strong> <span id="model-serial"></span></p>
+
+        <!-- UNIQUEMENT UC -->
+        <p class="field-uc"><strong>Nom :</strong> <span id="model-name"></span></p>
+        <p class="field-uc"><strong>Localisation :</strong> <span id="model-local"></span></p>
+        <p class="field-uc"><strong>Année d'achat :</strong> <span id="model-year"></span></p>
+
+        <!-- UNIQUEMENT moniteur -->
+        <p class="field-monitor"><strong>Modèle :</strong> <span id="model-model"></span></p>
+        <p class="field-monitor"><strong>Taille :</strong> <span id="model-size"></span></p>
+    </div>
+</div>
+
+<div id="model-edit" class="model hidden">
+    <div class="model-content">
+        <span class="close-edit">&times;</span>
+        <h2>Modifier l'équipement</h2>
+
+        <form id="edit-form">
+            <input type="hidden" name="serial" id="edit-serial">
+            <input type="hidden" name="type" id="edit-type"> <!-- uc / monitor -->
+
+            <!-- UC -->
+            <div class="form-uc">
+                <label>Nom :</label>
+                <input type="text" name="name" id="edit-name">
+
+                <label>Localisation :</label>
+                <input type="text" name="local" id="edit-local">
+
+                <label>Année d'achat :</label>
+                <input type="text" name="year" id="edit-year">
+            </div>
+
+            <!-- Moniteur -->
+            <div class="form-monitor">
+                <label>Modèle :</label>
+                <input type="text" name="model" id="edit-model">
+
+                <label>Taille (pouces) :</label>
+                <input type="number" name="size" id="edit-size">
+            </div>
+
+            <button type="submit" class="btn-save">Enregistrer</button>
+        </form>
+    </div>
+</div>
+
 <script src="script/deconnexion.js" defer></script>
+<script src="script/inventaire.js" defer></script>
+
 </body>
 </html>

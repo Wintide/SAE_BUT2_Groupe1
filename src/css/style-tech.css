@@ -295,3 +295,63 @@ footer p {
     font-size: 13px;
     margin: 10px 0 0 0;
 }
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.model.hidden {
+    display: none;
+}
+
+.model-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 420px;
+    animation: fadeIn 0.3s;
+}
+
+.model-content p,
+.model-content label {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.model-content input {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.close, .close-edit {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.field-uc, .field-monitor, .form-uc, .form-monitor {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+
+
+
+

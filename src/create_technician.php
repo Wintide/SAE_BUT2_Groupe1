@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (empty($_SESSION['role']) || $_SESSION['role'] !== "adminweb") {
+if (empty($_SESSION['role']) || $_SESSION['role'] !== "administrateur_web") {
     header("Location: index.php");
     exit();
 }
@@ -16,18 +16,24 @@ $user = "root";
 $pass = "root";
 $db = "vines";
 
-$conn = mysqli_connect($host, $user, $pass);
-$base = mysqli_select_db($conn, $db);
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-if (!$conn || !$base) {
-    die("Erreur de connexion à la base de données");
+if (!$conn) {
+    echo json_encode(["status"=>"error","message"=>"Connexion échouée"]);
+    exit;
 }
 
-$sql = "INSERT INTO users (login, password, role) VALUES ('$login', '$hashed', 'tech')";
+$stmt = $conn->prepare("INSERT INTO users (login, password, role) VALUES (?, ?, ?)");
+$role = "technicien";
+$stmt->bind_param("sss", $login, $hashed, $role);
 
-if (mysqli_query($conn, $sql)) {
-    header("Location: webadmin.php?success=1");
-    exit();
+if ($stmt->execute()) {
+    echo "Utilisateur ajouté avec succès !";
+    header("Location: index.php");
 } else {
-    echo "Erreur : " . mysqli_error($conn);
+    echo "Erreur : " . $stmt->error;
 }
+
+$stmt->close();
+
+
