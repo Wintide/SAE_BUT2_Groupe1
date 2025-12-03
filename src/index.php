@@ -1,5 +1,4 @@
-<?php session_start();
-$_SESSION['role'] = "technicien";?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

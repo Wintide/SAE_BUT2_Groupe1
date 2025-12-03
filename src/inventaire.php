@@ -135,7 +135,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     }
                 </script>
             </div>
-        </>
+        </div>
     </div>
 
     <div class="main-inventory rebus">
