@@ -244,7 +244,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                          <label>Attaché à :</label>
-                        <select name="attached_to" required>
+                        <select name="attached_to" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_attached_to as $el): ?>
                                 <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>
@@ -291,4 +291,5 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
 <script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
+
 
