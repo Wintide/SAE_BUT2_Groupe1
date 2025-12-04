@@ -31,15 +31,12 @@ $devices_os = mysqli_query($conn, "SELECT * FROM devices_os");
 $devices_ram_mb = mysqli_query($conn, "SELECT * FROM devices_ram_mb");
 $devices_room = mysqli_query($conn, "SELECT * FROM devices_room");
 $devices_type = mysqli_query($conn, "SELECT * FROM devices_type");
-
 // Moniteurs
 $monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
 $monitor_manufacturer = mysqli_query($conn, "SELECT * FROM monitors_manufacturer");
 $monitor_model = mysqli_query($conn, "SELECT * FROM monitors_model");
 $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
-$monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitor_size_inch");
-
-echo "<script>console.log('Terminé !');</script>"
+$monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +88,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="building" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_building as $el): ?>
-                                <option value="<?= $el['building'] ?>"></option>
+                                <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -99,7 +96,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="cpu" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_cpu as $el): ?>
-                                <option value="<?= $el['cpu'] ?>"></option>
+                                <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -107,7 +104,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="disk_gb" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_disk_gb as $el): ?>
-                                <option value="<?= $el['disk_gb'] ?>"></option>
+                                <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -115,7 +112,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="domain" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_domain as $el): ?>
-                                <option value="<?= $el['domain'] ?>"></option>
+                                <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -123,7 +120,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="location" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_location as $el): ?>
-                                <option value="<?= $el['location'] ?>"></option>
+                                <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -131,7 +128,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="manufacturer" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_manufacturer as $el): ?>
-                                <option value="<?= $el['manufacturer'] ?>"></option>
+                                <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -139,7 +136,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="model" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_model as $el): ?>
-                                <option value="<?= $el['model'] ?>"></option>
+                                <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -147,7 +144,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="os" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_os as $el): ?>
-                                <option value="<?= $el['os'] ?>"></option>
+                                <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -155,7 +152,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="ram_mb" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_ram_mb as $el): ?>
-                                <option value="<?= $el['ram_mb'] ?>"></option>
+                                <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -163,7 +160,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="room" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_room as $el): ?>
-                                <option value="<?= $el['room'] ?>"></option>
+                                <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -171,7 +168,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="type" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_type as $el): ?>
-                                <option value="<?= $el['type'] ?>"></option>
+                                <option value="<?= $el['type'] ?>"><?= $el['type'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -190,7 +187,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="connector" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_connector as $el): ?>
-                                <option value="<?= $el['connector'] ?>"></option>
+                                <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -198,7 +195,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="manufacturer" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_manufacturer as $el): ?>
-                                <option value="<?= $el['manufacturer'] ?>"></option>
+                                <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -206,7 +203,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="model" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_model as $el): ?>
-                                <option value="<?= $el['model'] ?>"></option>
+                                <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -214,7 +211,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="resolution" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_resolution as $el): ?>
-                                <option value="<?= $el['resolution'] ?>"></option>
+                                <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -222,7 +219,7 @@ echo "<script>console.log('Terminé !');</script>"
                         <select name="size_inch" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_size_inch as $el): ?>
-                                <option value="<?= $el['size_inch'] ?>"></option>
+                                <option value="<?= $el['size_inch'] ?>"><?= $el['size_inch'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -262,5 +259,7 @@ echo "<script>console.log('Terminé !');</script>"
         &copy; 2025 Vines - Tous droits réservés
     </p>
 </footer>
+<script src="script/deconnexion.js" defer></script>
+<script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
