@@ -112,7 +112,7 @@ main {
     min-width: 160px;
 }
 
-.btn-add .btn-save{
+.btn-add {
     background-color: #2D5A27;
     color: white;
     border: none;
@@ -124,6 +124,21 @@ main {
 }
 
 .btn-add:hover {
+    background-color: #244a20;
+}
+
+.btn-save{
+    background-color: #2D5A27;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.btn-save:hover {
     background-color: #244a20;
 }
 
