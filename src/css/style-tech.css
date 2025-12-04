@@ -315,7 +315,7 @@ footer p {
 
 .model-content {
     background: white;
-    padding: 25px;
+    padding: 5px;
     border-radius: 10px;
     width: 420px;
     animation: fadeIn 0.3s;
@@ -325,14 +325,14 @@ footer p {
 .model-content label {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     font-size: 14px;
 }
 
 .model-content input {
     width: 100%;
     padding: 6px 8px;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -346,7 +346,7 @@ footer p {
 
 .field-uc, .field-monitor, .form-uc, .form-monitor {
     display: none;
-    margin-top: 15px;
+    margin-top: 5px;
     padding: 10px 0;
     border-top: 1px solid #ddd;
 }
