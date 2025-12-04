@@ -119,4 +119,43 @@ function charge_devices($conn, $element_par_page, $offset){
     }
 }
 
+function charge_local($conn, $element_par_page, $offset, $filter_local){
+    echo "<script>console.log('Charge devices');</script>";
+    $sql_uc = "select * from devices limit 12";
+    $resultat_uc = mysqli_query($conn, $sql_uc);
+
+    if (mysqli_num_rows($resultat_uc) > 0) {
+
+        while ($row = mysqli_fetch_assoc($resultat_uc)) {
+            $location = $row['location'];
+            if($filter_local == $location){
+                $name = $row['name'];
+                $serial = $row['serial'];
+                $manufacturer = $row['manufacturer'];
+                $model = $row['model'];
+                $type = $row['type'];
+                $cpu = $row['cpu'];
+                $ram_mb = $row['ram_mb'];
+                $disk_gb = $row['disk_gb'];
+                $os = $row['os'];
+                $domain = $row['domain'];
+
+                $building = $row['building'];
+                $room = $row['room'];
+                $macaddr = $row['macaddr'];
+                $purchase_date = $row['purchase_date'];
+                $warranty_end = $row['warranty_end'];
+
+                echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram_mb='$ram_mb' data-disk_gb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
+                echo "<img src='images/uc.png' alt='Unité Centrale'>";
+                echo "<h3>$name</h3>";
+                echo "<p>$serial</p>";
+                echo "<div class='actions'><button class='btn-view'>Consulter</button><button class='btn-edit'>Modifier</button></div></div>";
+            }
+
+
+
+        }
+    }
+}
 ?>
