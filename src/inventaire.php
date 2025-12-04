@@ -254,6 +254,35 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 </div>
 
 <div id="model-edit" class="model hidden">
+    <?php
+
+    // Connexion à la BD
+    $host = "localhost";
+    $user = "root";
+    $pass = "root";
+    $db = "vines";
+    $conn = mysqli_connect($host, $user, $pass, $db);
+
+    if (!$conn) {
+        echo "<script>console.log('Erreur connexion serveur');</script>";
+    } else {
+        echo "<script>console.log('Connecté au serveur !');</script>";
+    }
+
+    // Unités centrales
+    $devices_building = mysqli_query($conn, "SELECT * FROM devices_building");
+    $devices_cpu = mysqli_query($conn, "SELECT * FROM devices_cpu");
+    $devices_disk_gb = mysqli_query($conn, "SELECT * FROM devices_disk_gb");
+    $devices_domain = mysqli_query($conn, "SELECT * FROM devices_domain");
+    $devices_location = mysqli_query($conn, "SELECT * FROM devices_location");
+    $devices_os = mysqli_query($conn, "SELECT * FROM devices_os");
+    $devices_ram_mb = mysqli_query($conn, "SELECT * FROM devices_ram_mb");
+    $devices_room = mysqli_query($conn, "SELECT * FROM devices_room");
+    // Moniteurs
+    $monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
+    $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
+    $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
+    ?>
     <div class="model-content">
         <span class="close-edit">&times;</span>
         <h2>Modifier l'équipement</h2>
@@ -268,7 +297,12 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="name" id="edit-name">
 
                 <label>CPU :</label>
-                <input type="text" name="cpu" id="edit-cpu">
+                <select name="cpu" id="edit-cpu"required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_cpu as $el): ?>
+                        <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>RAM(mb) :</label>
                 <input type="number" name="ram_mb" id="edit-ram_mb">
