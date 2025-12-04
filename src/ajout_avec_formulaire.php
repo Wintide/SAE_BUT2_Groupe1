@@ -37,6 +37,8 @@ $monitor_manufacturer = mysqli_query($conn, "SELECT * FROM monitors_manufacturer
 $monitor_model = mysqli_query($conn, "SELECT * FROM monitors_model");
 $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
 $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
+
+$monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
 ?>
 
 <!DOCTYPE html>
@@ -83,6 +85,12 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                 <div class="form-container">
                     <h2>Créer une unité centrale</h2>
                     <form action="create_uc.php" method="post">
+
+                        <label>Nom :</label>
+                        <input type="text" name="name">
+
+                        <label>Numéro de série :</label>
+                        <input type="text" name="serial">
 
                         <label>Bâtiment :</label>
                         <select name="building" class="styled-select" required>
@@ -172,6 +180,15 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                             <?php endforeach; ?>
                         </select>
 
+                        <label>Adresse MAC :</label>
+                        <input type="text" name="macaddr">
+
+                        <label>Date d'achat :</label>
+                        <input type="date" name="purchase_date" required>
+
+                        <label>Date de fin de garantie :</label>
+                        <input type="date" name="warranty_end" required>
+
                         <button id="form-button" type="submit">Créer l’unité centrale</button>
                     </form>
                 </div>
@@ -182,6 +199,9 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                 <div class="form-container">
                     <h2>Créer un moniteur</h2>
                     <form action="create_moniteur.php" method="post">
+
+                        <label>Numéro de série :</label>
+                        <input type="text" name="serial">
 
                         <label>Connecteur :</label>
                         <select name="connector" class="styled-select" required>
@@ -220,6 +240,14 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_size_inch as $el): ?>
                                 <option value="<?= $el['size_inch'] ?>"><?= $el['size_inch'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+
+                         <label>Attaché à :</label>
+                        <select name="attached_to" required>
+                            <option value="">-- Sélectionner --</option>
+                            <?php foreach ($monitor_attached_to as $el): ?>
+                                <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
@@ -263,3 +291,4 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
 <script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
+
