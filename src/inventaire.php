@@ -8,7 +8,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Technicien - Vines</title>
+    <title>Inventaire - Vines</title>
     <link rel="stylesheet" href="css/style-tech.css">
 </head>
 <body>
