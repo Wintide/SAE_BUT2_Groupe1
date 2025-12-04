@@ -57,7 +57,7 @@ if ($valid) {
 
 }
 else{
-    header("location: index.php");
+    header("location: login.php?err=1");
 }
 
 ?>
