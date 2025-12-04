@@ -49,7 +49,7 @@ function charge_all($conn, $element_par_page, $offset){
             $resolution = $row['resolution'];
             $connector = $row['connector'];
             $attached_to = $row['attached_to'];
-            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-model='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
+            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
             echo "<img src='images/monitor.png' alt='Moniteur'>";
             echo "<h3>$serial</h3>";
             echo "<p>$model</p>";
@@ -74,7 +74,7 @@ function charge_monitor($conn, $element_par_page, $offset){
             $resolution = $row['resolution'];
             $connector = $row['connector'];
             $attached_to = $row['attached_to'];
-            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-model='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
+            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
             echo "<img src='images/monitor.png' alt='Moniteur'>";
             echo "<h3>$serial</h3>";
             echo "<p>$model</p>";
