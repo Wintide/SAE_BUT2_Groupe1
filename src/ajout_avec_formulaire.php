@@ -100,7 +100,7 @@ echo "<script>console.log('Terminé !');</script>";
                         <select name="cpu" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_cpu as $el): ?>
-                                <option value="<?= $el['cpu'] ?>"></option>
+                                <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
                             <?php endforeach; ?>
                         </select>
 
