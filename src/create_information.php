@@ -19,14 +19,11 @@ else {
     } else {
         echo "<script>console.log('Connecté à la BD !');</script>";
         $type = gettype($info);
-        $sql_insert = "INSERT INTO $databases VALUES (info=?)";
-        echo "<script>console.log('Test');</script>";
-        $stmt = mysqli_prepare($conn, $sql_insert);
+        echo $type;
+        $stmt = $conn->prepare("INSERT INTO ? VALUES (?)");
+        $stmt->bind_param("s"+$type, $databases, $info);
 
-        mysqli_stmt_bind_param($stmt, $type,  $info);
-
-        //$sql_insert = "INSERT INTO $databases($databases) VALUES ('$info')";
-        if (mysqli_stmt_execute($stmt)) {
+        if ($stmt->execute()) {
             echo "<script>console.log('Information ajoutée avec succès');</script>";
             header("Location: webadmin.php");
         } else {
