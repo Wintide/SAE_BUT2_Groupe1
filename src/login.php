@@ -20,6 +20,7 @@
         <?php
         echo "<div class='error'>";
             if($_GET["#err=1"]){
+                console.log("Erreur de connexion");
                 echo '<p style="color=red">Login ou mot de passe incorrect.</p>';
             }
             echo "</div>";
