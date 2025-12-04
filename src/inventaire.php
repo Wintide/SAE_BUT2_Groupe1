@@ -243,10 +243,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="cpu" id="edit-cpu">
 
                 <label>RAM(mb) :</label>
-                <input type="number" name="ram" id="edit-ram">
+                <input type="number" name="ram" id="edit-rammb">
 
                 <label>Espace disque(gb) :</label>
-                <input type="number" name="disk" id="edit-disk">
+                <input type="number" name="disk" id="edit-diskgb">
 
                 <label>Système d'exploitation :</label>
                 <input type="text" name="os" id="edit-os">
