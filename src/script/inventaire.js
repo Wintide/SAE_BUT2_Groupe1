@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMonitor) {
             document.getElementById("model-title").innerText = card.dataset.model;
-            document.getElementById("model-manufacturer").innerText = card.dataset.manufacturer;
-            document.getElementById("model-model").innerText = card.dataset.model;
+            document.getElementById("model-monitormanufacturer").innerText = card.dataset.manufacturer;
+            document.getElementById("model-monitormodel").innerText = card.dataset.model;
             document.getElementById("model-size").innerText = card.dataset.size + '"';
             document.getElementById("model-resolution").innerText = card.dataset.resolution;
             document.getElementById("model-connector").innerText = card.dataset.connector;
