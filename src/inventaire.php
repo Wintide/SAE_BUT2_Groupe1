@@ -203,8 +203,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <p class="field-uc"><strong>Modèle :</strong> <span id="model-model"></span></p>
         <p class="field-uc"><strong>Type d'unité :</strong> <span id="model-uctype"></span></p>
         <p class="field-uc"><strong>CPU :</strong> <span id="model-cpu"></span></p>
-        <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-ram"></span></p>
-        <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-disk"></span></p>
+        <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-ram_mb"></span></p>
+        <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-disk_gb"></span></p>
         <p class="field-uc"><strong>Système d'exploitation :</strong> <span id="model-os"></span></p>
         <p class="field-uc"><strong>Domaine :</strong> <span id="model-domain"></span></p>
         <p class="field-uc"><strong>Localisation :</strong> <span id="model-location"></span></p>
@@ -221,7 +221,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <p class="field-monitor"><strong>Taille :</strong> <span id="model-size"></span></p>
         <p class="field-monitor"><strong>Resolution :</strong> <span id="model-resolution"></span></p>
         <p class="field-monitor"><strong>Connecteur :</strong> <span id="model-connector"></span></p>
-        <p class="field-monitor"><strong>Connecté à :</strong> <span id="model-attachedto"></span></p>
+        <p class="field-monitor"><strong>Connecté à :</strong> <span id="model-attached_to"></span></p>
     </div>
 </div>
 
@@ -239,20 +239,44 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <label>Nom :</label>
                 <input type="text" name="name" id="edit-name">
 
-                <label>Localisation :</label>
-                <input type="text" name="local" id="edit-local">
+                <label>CPU :</label>
+                <input type="text" name="cpu" id="edit-cpu">
 
-                <label>Année d'achat :</label>
-                <input type="text" name="year" id="edit-year">
+                <label>RAM(mb) :</label>
+                <input type="number" name="ram" id="edit-ram">
+
+                <label>Espace disque(gb) :</label>
+                <input type="number" name="disk" id="edit-disk">
+
+                <label>Système d'exploitation :</label>
+                <input type="text" name="os" id="edit-os">
+
+                <label>Domaine :</label>
+                <input type="text" name="domain" id="edit-domain">
+
+                <label>Localisation :</label>
+                <input type="text" name="location" id="edit-location">
+
+                <label>Batiment :</label>
+                <input type="text" name="building" id="edit-building">
+
+                <label>Pièce :</label>
+                <input type="text" name="room" id="edit-room">
+
+                <label>Fin de la garantie :</label>
+                <input type="text" name="year" id="edit-warranty">
             </div>
 
             <!-- Moniteur -->
             <div class="form-monitor">
-                <label>Modèle :</label>
-                <input type="text" name="model" id="edit-model">
+                <label>Resolution :</label>
+                <input type="text" name="resolution" id="edit-resolution">
 
-                <label>Taille (pouces) :</label>
-                <input type="number" name="size" id="edit-size">
+                <label>Connecteur :</label>
+                <input type="text" name="connector" id="edit-connector">
+
+                <label>Connecté à :</label>
+                <input type="text" name="attached_to" id="edit-attached_to">
             </div>
 
             <button type="submit" class="btn-save">Enregistrer</button>

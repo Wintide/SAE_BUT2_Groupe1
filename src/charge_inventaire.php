@@ -27,7 +27,7 @@ function charge_all($conn, $element_par_page, $offset){
             $purchase_date = $row['purchase_date'];
             $warranty_end = $row['warranty_end'];
 
-            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram='$ram_mb' data-disk='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
+            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram_mb='$ram_mb' data-disk_gb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
             echo "<img src='images/uc.png' alt='Unité Centrale'>";
             echo "<h3>$name</h3>";
             echo "<p>$serial</p>";
@@ -49,7 +49,7 @@ function charge_all($conn, $element_par_page, $offset){
             $resolution = $row['resolution'];
             $connector = $row['connector'];
             $attached_to = $row['attached_to'];
-            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attachedto='$attached_to'>";
+            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
             echo "<img src='images/monitor.png' alt='Moniteur'>";
             echo "<h3>$serial</h3>";
             echo "<p>$model</p>";
@@ -68,10 +68,13 @@ function charge_monitor($conn, $element_par_page, $offset){
         while ($row = mysqli_fetch_assoc($resultat_monitor)) {
 
             $serial = $row['serial'];
+            $manufacturer = $row['manufacturer'];
             $model = $row['model'];
             $size_inch = $row['size_inch'];
-
-            echo "<div class='card monitor' id='$serial'  data-serial='$serial' data-model='$model' data-size='$size_inch'>";
+            $resolution = $row['resolution'];
+            $connector = $row['connector'];
+            $attached_to = $row['attached_to'];
+            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
             echo "<img src='images/monitor.png' alt='Moniteur'>";
             echo "<h3>$serial</h3>";
             echo "<p>$model</p>";
@@ -91,10 +94,22 @@ function charge_devices($conn, $element_par_page, $offset){
 
             $name = $row['name'];
             $serial = $row['serial'];
+            $manufacturer = $row['manufacturer'];
+            $model = $row['model'];
+            $type = $row['type'];
+            $cpu = $row['cpu'];
+            $ram_mb = $row['ram_mb'];
+            $disk_gb = $row['disk_gb'];
+            $os = $row['os'];
+            $domain = $row['domain'];
+            $location = $row['location'];
+            $building = $row['building'];
             $room = $row['room'];
+            $macaddr = $row['macaddr'];
             $purchase_date = $row['purchase_date'];
+            $warranty_end = $row['warranty_end'];
 
-            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-model='$name' data-local='$room' data-year='$purchase_date'>";
+            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram_mb='$ram_mb' data-disk_gb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
             echo "<img src='images/uc.png' alt='Unité Centrale'>";
             echo "<h3>$name</h3>";
             echo "<p>$serial</p>";

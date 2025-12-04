@@ -61,14 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isUC) {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
             document.getElementById("edit-name").value = card.dataset.name;
-            document.getElementById("edit-local").value = card.dataset.local;
-            document.getElementById("edit-year").value = card.dataset.year;
+            document.getElementById("edit-cpu").value = card.dataset.cpu;
+            document.getElementById("edit-ram_mb").value = card.dataset.ram_mb;
+            document.getElementById("edit-disk_gb").value = card.dataset.disk_gb;
+            document.getElementById("edit-os").value = card.dataset.os;
+            document.getElementById("edit-domain").value = card.dataset.domain;
+            document.getElementById("edit-location").value = card.dataset.location;
+            document.getElementById("edit-building").value = card.dataset.building;
+            document.getElementById("edit-room").value = card.dataset.room;
+            document.getElementById("edit-warranty").value = card.dataset.warranty;
         }
 
         if (isMonitor) {
             document.querySelectorAll(".form-monitor").forEach(el => el.style.display = "block");
-            document.getElementById("edit-model").value = card.dataset.model;
-            document.getElementById("edit-size").value = card.dataset.size;
+            document.getElementById("edit-resolution").value = card.dataset.resolution;
+            document.getElementById("edit-connector").value = card.dataset.connector;
+            document.getElementById("edit-attached_to").value = card.dataset.attachedto;
         }
 
         openModel(document.getElementById("model-edit"));
@@ -119,14 +127,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (formData.get("type") === "uc") {
                         card.dataset.name = formData.get("name");
-                        card.dataset.local = formData.get("local");
-                        card.dataset.year = formData.get("year");
+                        card.dataset.cpu = formData.get("cpu");
+                        card.dataset.ram_mb = formData.get("ram_mb");
+                        card.dataset.disk_gb = formData.get("disk_gb");
+                        card.dataset.os = formData.get("os");
+                        card.dataset.domain = formData.get("domain");
+                        card.dataset.location = formData.get("location");
+                        card.dataset.room = formData.get("room");
+                        card.dataset.warranty = formData.get("warranty");
                         card.querySelector("h3").innerText = formData.get("name");
                     }
 
                     if (formData.get("type") === "monitor") {
-                        card.dataset.model = formData.get("model");
-                        card.dataset.size = formData.get("size");
+                        card.dataset.resolution = formData.get("resolution");
+                        card.dataset.connector = formData.get("connector");
+                        card.dataset.attached_to = formData.get("attached_to");
                         card.querySelector("h3").innerText = formData.get("model");
                     }
 
