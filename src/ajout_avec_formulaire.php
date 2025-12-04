@@ -20,6 +20,10 @@ if (!$conn) {
     echo "<script>console.log('Connecté au serveur !');</script>";
 
     $base = mysqli_select_db($conn, $db);
+if (!$base) {
+    echo "<script>console.log('Erreur connexion BD');</script>";
+} else {
+    echo "<script>console.log('Connecté à la BD !');</script>";}
 }
 
 
