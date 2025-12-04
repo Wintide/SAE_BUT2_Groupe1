@@ -57,7 +57,7 @@ if ($valid) {
 
 }
 else{
-    echo "Erreur : login ou mot de passe incorrect";
+    header("location: index.php");
 }
 
 ?>
