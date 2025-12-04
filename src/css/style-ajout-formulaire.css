@@ -183,6 +183,24 @@ input {
     background-color: #244a20;
 }
 
+.styled-select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #2D5A27;
+    border-radius: 6px;
+    background: #E4F2E8;
+    color: #1F3B1F;
+    font-size: 16px;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+
+.styled-select:focus {
+    outline: none;
+    border-color: #244a20;
+    background: #d7ebdc;
+}
+
 footer {
     background-color: #2D5A27;
     color: white;
