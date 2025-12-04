@@ -13,7 +13,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 if (!($conn)) {
     echo "<script>console.log('Erreur connexion BD');</script>";
 } else {
-    echo "<script>console.log('Connecté à la BD !');</script>";
     $stmt = $conn->prepare("INSERT INTO ? VALUES (?)");
 
     if($databases=="devices_ram_mb"||$databases=="devices_disk_gb"||$databases=="monitors_size_inch"){
