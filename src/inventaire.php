@@ -338,7 +338,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Fin de la garantie :</label>
-                <input type="text" name="warranty" id="edit-warranty">
+                <input type="date" name="warranty" id="edit-warranty">
             </div>
 
             <!-- Moniteur -->
