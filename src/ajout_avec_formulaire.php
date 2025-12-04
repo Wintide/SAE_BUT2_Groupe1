@@ -38,7 +38,7 @@ $monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
 $monitor_manufacturer = mysqli_query($conn, "SELECT * FROM monitors_manufacturer");
 $monitor_model = mysqli_query($conn, "SELECT * FROM monitors_model");
 $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
-$monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitor_size_inch");
+$monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
 
 echo "<script>console.log('Terminé !');</script>";
 ?>
