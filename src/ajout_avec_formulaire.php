@@ -84,7 +84,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
             <section id="form-uc" class="content-section active">
                 <div class="form-container">
                     <h2>Créer une unité centrale</h2>
-                    <form action="create_uc.php" method="post">
+                    <form action="ajout_uc.php" method="post">
 
                         <label>Nom :</label>
                         <input type="text" name="name">
@@ -198,7 +198,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
             <section id="form-moniteur" class="content-section">
                 <div class="form-container">
                     <h2>Créer un moniteur</h2>
-                    <form action="create_moniteur.php" method="post">
+                    <form action="ajout_moniteur.php" method="post">
 
                         <label>Numéro de série :</label>
                         <input type="text" name="serial">
@@ -291,5 +291,6 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
 <script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
+
 
 
