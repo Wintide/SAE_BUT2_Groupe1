@@ -1,4 +1,5 @@
 <?php
+echo "Hello there!";
 $host = "localhost";
 $user = "root";
 $pass = "root";
