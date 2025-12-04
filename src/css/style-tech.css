@@ -315,8 +315,7 @@ footer p {
 
 .model-content {
     background: white;
-    padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 420px;
     animation: fadeIn 0.3s;
 }
@@ -325,7 +324,6 @@ footer p {
 .model-content label {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 3px;
     font-size: 14px;
 }
 
@@ -346,8 +344,6 @@ footer p {
 
 .field-uc, .field-monitor, .form-uc, .form-monitor {
     display: none;
-    margin-top: 5px;
-    padding: 10px 0;
     border-top: 1px solid #ddd;
 }
 
