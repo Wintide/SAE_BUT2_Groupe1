@@ -12,7 +12,7 @@
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
             <?php if (empty($_SESSION['role'])): ?>
-                <a href="login.html" class="right-link">Login</a>
+                <a href="login.php" class="right-link">Login</a>
             <?php else: ?>
                 <?php if (!empty($_SESSION['role'])): ?>
                     <?php if ($_SESSION['role'] === 'technicien'): ?>

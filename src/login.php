@@ -2,36 +2,39 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Accueil - Vines</title>
-    <link rel="stylesheet" href="css/style-accueil.css">
+    <title>Connexion - Vines</title>
+    <link rel="stylesheet" href="css/style-login.css">
 </head>
 <body>
 <header>
     <div class="header-content">
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <a href="login.html" class="right-link">Login</a>
+            <a href="index.php">Accueil</a>
         </nav>
     </div>
 </header>
 
 <main>
-    <section class="presentation">
-        <h1>Bienvenue sur Vines</h1>
-        <p>
-            Vines est une plateforme de gestion de parc informatique.
-            Elle permet de suivre, ajouter, modifier ou supprimer des équipements informatiques
-            tout en assurant une vision claire et structurée du matériel.
-        </p>
-    </section>
+    <div class="form-container">
+        <?php
+        echo "<div class='error'>";
+            if($_GET['&err=1']){
+                echo '<p class="error-message">Login ou mot de passe incorrect.</p>';
+            }
+            echo "</div>";
+        ?>
+        <h2>Connexion</h2>
+        <form method="post" action="connexion.php">
+            <label for="login">Login :</label>
+            <input type="text" id="login" name="login" required>
 
-    <section class="video-section">
-        <h2>Vidéo explicative</h2>
-        <video controls>
-            <source src="media/video-presentation.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture de la vidéo.
-        </video>
-    </section>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Connexion</button>
+        </form>
+    </div>
 </main>
 
 <footer>
@@ -50,7 +53,7 @@
             </ul>
         </div>
         <div>
-            <h4>Nos Contacts</h4>
+            <h4>Nos Contactes</h4>
             <ul>
                 <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
                 <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
