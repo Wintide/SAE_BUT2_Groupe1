@@ -13,13 +13,18 @@ error_reporting(E_ALL ^ E_NOTICE);
 if (!($conn)) {
     echo "<script>console.log('Erreur connexion BD');</script>";
 } else {
-    $stmt = $conn->prepare("INSERT INTO devices_os VALUES (?)");
-
+    if (strpos($databases, "devices_") === 0) {
+        $databases_cut = str_replace("devices_", "", $databases);
+    } elseif (strpos($databases, "monitors_") === 0) {
+        $databases_cut = str_replace("monitors_", "", $databases);
+    }
     if($databases=="devices_ram_mb"||$databases=="devices_disk_gb"||$databases=="monitors_size_inch"){
-        $stmt->bind_param("i", $databases ,$info);
+        $stmt = $conn->prepare("INSERT INTO $databases($databases_cut) VALUES (?)");
+        $stmt->bind_param("i",$info);
         echo "<script>console.log(typeof($info));</script>";
     } else{
-        $stmt->bind_param("s", $databases, $info);
+        $stmt = $conn->prepare("INSERT INTO $databases($databases_cut) VALUES (?)");
+        $stmt->bind_param("s", $info);
         echo "<script>console.log(typeof($info));</script>";
     }
 
