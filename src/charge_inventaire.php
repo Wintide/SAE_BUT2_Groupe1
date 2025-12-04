@@ -128,6 +128,7 @@ function charge_local($conn, $element_par_page, $offset, $filter_local){
 
         while ($row = mysqli_fetch_assoc($resultat_uc)) {
             $location = $row['location'];
+            echo "<script>console.log(".$location.");</script>";
             if($filter_local == $location){
                 $name = $row['name'];
                 $serial = $row['serial'];
