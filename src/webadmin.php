@@ -89,9 +89,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                                     while ($row = mysqli_fetch_array($result_devices)) {
 
-                                        $table = $row[0];                     // ex: devices_disk_gb
-                                        $parts = explode("_", $table, 2);     // coupe après devices_
-                                        $info = $parts[1];                    // ex: disk_gb
+                                        $table = $row[0];
+                                        $info = str_replace("devices_", "", $table);
 
                                         echo "<option value='$info'>$info</option>";
                                     }
@@ -99,8 +98,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                     while ($row = mysqli_fetch_array($result_monitors)) {
 
                                         $table = $row[0];
-                                        $parts = explode("_", $table, 2);
-                                        $info = $parts[1];
+                                        $info = str_replace("monitors_", "", $table);
 
                                         echo "<option value='$info'>$info</option>";
                                     }
