@@ -67,7 +67,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             }
                         ?>
                         <label>Ajouter une Information pour: </label>
-                        <select name="information" id="add-info">
+                        <select name="add-info" id="add-info">
                             <?php
                             $host = "localhost";
                             $user = "root";
