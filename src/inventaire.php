@@ -298,7 +298,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="name" id="edit-name">
 
                 <label>CPU :</label>
-                <select name="cpu" id="edit-cpu"required>
+                <select name="cpu" id="styled-select"required>
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_cpu as $el): ?>
                         <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
