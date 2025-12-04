@@ -40,6 +40,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
                 <label for="filter-local">Localisation :</label>
                 <select id="filter-local" name="filter-local">
+                    <option value="all"> Tous </option>
                     <?php
 
                     include 'charge_inventaire.php';
@@ -52,15 +53,20 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     if (!$conn) {
                         echo "<script>console.log('Erreur connexion serveur');</script>";
                     } else {
+                        echo "<script>console.log('conn');</script>";
                         $base = mysqli_select_db($conn, $db);
                         if (!$base) {
                             echo "<script>console.log('Erreur connexion BD');</script>";
                         } else {
+                            echo "<script>console.log('base');</script>";
                             $sql_uc = "select * from devices_location ";
                             $resultat_uc = mysqli_query($conn, $sql_uc);
                             if (mysqli_num_rows($resultat_uc) > 0) {
-                                while ($row = mysqli_fetch_assoc($resultat_uc)) {}
+                                echo "<script>console.log('while');</script>";
+                                while ($row = mysqli_fetch_assoc($resultat_uc)) {
                                     echo "<option value=".$row['location'].">".$row['location']."</option>";
+                                }
+
                             }
                         }
 
