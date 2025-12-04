@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (empty($_SESSION['role']) || $_SESSION['role'] !== "technicien") {
     header("Location: index.php");
@@ -10,38 +11,33 @@ $host = "localhost";
 $user = "root";
 $pass = "root";
 $db = "vines";
-$conn = mysqli_connect($host, $user, $pass);
-
-$role = null;
+$conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
     echo "<script>console.log('Erreur connexion serveur');</script>";
 } else {
     echo "<script>console.log('Connecté au serveur !');</script>";
-
-    $base = mysqli_select_db($conn, $db);
 }
 
-
 // Unités centrales
-$devices_building = $db->query("SELECT * FROM devices_building")->fetchAll();
-$devices_cpu = $db->query("SELECT * FROM devices_cpu")->fetchAll();
-$devices_disk_gb = $db->query("SELECT * FROM devices_disk_gb")->fetchAll();
-$devices_domain = $db->query("SELECT * FROM devices_domain")->fetchAll();
-$devices_location = $db->query("SELECT * FROM devices_location")->fetchAll();
-$devices_manufacturer = $db->query("SELECT * FROM devices_manufacturer")->fetchAll();
-$devices_model = $db->query("SELECT * FROM devices_model")->fetchAll();
-$devices_os = $db->query("SELECT * FROM devices_os")->fetchAll();
-$devices_ram_mb = $db->query("SELECT * FROM devices_ram_mb")->fetchAll();
-$devices_room = $db->query("SELECT * FROM devices_room")->fetchAll();
-$devices_type = $db->query("SELECT * FROM devices_type")->fetchAll();
+$devices_building = mysqli_query($conn, "SELECT * FROM devices_building");
+$devices_cpu = mysqli_query($conn, "SELECT * FROM devices_cpu");
+$devices_disk_gb = mysqli_query($conn, "SELECT * FROM devices_disk_gb");
+$devices_domain = mysqli_query($conn, "SELECT * FROM devices_domain");
+$devices_location = mysqli_query($conn, "SELECT * FROM devices_location");
+$devices_manufacturer = mysqli_query($conn, "SELECT * FROM devices_manufacturer");
+$devices_model = mysqli_query($conn, "SELECT * FROM devices_model");
+$devices_os = mysqli_query($conn, "SELECT * FROM devices_os");
+$devices_ram_mb = mysqli_query($conn, "SELECT * FROM devices_ram_mb");
+$devices_room = mysqli_query($conn, "SELECT * FROM devices_room");
+$devices_type = mysqli_query($conn, "SELECT * FROM devices_type");
 
 // Moniteurs
-$monitor_connector = $db->query("SELECT * FROM monitors_connector")->fetchAll();
-$monitor_manufacturer = $db->query("SELECT * FROM monitors_manufacturer")->fetchAll();
-$monitor_model = $db->query("SELECT * FROM monitors_model")->fetchAll();
-$monitor_resolution = $db->query("SELECT * FROM monitors_resolution")->fetchAll();
-$monitor_size_inch = $db->query("SELECT * FROM monitor_size_inch")->fetchAll();
+$monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
+$monitor_manufacturer = mysqli_query($conn, "SELECT * FROM monitors_manufacturer");
+$monitor_model = mysqli_query($conn, "SELECT * FROM monitors_model");
+$monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
+$monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitor_size_inch");
 ?>
 
 <!DOCTYPE html>
