@@ -112,7 +112,7 @@ main {
     min-width: 160px;
 }
 
-.btn-add {
+.btn-add .btn-save{
     background-color: #2D5A27;
     color: white;
     border: none;
