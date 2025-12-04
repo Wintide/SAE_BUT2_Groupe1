@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("model-model").innerText = card.dataset.model;
             document.getElementById("model-uctype").innerText = card.dataset.type;
             document.getElementById("model-cpu").innerText = card.dataset.cpu;
-            document.getElementById("model-rammb").innerText = card.dataset.rammb;
+            document.getElementById("model-ram_mb").innerText = card.dataset.ram_mb;
             document.getElementById("model-diskgb").innerText = card.dataset.diskgb;
             document.getElementById("model-os").innerText = card.dataset.os;
             document.getElementById("model-domain").innerText = card.dataset.domain;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
             document.getElementById("edit-name").value = card.dataset.name;
             document.getElementById("edit-cpu").value = card.dataset.cpu;
-            document.getElementById("edit-rammb").value = card.dataset.rammb;
+            document.getElementById("edit-ram_mb").value = card.dataset.ram_mb;
             document.getElementById("edit-diskgb").value = card.dataset.diskgb;
             document.getElementById("edit-os").value = card.dataset.os;
             document.getElementById("edit-domain").value = card.dataset.domain;

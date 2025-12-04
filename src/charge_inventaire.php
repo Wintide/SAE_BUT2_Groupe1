@@ -27,7 +27,7 @@ function charge_all($conn, $element_par_page, $offset){
             $purchase_date = $row['purchase_date'];
             $warranty_end = $row['warranty_end'];
 
-            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram='$ram_mb' data-disk='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
+            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram_mb='$ram_mb' data-diskgb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
             echo "<img src='images/uc.png' alt='Unité Centrale'>";
             echo "<h3>$name</h3>";
             echo "<p>$serial</p>";
@@ -109,7 +109,7 @@ function charge_devices($conn, $element_par_page, $offset){
             $purchase_date = $row['purchase_date'];
             $warranty_end = $row['warranty_end'];
 
-            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-rammb='$ram_mb' data-diskgb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
+            echo "<div class='card uc' id='$serial' data-name='$name' data-serial='$serial' data-manufacturer='$manufacturer' data-model='$model' data-type='$type' data-cpu='$cpu' data-ram_mb='$ram_mb' data-diskgb='$disk_gb' data-os='$os' data-domain='$domain' data-location='$location' data-building='$building' data-room='$room' data-macaddr='$macaddr' data-purchase='$purchase_date' data-warranty='$warranty_end'>";
             echo "<img src='images/uc.png' alt='Unité Centrale'>";
             echo "<h3>$name</h3>";
             echo "<p>$serial</p>";

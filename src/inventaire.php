@@ -203,7 +203,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <p class="field-uc"><strong>Modèle :</strong> <span id="model-model"></span></p>
         <p class="field-uc"><strong>Type d'unité :</strong> <span id="model-uctype"></span></p>
         <p class="field-uc"><strong>CPU :</strong> <span id="model-cpu"></span></p>
-        <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-rammb"></span></p>
+        <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-ram_mb"></span></p>
         <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-diskgb"></span></p>
         <p class="field-uc"><strong>Système d'exploitation :</strong> <span id="model-os"></span></p>
         <p class="field-uc"><strong>Domaine :</strong> <span id="model-domain"></span></p>
@@ -243,7 +243,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="cpu" id="edit-cpu">
 
                 <label>RAM(mb) :</label>
-                <input type="number" name="ram" id="edit-rammb">
+                <input type="number" name="ram" id="edit-ram_mb">
 
                 <label>Espace disque(gb) :</label>
                 <input type="number" name="disk" id="edit-diskgb">
