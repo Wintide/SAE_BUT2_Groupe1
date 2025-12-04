@@ -19,8 +19,8 @@
     <div class="form-container">
         <?php
         echo "<div class='error'>";
-            if($_GET['&err=1']){
-                echo '<p class="error-message">Login ou mot de passe incorrect.</p>';
+            if($_GET['err=1']){
+                echo '<p style="color=red">Login ou mot de passe incorrect.</p>';
             }
             echo "</div>";
         ?>
