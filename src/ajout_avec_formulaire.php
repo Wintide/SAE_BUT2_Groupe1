@@ -21,7 +21,6 @@ if (!$conn) {
 
 // Unités centrales
 $devices_building = mysqli_query($conn, "SELECT * FROM devices_building");
-echo "<script>console.log('Terminé 1 !');</script>";
 $devices_cpu = mysqli_query($conn, "SELECT * FROM devices_cpu");
 $devices_disk_gb = mysqli_query($conn, "SELECT * FROM devices_disk_gb");
 $devices_domain = mysqli_query($conn, "SELECT * FROM devices_domain");
@@ -32,15 +31,12 @@ $devices_os = mysqli_query($conn, "SELECT * FROM devices_os");
 $devices_ram_mb = mysqli_query($conn, "SELECT * FROM devices_ram_mb");
 $devices_room = mysqli_query($conn, "SELECT * FROM devices_room");
 $devices_type = mysqli_query($conn, "SELECT * FROM devices_type");
-echo "<script>console.log('Terminé devices!');</script>";
 // Moniteurs
 $monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
 $monitor_manufacturer = mysqli_query($conn, "SELECT * FROM monitors_manufacturer");
 $monitor_model = mysqli_query($conn, "SELECT * FROM monitors_model");
 $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
 $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
-
-echo "<script>console.log('Terminé !');</script>";
 ?>
 
 <!DOCTYPE html>
@@ -263,5 +259,7 @@ echo "<script>console.log('Terminé !');</script>";
         &copy; 2025 Vines - Tous droits réservés
     </p>
 </footer>
+<script src="script/deconnexion.js" defer></script>
+<script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
