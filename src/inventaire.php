@@ -40,10 +40,32 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
                 <label for="filter-local">Localisation :</label>
                 <select id="filter-local" name="filter-local">
-                    <option value="all">Toutes</option>
-                    <option value="batA">Bât. A</option>
-                    <option value="batB">Bât. B</option>
-                    <option value="batC">Bât. C</option>
+                    <?php
+
+                    include 'charge_inventaire.php';
+                    $host = "localhost";
+                    $user = "root";
+                    $pass = "root";
+                    $db = "vines";
+                    $conn = mysqli_connect($host, $user, $pass);
+
+                    if (!$conn) {
+                        echo "<script>console.log('Erreur connexion serveur');</script>";
+                    } else {
+                        $base = mysqli_select_db($conn, $db);
+                        if (!$base) {
+                            echo "<script>console.log('Erreur connexion BD');</script>";
+                        } else {
+                            $sql_uc = "select * from devices_location ";
+                            $resultat_uc = mysqli_query($conn, $sql_uc);
+                            if (mysqli_num_rows($resultat_uc) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultat_uc)) {}
+                                    echo "<option value=".$row['location'].">".$row['location']."</option>";
+                            }
+                        }
+
+                    }
+                    ?>
                 </select>
 
                 <label for="filter-date">Année d’achat :</label>
@@ -72,13 +94,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <div class="inventory-grid">
 
             <?php
-            include 'charge_inventaire.php';
-            $host = "localhost";
-            $user = "root";
-            $pass = "root";
-            $db = "vines";
-            $conn = mysqli_connect($host, $user, $pass);
-
             if (!$conn) {
                 echo "<script>console.log('Erreur connexion serveur');</script>";
             }
