@@ -216,12 +216,12 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
 
         <!-- UNIQUEMENT moniteur -->
-        <p class="field-monitor"><strong> :</strong> <span id="model-manufacturer"></span></p>
+        <p class="field-monitor"><strong>Fabricant :</strong> <span id="model-manufacturer"></span></p>
         <p class="field-monitor"><strong>Modèle :</strong> <span id="model-model"></span></p>
         <p class="field-monitor"><strong>Taille :</strong> <span id="model-size"></span></p>
-        <p class="field-monitor"><strong> :</strong> <span id="model-resolution"></span></p>
-        <p class="field-monitor"><strong> :</strong> <span id="model-connector"></span></p>
-        <p class="field-monitor"><strong> :</strong> <span id="model-attachedto"></span></p>
+        <p class="field-monitor"><strong>Resolution :</strong> <span id="model-resolution"></span></p>
+        <p class="field-monitor"><strong>Connecteur :</strong> <span id="model-connector"></span></p>
+        <p class="field-monitor"><strong>Connecté à :</strong> <span id="model-attachedto"></span></p>
     </div>
 </div>
 
