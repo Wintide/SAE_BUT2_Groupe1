@@ -85,7 +85,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                     <form action="create_uc.php" method="post">
 
                         <label>Bâtiment :</label>
-                        <select name="building" required>
+                        <select name="building" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_building as $el): ?>
                                 <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
@@ -93,7 +93,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Processeur :</label>
-                        <select name="cpu" required>
+                        <select name="cpu" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_cpu as $el): ?>
                                 <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
@@ -101,7 +101,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Espcace disque (GB) :</label>
-                        <select name="disk_gb" required>
+                        <select name="disk_gb" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_disk_gb as $el): ?>
                                 <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
@@ -109,7 +109,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Nom de domaine :</label>
-                        <select name="domain" required>
+                        <select name="domain" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_domain as $el): ?>
                                 <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
@@ -117,7 +117,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Localisation :</label>
-                        <select name="location" required>
+                        <select name="location" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_location as $el): ?>
                                 <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
@@ -125,7 +125,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Constructeur :</label>
-                        <select name="manufacturer" required>
+                        <select name="manufacturer" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_manufacturer as $el): ?>
                                 <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
@@ -133,7 +133,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Modèle :</label>
-                        <select name="model" required>
+                        <select name="model" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_model as $el): ?>
                                 <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
@@ -141,7 +141,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Système d'exploitation :</label>
-                        <select name="os" required>
+                        <select name="os" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_os as $el): ?>
                                 <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
@@ -149,7 +149,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Capacité RAM (MB) :</label>
-                        <select name="ram_mb" required>
+                        <select name="ram_mb" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_ram_mb as $el): ?>
                                 <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
@@ -157,7 +157,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Pièce :</label>
-                        <select name="room" required>
+                        <select name="room" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_room as $el): ?>
                                 <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
@@ -165,7 +165,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Type :</label>
-                        <select name="type" required>
+                        <select name="type" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($devices_type as $el): ?>
                                 <option value="<?= $el['type'] ?>"><?= $el['type'] ?></option>
@@ -184,7 +184,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                     <form action="create_moniteur.php" method="post">
 
                         <label>Connecteur :</label>
-                        <select name="connector" required>
+                        <select name="connector" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_connector as $el): ?>
                                 <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
@@ -192,7 +192,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Constructeur</label>
-                        <select name="manufacturer" required>
+                        <select name="manufacturer" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_manufacturer as $el): ?>
                                 <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
@@ -200,7 +200,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Modèle :</label>
-                        <select name="model" required>
+                        <select name="model" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_model as $el): ?>
                                 <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
@@ -208,7 +208,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Résolution :</label>
-                        <select name="resolution" required>
+                        <select name="resolution" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_resolution as $el): ?>
                                 <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
@@ -216,7 +216,7 @@ $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
                         </select>
 
                         <label>Taille (en inch) :</label>
-                        <select name="size_inch" required>
+                        <select name="size_inch" class="styled-select" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_size_inch as $el): ?>
                                 <option value="<?= $el['size_inch'] ?>"><?= $el['size_inch'] ?></option>
