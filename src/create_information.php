@@ -8,7 +8,8 @@ $conn = mysqli_connect($host, $user, $pass);
 $databases = $_POST["add-info"];
 $info = $_POST["info"];
 
-echo "<script>console.log('".$databases."');</script>";
+error_reporting(E_ALL ^ E_NOTICE);
+
 if (!$conn) {
     echo "<script>console.log('Erreur connexion serveur');</script>";
 }
