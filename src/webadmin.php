@@ -60,6 +60,12 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <h2>Ajouter une information</h2>
 
                     <form action="create_information.php" method="post">
+                        <?php
+                            if ($_GET['err']=1) {
+                                echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
+                                echo "<p>Une erreur est survenue lors de l'ajout de l'information.</p>";
+                            }
+                        ?>
                         <label>Ajouter une Information pour: </label>
                         <select name="information" id="add-info">
                             <?php
@@ -102,7 +108,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         </select>
 
                         <label>Qu'est ce qu'il faut ajouter :</label>
-                        <input type="text" name="brand" required>
+                        <input type="text" name="info" required>
 
                         <button id="form-button" type="submit">Ajouter</button>
                     </form>
