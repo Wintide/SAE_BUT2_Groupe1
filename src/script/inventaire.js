@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
             document.getElementById("edit-name").value = card.dataset.name;
             document.getElementById("edit-cpu").value = card.dataset.cpu;
-            document.getElementById("edit-ram_mb").value = card.dataset.ram_mb;
-            document.getElementById("edit-disk_gb").value = card.dataset.disk_gb;
+            document.getElementById("edit-rammb").value = card.dataset.rammb;
+            document.getElementById("edit-diskgb").value = card.dataset.diskgb;
             document.getElementById("edit-os").value = card.dataset.os;
             document.getElementById("edit-domain").value = card.dataset.domain;
             document.getElementById("edit-location").value = card.dataset.location;
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(".form-monitor").forEach(el => el.style.display = "block");
             document.getElementById("edit-resolution").value = card.dataset.resolution;
             document.getElementById("edit-connector").value = card.dataset.connector;
-            document.getElementById("edit-attached_to").value = card.dataset.attachedto;
+            document.getElementById("edit-attachedto").value = card.dataset.attachedto;
         }
 
         openModel(document.getElementById("model-edit"));
