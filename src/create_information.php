@@ -10,7 +10,7 @@ $info = $_POST["info"];
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-if ($conn) {
+if (!($conn)) {
     echo "<script>console.log('Erreur connexion BD');</script>";
 } else {
     echo "<script>console.log('Connecté à la BD !');</script>";
