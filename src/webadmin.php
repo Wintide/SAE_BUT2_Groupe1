@@ -35,6 +35,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 <li><button class="sidebar-btn" data-target="form-technicien">Ajouter un technicien</button></li>
                 <li><button class="sidebar-btn" data-target="form-os">Ajouter un OS</button></li>
                 <li><button class="sidebar-btn" data-target="form-constructeur">Ajouter un constructeur</button></li>
+                <li><button class="sidebar-btn" data-target="form-information">Ajouter une information</button></li>
             </ul>
         </aside>
 
@@ -52,6 +53,59 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <input type="password" name="password" required>
 
                         <button id="form-button" type="submit">Créer le technicien</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="form-information" class="content-section">
+                <div class="form-container">
+                    <h2>Ajouter une information</h2>
+
+                    <form action="create_information.php" method="post">
+                        <label>Ajouter une Information</label>
+                        <select name="information" id="add-info">
+                            <?php
+                            $host = "localhost";
+                            $user = "root";
+                            $pass = "root";
+                            $db = "vines";
+                            $conn = mysqli_connect($host, $user, $pass);
+
+                            if (!$conn) {
+                                echo "<script>console.log('Erreur connexion serveur');</script>";
+                            }
+                            else {
+                                echo "<script>console.log('Connecté au serveur !');</script>";
+                                $base = mysqli_select_db($conn, $db);
+                                if (!$base) {
+                                    echo "<script>console.log('Erreur connexion BD');</script>";
+                                } else {
+                                    echo "<script>console.log('Connecté à la BD !');</script>";
+                                    $sql_devices = "SHOW TABLES LIKE 'devices_%'";
+                                    $result_devices = mysqli_query($conn, $sql_devices);
+
+                                    $sql_monitor = "SHOW TABLES LIKE 'monitors_%'";
+                                    $result_monitors = mysqli_query($conn, $sql_monitor);
+
+                                    while ($row = mysqli_fetch_array($result_devices)) {
+
+                                        $info = $row[0];
+                                        //$info = str_replace("devices_", "", $table);
+
+                                        echo "<option value='$info'>$info</option>";
+                                    }
+
+                                    while ($row = mysqli_fetch_array($result_monitors)) {
+
+                                        $info = $row[0];
+                                        //$info = str_replace("monitors_", "", $table);
+
+                                        echo "<option value='$info'>$info</option>";
+                                    }
+                                }
+                            }
+                            ?>
+                        </select>
                     </form>
                 </div>
             </section>
