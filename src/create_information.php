@@ -19,7 +19,7 @@ else {
     } else {
         echo "<script>console.log('Connecté à la BD !');</script>";
         $type = gettype($info);
-        echo $type;
+        echo "<script>console.log('Type de info: ' + '$type');</script>";
         $stmt = $conn->prepare("INSERT INTO ? VALUES (?)");
         $stmt->bind_param("s"+$type, $databases, $info);
 
