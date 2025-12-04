@@ -33,8 +33,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         <aside class="sidebar">
             <ul>
                 <li><button class="sidebar-btn" data-target="form-technicien">Ajouter un technicien</button></li>
-                <li><button class="sidebar-btn" data-target="form-os">Ajouter un OS</button></li>
-                <li><button class="sidebar-btn" data-target="form-constructeur">Ajouter un constructeur</button></li>
                 <li><button class="sidebar-btn" data-target="form-information">Ajouter une information</button></li>
             </ul>
         </aside>
@@ -62,7 +60,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <h2>Ajouter une information</h2>
 
                     <form action="create_information.php" method="post">
-                        <label>Ajouter une Information</label>
+                        <label>Ajouter une Information pour: </label>
                         <select name="information" id="add-info">
                             <?php
                             $host = "localhost";
@@ -90,45 +88,20 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                     while ($row = mysqli_fetch_array($result_devices)) {
 
                                         $info = $row[0];
-                                        //$info = str_replace("devices_", "", $table);
-
                                         echo "<option value='$info'>$info</option>";
                                     }
 
                                     while ($row = mysqli_fetch_array($result_monitors)) {
 
                                         $info = $row[0];
-                                        //$info = str_replace("monitors_", "", $table);
-
                                         echo "<option value='$info'>$info</option>";
                                     }
                                 }
                             }
                             ?>
                         </select>
-                    </form>
-                </div>
-            </section>
 
-            <section id="form-os" class="content-section">
-                <div class="form-container">
-                    <h2>Ajouter un système d’exploitation</h2>
-
-                    <form action="create_os.php" method="post">
-                        <label>Nom de l’OS :</label>
-                        <input type="text" name="osname" required>
-
-                        <button id="form-button" type="submit">Ajouter</button>
-                    </form>
-                </div>
-            </section>
-
-            <section id="form-constructeur" class="content-section">
-                <div class="form-container">
-                    <h2>Ajouter un constructeur</h2>
-
-                    <form action="create_constructeur.php" method="post">
-                        <label>Nom du constructeur :</label>
+                        <label>Qu'est ce qu'il faut ajouter :</label>
                         <input type="text" name="brand" required>
 
                         <button id="form-button" type="submit">Ajouter</button>
