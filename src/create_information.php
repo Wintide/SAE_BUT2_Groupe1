@@ -19,11 +19,9 @@ else {
     } else {
         echo "<script>console.log('Connecté à la BD !');</script>";
         $type = gettype($info);
-        echo "<script>console.log('Type de info : $type');</script>";
         $sql_insert = "INSERT INTO $databases VALUES (info=?)";
+        echo "<script>console.log('Test');</script>";
         $stmt = mysqli_prepare($conn, $sql_insert);
-
-        echo"<script>console.log('Requête préparée : $stmt');</script>";
 
         mysqli_stmt_bind_param($stmt, $type,  $info);
 
