@@ -282,7 +282,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     // Moniteurs
     $monitor_connector = mysqli_query($conn, "SELECT * FROM monitors_connector");
     $monitor_resolution = mysqli_query($conn, "SELECT * FROM monitors_resolution");
-    $monitor_size_inch = mysqli_query($conn, "SELECT * FROM monitors_size_inch");
+    $monitor_attach = mysqli_query($conn, "SELECT DISTINCT(name) FROM devices");
     ?>
     <div class="model-content">
         <span class="close-edit">&times;</span>
@@ -306,25 +306,61 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>RAM(mb) :</label>
-                <input type="number" name="ram_mb" id="edit-ram_mb">
+                <select name="ram_mb" id="edit-ram_mb" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_ram_mb as $el): ?>
+                        <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Espace disque(gb) :</label>
-                <input type="number" name="disk_gb" id="edit-disk_gb">
+                <select name="disk_gb" id="edit-disk_gb" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_disk_gb as $el): ?>
+                        <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Système d'exploitation :</label>
-                <input type="text" name="os" id="edit-os">
+                <select name="os" id="edit-os" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_os as $el): ?>
+                        <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Domaine :</label>
-                <input type="text" name="domain" id="edit-domain">
+                <select name="domain" id="edit-domain" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_domain as $el): ?>
+                        <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+
 
                 <label>Localisation :</label>
-                <input type="text" name="location" id="edit-location">
+                <select name="location" id="edit-location" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_location as $el): ?>
+                        <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Batiment :</label>
-                <input type="text" name="building" id="edit-building">
+                <select name="building" id="edit-building" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_building as $el): ?>
+                        <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
-                <label>Pièce :</label>
-                <input type="text" name="room" id="edit-room">
+                <label>Salle :</label>
+                <select name="room" id="edit-room" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($devices_room as $el): ?>
+                        <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Fin de la garantie :</label>
                 <input type="text" name="warranty" id="edit-warranty">
@@ -333,13 +369,28 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
             <!-- Moniteur -->
             <div class="form-monitor">
                 <label>Resolution :</label>
-                <input type="text" name="resolution" id="edit-resolution">
+                <select name="resolution" id="edit-resolution" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($monitor_resolution as $el): ?>
+                        <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Connecteur :</label>
-                <input type="text" name="connector" id="edit-connector">
+                <select name="connector" id="edit-connector" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($monitor_connector as $el): ?>
+                        <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
+                    <?php endforeach; ?>
+                </select>
 
                 <label>Connecté à :</label>
-                <input type="text" name="attached_to" id="edit-attached_to">
+                <select name="attached_to" id="edit-attached_to" class="styled-select" required>
+                    <option value="">-- Sélectionner --</option>
+                    <?php foreach ($monitor_attach as $el): ?>
+                        <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <button type="submit" class="btn-save">Enregistrer</button>
