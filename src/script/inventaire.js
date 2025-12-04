@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(".form-monitor").forEach(el => el.style.display = "none");
 
         document.getElementById("edit-serial").value = card.dataset.serial;
-        document.getElementById("edit-Gtype").value = isUC ? "uc" : "monitor";
+        document.getElementById("edit-type").value = isUC ? "uc" : "monitor";
 
         if (isUC) {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
