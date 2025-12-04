@@ -245,6 +245,36 @@ main {
     filter: brightness(0.9);
 }
 
+.styled-select {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    background-color: white;
+    color: #1F3B1F;
+    box-sizing: border-box;
+
+    appearance: none; /* enlève la flèche classique */
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%232D5A27' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.styled-select:hover {
+    border-color: #2D5A27;
+}
+
+.styled-select:focus {
+    outline: none;
+    border-color: #2D5A27;
+    box-shadow: 0 0 5px rgba(45, 90, 39, 0.4);
+}
+
 footer {
     background-color: #2D5A27;
     color: white;
