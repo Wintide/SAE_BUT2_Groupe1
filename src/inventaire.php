@@ -84,7 +84,9 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
             </form>
 
         </div>
-        <button class="btn-add">Ajouter une machine</button>
+        <form action="ajout_avec_formulaire.php" method="post">
+            <button class="btn-add">Ajouter une machine</button>
+        </form>
     </div>
 
     <div class="main-inventory">

@@ -145,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.querySelector("h3").innerText = formData.get("model");
                     }
 
-                    alert("Mise à jour réussie !");
                     closeModel(document.getElementById("model-edit"));
                 } else {
                     alert("Erreur : " + data.message);
