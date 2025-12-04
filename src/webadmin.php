@@ -89,16 +89,16 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                                     while ($row = mysqli_fetch_array($result_devices)) {
 
-                                        $table = $row[0];
-                                        $info = str_replace("devices_", "", $table);
+                                        $info = $row[0];
+                                        //$info = str_replace("devices_", "", $table);
 
                                         echo "<option value='$info'>$info</option>";
                                     }
 
                                     while ($row = mysqli_fetch_array($result_monitors)) {
 
-                                        $table = $row[0];
-                                        $info = str_replace("monitors_", "", $table);
+                                        $info = $row[0];
+                                        //$info = str_replace("monitors_", "", $table);
 
                                         echo "<option value='$info'>$info</option>";
                                     }
