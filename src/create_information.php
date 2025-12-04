@@ -18,8 +18,17 @@ else {
         echo "<script>console.log('Erreur connexion BD');</script>";
     } else {
         echo "<script>console.log('Connecté à la BD !');</script>";
-        $sql_insert = "INSERT INTO $databases($databases) VALUES ('$info')";
-        if (mysqli_query($conn, $sql_insert)) {
+        $type = gettype($info);
+        echo "<script>console.log('Type de info : $type');</script>";
+        $sql_insert = "INSERT INTO $databases VALUES (info=?)";
+        $stmt = mysqli_prepare($conn, $sql_insert);
+
+        echo"<script>console.log('Requête préparée : $stmt');</script>";
+
+        mysqli_stmt_bind_param($stmt, $type,  $info);
+
+        //$sql_insert = "INSERT INTO $databases($databases) VALUES ('$info')";
+        if (mysqli_stmt_execute($stmt)) {
             echo "<script>console.log('Information ajoutée avec succès');</script>";
             header("Location: webadmin.php");
         } else {
