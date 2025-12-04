@@ -199,12 +199,29 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
         <!-- UNIQUEMENT UC -->
         <p class="field-uc"><strong>Nom :</strong> <span id="model-name"></span></p>
-        <p class="field-uc"><strong>Localisation :</strong> <span id="model-local"></span></p>
-        <p class="field-uc"><strong>Année d'achat :</strong> <span id="model-year"></span></p>
+        <p class="field-uc"><strong>Fabricant :</strong> <span id="model-manufacturer"></span></p>
+        <p class="field-uc"><strong>Modèle :</strong> <span id="model-model"></span></p>
+        <p class="field-uc"><strong>Type d'unité :</strong> <span id="model-uctype"></span></p>
+        <p class="field-uc"><strong>CPU :</strong> <span id="model-cpu"></span></p>
+        <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-ram"></span></p>
+        <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-disk"></span></p>
+        <p class="field-uc"><strong>Système d'exploitation :</strong> <span id="model-os"></span></p>
+        <p class="field-uc"><strong>Domaine :</strong> <span id="model-domain"></span></p>
+        <p class="field-uc"><strong>Localisation :</strong> <span id="model-location"></span></p>
+        <p class="field-uc"><strong>Batiment :</strong> <span id="model-building"></span></p>
+        <p class="field-uc"><strong>Piece :</strong> <span id="model-room"></span></p>
+        <p class="field-uc"><strong>Adresse mac :</strong> <span id="model-macaddr"></span></p>
+        <p class="field-uc"><strong>Année d'achat :</strong> <span id="model-purchase"></span></p>
+        <p class="field-uc"><strong>Fin de la garantie :</strong> <span id="model-warranty"></span></p>
+
 
         <!-- UNIQUEMENT moniteur -->
+        <p class="field-monitor"><strong> :</strong> <span id="model-manufacturer"></span></p>
         <p class="field-monitor"><strong>Modèle :</strong> <span id="model-model"></span></p>
         <p class="field-monitor"><strong>Taille :</strong> <span id="model-size"></span></p>
+        <p class="field-monitor"><strong> :</strong> <span id="model-resolution"></span></p>
+        <p class="field-monitor"><strong> :</strong> <span id="model-connector"></span></p>
+        <p class="field-monitor"><strong> :</strong> <span id="model-attachedto"></span></p>
     </div>
 </div>
 

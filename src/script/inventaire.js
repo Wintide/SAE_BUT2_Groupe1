@@ -17,15 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isUC) {
             document.getElementById("model-title").innerText = card.dataset.name;
             document.getElementById("model-name").innerText = card.dataset.name;
-            document.getElementById("model-local").innerText = card.dataset.local;
-            document.getElementById("model-year").innerText = card.dataset.year;
+            document.getElementById("model-manufacturer").innerText = card.dataset.manufacturer;
+            document.getElementById("model-model").innerText = card.dataset.model;
+            document.getElementById("model-uctype").innerText = card.dataset.type;
+            document.getElementById("model-cpu").innerText = card.dataset.cpu;
+            document.getElementById("model-ram").innerText = card.dataset.ram;
+            document.getElementById("model-disk").innerText = card.dataset.disk;
+            document.getElementById("model-os").innerText = card.dataset.os;
+            document.getElementById("model-domain").innerText = card.dataset.domain;
+            document.getElementById("model-location").innerText = card.dataset.location;
+            document.getElementById("model-building").innerText = card.dataset.building;
+            document.getElementById("model-room").innerText = card.dataset.room;
+            document.getElementById("model-macaddr").innerText = card.dataset.macaddr;
+            document.getElementById("model-purchase").innerText = card.dataset.purchase;
+            document.getElementById("model-warranty").innerText = card.dataset.warranty;
             document.querySelectorAll(".field-uc").forEach(el => el.style.display = "block");
         }
 
         if (isMonitor) {
             document.getElementById("model-title").innerText = card.dataset.model;
+            document.getElementById("model-manufacturer").innerText = card.dataset.manufacturer;
             document.getElementById("model-model").innerText = card.dataset.model;
             document.getElementById("model-size").innerText = card.dataset.size + '"';
+            document.getElementById("model-resolution").innerText = card.dataset.resolution;
+            document.getElementById("model-connector").innerText = card.dataset.connector;
+            document.getElementById("model-attachedto").innerText = card.dataset.attachedto;
             document.querySelectorAll(".field-monitor").forEach(el => el.style.display = "block");
         }
 
