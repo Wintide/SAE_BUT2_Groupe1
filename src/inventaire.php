@@ -133,6 +133,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                         }
                     } else if(isset($_POST['filter-local'])) {
                         $local = $_POST['filter-local'];
+                        echo "<script>console.log(".$local.");</script>";
                         $element_par_page = 12; // nombre d’éléments par page
                         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
                         if ($page < 1) $page = 1;
