@@ -194,17 +194,17 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
         <h2 id="model-title"></h2>
 
-        <p><strong>Type :</strong> <span id="model-type"></span></p>
+        <p><strong>Type :</strong> <span id="model-Gtype"></span></p>
         <p><strong>Numéro de série :</strong> <span id="model-serial"></span></p>
 
         <!-- UNIQUEMENT UC -->
         <p class="field-uc"><strong>Nom :</strong> <span id="model-name"></span></p>
         <p class="field-uc"><strong>Fabricant :</strong> <span id="model-manufacturer"></span></p>
         <p class="field-uc"><strong>Modèle :</strong> <span id="model-model"></span></p>
-        <p class="field-uc"><strong>Type d'unité :</strong> <span id="model-uctype"></span></p>
+        <p class="field-uc"><strong>Type d'unité :</strong> <span id="model-type"></span></p>
         <p class="field-uc"><strong>CPU :</strong> <span id="model-cpu"></span></p>
         <p class="field-uc"><strong>RAM(mb) :</strong> <span id="model-ram_mb"></span></p>
-        <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-diskgb"></span></p>
+        <p class="field-uc"><strong>Capacité disque(gb) :</strong> <span id="model-disk_gb"></span></p>
         <p class="field-uc"><strong>Système d'exploitation :</strong> <span id="model-os"></span></p>
         <p class="field-uc"><strong>Domaine :</strong> <span id="model-domain"></span></p>
         <p class="field-uc"><strong>Localisation :</strong> <span id="model-location"></span></p>
@@ -221,7 +221,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <p class="field-monitor"><strong>Taille :</strong> <span id="model-size"></span></p>
         <p class="field-monitor"><strong>Resolution :</strong> <span id="model-resolution"></span></p>
         <p class="field-monitor"><strong>Connecteur :</strong> <span id="model-connector"></span></p>
-        <p class="field-monitor"><strong>Connecté à :</strong> <span id="model-attachedto"></span></p>
+        <p class="field-monitor"><strong>Connecté à :</strong> <span id="model-attached_to"></span></p>
     </div>
 </div>
 
@@ -232,7 +232,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
         <form id="edit-form">
             <input type="hidden" name="serial" id="edit-serial">
-            <input type="hidden" name="type" id="edit-type"> <!-- uc / monitor -->
+            <input type="hidden" name="Gtype" id="edit-type"> <!-- uc / monitor -->
 
             <!-- UC -->
             <div class="form-uc">
@@ -243,10 +243,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="cpu" id="edit-cpu">
 
                 <label>RAM(mb) :</label>
-                <input type="number" name="ram" id="edit-ram_mb">
+                <input type="number" name="ram_mb" id="edit-ram_mb">
 
                 <label>Espace disque(gb) :</label>
-                <input type="number" name="disk" id="edit-diskgb">
+                <input type="number" name="disk_gb" id="edit-disk_gb">
 
                 <label>Système d'exploitation :</label>
                 <input type="text" name="os" id="edit-os">
@@ -264,7 +264,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="room" id="edit-room">
 
                 <label>Fin de la garantie :</label>
-                <input type="text" name="year" id="edit-warranty">
+                <input type="text" name="warranty" id="edit-warranty">
             </div>
 
             <!-- Moniteur -->
@@ -276,7 +276,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="connector" id="edit-connector">
 
                 <label>Connecté à :</label>
-                <input type="text" name="attached_to" id="edit-attachedto">
+                <input type="text" name="attached_to" id="edit-attached_to">
             </div>
 
             <button type="submit" class="btn-save">Enregistrer</button>

@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(".field-monitor").forEach(el => el.style.display = "none");
 
         document.getElementById("model-serial").innerText = card.dataset.serial;
-        document.getElementById("model-type").innerText = isUC ? "Unité Centrale" : "Moniteur";
+        document.getElementById("model-Gtype").innerText = isUC ? "Unité Centrale" : "Moniteur";
 
         if (isUC) {
             document.getElementById("model-title").innerText = card.dataset.name;
             document.getElementById("model-name").innerText = card.dataset.name;
             document.getElementById("model-manufacturer").innerText = card.dataset.manufacturer;
             document.getElementById("model-model").innerText = card.dataset.model;
-            document.getElementById("model-uctype").innerText = card.dataset.type;
+            document.getElementById("model-type").innerText = card.dataset.type;
             document.getElementById("model-cpu").innerText = card.dataset.cpu;
             document.getElementById("model-ram_mb").innerText = card.dataset.ram_mb;
-            document.getElementById("model-diskgb").innerText = card.dataset.diskgb;
+            document.getElementById("model-disk_gb").innerText = card.dataset.disk_gb;
             document.getElementById("model-os").innerText = card.dataset.os;
             document.getElementById("model-domain").innerText = card.dataset.domain;
             document.getElementById("model-location").innerText = card.dataset.location;
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isMonitor) {
             document.getElementById("model-title").innerText = card.dataset.modele;
             document.getElementById("model-manu").innerText = card.dataset.manu;
-            document.getElementById("model-modele").innerText = card.dataset.modele;
+            document.getElementById("model-model").innerText = card.dataset.model;
             document.getElementById("model-size").innerText = card.dataset.size + '"';
             document.getElementById("model-resolution").innerText = card.dataset.resolution;
             document.getElementById("model-connector").innerText = card.dataset.connector;
-            document.getElementById("model-attachedto").innerText = card.dataset.attachedto;
+            document.getElementById("model-attached_to").innerText = card.dataset.attached_to;
             document.querySelectorAll(".field-monitor").forEach(el => el.style.display = "block");
         }
 
@@ -56,14 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(".form-monitor").forEach(el => el.style.display = "none");
 
         document.getElementById("edit-serial").value = card.dataset.serial;
-        document.getElementById("edit-type").value = isUC ? "uc" : "monitor";
+        document.getElementById("edit-Gtype").value = isUC ? "uc" : "monitor";
 
         if (isUC) {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
             document.getElementById("edit-name").value = card.dataset.name;
             document.getElementById("edit-cpu").value = card.dataset.cpu;
             document.getElementById("edit-ram_mb").value = card.dataset.ram_mb;
-            document.getElementById("edit-diskgb").value = card.dataset.diskgb;
+            document.getElementById("edit-disk_gb").value = card.dataset.disk_gb;
             document.getElementById("edit-os").value = card.dataset.os;
             document.getElementById("edit-domain").value = card.dataset.domain;
             document.getElementById("edit-location").value = card.dataset.location;
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(".form-monitor").forEach(el => el.style.display = "block");
             document.getElementById("edit-resolution").value = card.dataset.resolution;
             document.getElementById("edit-connector").value = card.dataset.connector;
-            document.getElementById("edit-attachedto").value = card.dataset.attachedto;
+            document.getElementById("edit-attached_to").value = card.dataset.attached_to;
         }
 
         openModel(document.getElementById("model-edit"));
