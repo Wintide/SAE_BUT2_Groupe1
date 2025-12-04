@@ -18,13 +18,14 @@ else {
         echo "<script>console.log('Erreur connexion BD');</script>";
     } else {
         echo "<script>console.log('Connecté à la BD !');</script>";
-        echo "<script>console.log('Type de info: ' + '$type');</script>";
         $stmt = $conn->prepare("INSERT INTO ? VALUES (?)");
 
         if($databases=="devices_ram_mb"||$databases=="devices_disk_gb"||$databases=="monitors_size_inch"){
             $stmt->bind_param("si", $databases, $info);
+            echo "<script>console.log(typeof($info));</script>";
         } else{
             $stmt->bind_param("ss", $databases, $info);
+            echo "<script>console.log(typeof($info));</script>";
         }
 
         if ($stmt->execute()) {
