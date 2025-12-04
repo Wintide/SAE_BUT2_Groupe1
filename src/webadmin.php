@@ -61,7 +61,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                     <form action="create_information.php" method="post">
                         <?php
-                            if ($_GET['err']=1) {
+                            if ($_GET['err']==1) {
                                 echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
                                 echo "<p>Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
