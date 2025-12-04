@@ -42,7 +42,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <select id="filter-local" name="filter-local">
                     <option value="all"> Tous </option>
                     <?php
-
                     include 'charge_inventaire.php';
                     $host = "localhost";
                     $user = "root";
@@ -132,8 +131,14 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                 charge_monitor($conn, $element_par_page, $offset);
                                 break;
                         }
+                    } else if(isset($_POST['filter-local'])) {
+                        $local = $_POST['filter-local'];
+                        $element_par_page = 12; // nombre d’éléments par page
+                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+                        if ($page < 1) $page = 1;
+                        $offset = ($page - 1) * $element_par_page;
+                        charge_local($conn, $element_par_page, $offset, $local);
                     } else {
-
                         charge_all($conn, 12, 0);
                     }
                 }
