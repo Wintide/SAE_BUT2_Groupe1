@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
-header("Content-type:application/json");
+//error_reporting(E_ALL ^ E_NOTICE);
+//header("Content-type:application/json");
 $host = "localhost";
 $user = "root";
 $pass = "root";
@@ -14,10 +14,17 @@ if (!$conn) {
     exit;
 }
 
-if (isset($_POST['cpu'])) {
-    $cpu = $_POST['cpu'];
-    echo "Le CPU sélectionné est : " . $cpu;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['cpu'])) {
+        $cpu = $_POST['cpu']; // Récupère la valeur du CPU sélectionné
+        echo "Le CPU sélectionné est : " . $cpu;
+    }
+    if (isset($_POST['ram_mb'])) {
+        $ram = $_POST['ram_mb']; // Récupère la RAM sélectionnée
+        echo "La RAM sélectionnée est : " . $ram;
+    }
 }
+
 
 
 $type = $_POST["type"];
