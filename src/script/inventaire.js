@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModel = (model) => model.classList.add('hidden');
 
     const fillConsultModel = (card) => {
+        console.log("Consulter");
         const isUC = card.classList.contains("uc");
         const isMonitor = card.classList.contains("monitor");
 
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const fillEditModel = (card) => {
+        console.log("Modifier");
         const isUC = card.classList.contains("uc");
         const isMonitor = card.classList.contains("monitor");
 
