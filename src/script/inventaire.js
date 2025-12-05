@@ -120,7 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Soumission du form');
         e.preventDefault();
         let formData = new FormData(this);
-        console.log(formData.entries())
+        console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
+
 
         fetch("modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
