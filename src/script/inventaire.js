@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll(".form-uc").forEach(el => el.style.display = "block");
             document.getElementById("edit-name").value = card.dataset.name;
             document.getElementById("edit-cpu").value = card.dataset.cpu;
+            let selectedCpu = document.getElementById("edit-cpu").value;
+            console.log(selectedCpu)
             document.getElementById("edit-ram_mb").value = card.dataset.ram_mb;
             document.getElementById("edit-disk_gb").value = card.dataset.disk_gb;
             document.getElementById("edit-os").value = card.dataset.os;
