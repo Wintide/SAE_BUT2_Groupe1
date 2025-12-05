@@ -75,6 +75,15 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                 <li>
                     <button class="sidebar-btn" data-target="form-moniteur">Ajouter un moniteur</button>
                 </li>
+                <li>
+                    <button class="sidebar-btn" id="revenir">Retourner à l'inventaire</button>
+                    <script>
+                        var btn = document.getElementById("revenir");
+                        btn.addEventListener('click', function() {
+                            document.location.href = "inventaire.php";
+                        });
+                    </script>
+                </li>
             </ul>
         </aside>
 
@@ -291,6 +300,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
 <script src="script/admin-tabs.js" defer></script>
 </body>
 </html>
+
 
 
 
