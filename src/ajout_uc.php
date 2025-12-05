@@ -37,7 +37,8 @@ $result = mysqli_query($conn, $insert_query);
 
 if ($result) {
     echo "<script>console.log('Information ajoutée avec succès');</script>";
-    header("Location: ajout_avec_forumulaire.php");
+    header("Location: ajout_avec_formulaire.php");
 } else {
     echo "Erreur : " . mysqli_error($conn);
 }
+
