@@ -17,30 +17,46 @@ $serial = $_POST["serial"];
 
 if ($type == "uc") {
     $name = $_POST["name"];
-    $local = $_POST["local"];
-    $year = $_POST["year"];
+    $cpu = $_POST["cpu"];
+    $ram_mb = $_POST["ram_mb"];
+    $disk_gb = $_POST["disk_gb"];
+    $os = $_POST["os"];
+    $domain = $_POST["domain"];
+    $location = $_POST["location"];
+    $building = $_POST["building"];
+    $room = $_POST["room"];
+    $warranty = $_POST["warranty"];
 
     $sql = "UPDATE devices SET 
                 name = ?, 
+                cpu = ?,
+                ram_mb = ?,
+                disk_gb = ?,
+                os = ?,
+                domain = ?,
+                location = ?,
+                building = ?,
                 room = ?, 
-                purchase_date = ?
+                warranty_end = to_date(?, 'yyyy-mm-dd')
             WHERE serial = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $local, $year, $serial);
+    mysqli_stmt_bind_param($stmt, "sssssssssss", $name, $cpu, $ram_mb, $disk_gb, $os, $domain, $location, $building, $room, $warranty, $serial);
 }
 
 else if ($type == "monitor") {
-    $model = $_POST["model"];
-    $size = $_POST["size"];
+    $resolution = $_POST["resolution"];
+    $connector = $_POST["connector"];
+    $attachedto = $_POST["attached_to"];
 
     $sql = "UPDATE monitors SET 
-                model = ?, 
-                size_inch = ?
+                resolution = ?, 
+                connector = ?,
+                attached_to = ?
             WHERE serial = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sis", $model, $size, $serial);
+    mysqli_stmt_bind_param($stmt, "ssss", $resolution, $connector, $attachedto, $serial);
 }
 
 if (mysqli_stmt_execute($stmt)) {
