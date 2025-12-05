@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
 
-        fetch("http://localhost/src/modification_equipement.php", { method: "POST", body: formData })
+        fetch("http://localhost/modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
