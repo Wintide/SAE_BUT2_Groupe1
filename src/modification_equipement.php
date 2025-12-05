@@ -1,6 +1,7 @@
 <?php
-//error_reporting(E_ALL ^ E_NOTICE);
-//header("Content-type:application/json");
+error_reporting(E_ALL ^ E_NOTICE);
+header("Content-type:application/json");
+
 $host = "localhost";
 $user = "root";
 $pass = "root";
@@ -9,78 +10,85 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
-    echo "<script>console.log('erreur conn')</script>";
-    echo json_encode(["status"=>"error","message"=>"Connexion échouée"]);
+    echo json_encode(["status" => "error", "message" => "Connexion échouée"]);
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['cpu'])) {
-        $cpu = $_POST['cpu']; // Récupère la valeur du CPU sélectionné
-        echo "Le CPU sélectionné est : " . $cpu;
+    $type = isset($_POST["type"]) ? $_POST["type"] : null;
+    $serial = isset($_POST["serial"]) ? $_POST["serial"] : null;
+
+    // Vérification des variables de base
+    if (!$type || !$serial) {
+        echo json_encode(["status" => "error", "message" => "Données manquantes"]);
+        exit;
     }
-    if (isset($_POST['ram_mb'])) {
-        $ram = $_POST['ram_mb']; // Récupère la RAM sélectionnée
-        echo "La RAM sélectionnée est : " . $ram;
+
+    // Partie UC (Unité Centrale)
+    if ($type == "uc") {
+        $name = isset($_POST["name"]) ? $_POST["name"] : null;
+        $cpu = isset($_POST["cpu"]) ? $_POST["cpu"] : null;
+        $ram_mb = isset($_POST["ram_mb"]) ? $_POST["ram_mb"] : null;
+        $disk_gb = isset($_POST["disk_gb"]) ? $_POST["disk_gb"] : null;
+        $os = isset($_POST["os"]) ? $_POST["os"] : null;
+        $domain = isset($_POST["domain"]) ? $_POST["domain"] : null;
+        $location = isset($_POST["location"]) ? $_POST["location"] : null;
+        $building = isset($_POST["building"]) ? $_POST["building"] : null;
+        $room = isset($_POST["room"]) ? $_POST["room"] : null;
+        $warranty = isset($_POST["warranty"]) ? $_POST["warranty"] : null;
+
+        if (!$name || !$cpu || !$ram_mb || !$disk_gb || !$os || !$domain || !$location || !$building || !$room || !$warranty) {
+            echo json_encode(["status" => "error", "message" => "Données manquantes pour UC"]);
+            exit;
+        }
+
+        // Préparation de la requête
+        $sql = "UPDATE devices SET 
+                    name = ?, 
+                    cpu = ?, 
+                    ram_mb = ?, 
+                    disk_gb = ?, 
+                    os = ?, 
+                    domain = ?, 
+                    location = ?, 
+                    building = ?, 
+                    room = ?, 
+                    warranty_end = STR_TO_DATE(?, '%Y-%m-%d')
+                WHERE serial = ?";
+
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "sssssssssss", $name, $cpu, $ram_mb, $disk_gb, $os, $domain, $location, $building, $room, $warranty, $serial);
     }
-}
+    // Partie Moniteur
+    else if ($type == "monitor") {
+        $resolution = isset($_POST["resolution"]) ? $_POST["resolution"] : null;
+        $connector = isset($_POST["connector"]) ? $_POST["connector"] : null;
+        $attachedto = isset($_POST["attached_to"]) ? $_POST["attached_to"] : null;
 
+        if (!$resolution || !$connector || !$attachedto) {
+            echo json_encode(["status" => "error", "message" => "Données manquantes pour le moniteur"]);
+            exit;
+        }
 
+        // Préparation de la requête
+        $sql = "UPDATE monitors SET 
+                    resolution = ?, 
+                    connector = ?, 
+                    attached_to = ?
+                WHERE serial = ?";
 
-$type = $_POST["type"];
-$serial = $_POST["serial"];
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ssss", $resolution, $connector, $attachedto, $serial);
+    }
 
-if ($type == "uc") {
-    echo "<script>console.log('dans uc')</script>";
-    $name = $_POST["name"];
-    $cpu = $_POST["cpu"];
-    $ram_mb = $_POST["ram_mb"];
-    $disk_gb = $_POST["disk_gb"];
-    $os = $_POST["os"];
-    $domain = $_POST["domain"];
-    $location = $_POST["location"];
-    $building = $_POST["building"];
-    $room = $_POST["room"];
-    $warranty = $_POST["warranty"];
-    echo "<script>console.log('$warranty')</script>";
+    // Exécution de la requête
+    if (mysqli_stmt_execute($stmt)) {
+        echo json_encode(["status" => "success"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => mysqli_error($conn)]);
+    }
 
-    $sql = "UPDATE devices SET 
-                name = ?, 
-                cpu = ?,
-                ram_mb = ?,
-                disk_gb = ?,
-                os = ?,
-                domain = ?,
-                location = ?,
-                building = ?,
-                room = ?, 
-                warranty_end = to_date(?, 'yyyy-mm-dd')
-            WHERE serial = ?";
-
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sssssssssss", $name, $cpu, $ram_mb, $disk_gb, $os, $domain, $location, $building, $room, $warranty, $serial);
-}
-
-else if ($type == "monitor") {
-    echo "<script>console.log('dans monitor')</script>";
-    $resolution = $_POST["resolution"];
-    $connector = $_POST["connector"];
-    $attachedto = $_POST["attached_to"];
-
-    $sql = "UPDATE monitors SET 
-                resolution = ?, 
-                connector = ?,
-                attached_to = ?
-            WHERE serial = ?";
-
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $resolution, $connector, $attachedto, $serial);
-}
-
-if (mysqli_stmt_execute($stmt)) {
-    echo json_encode(["status"=>"success"]);
-} else {
-    echo json_encode(["status"=>"error","message"=>mysqli_error($conn)]);
+    mysqli_stmt_close($stmt);
 }
 
 mysqli_close($conn);
