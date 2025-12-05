@@ -16,6 +16,7 @@ $type = $_POST["type"];
 $serial = $_POST["serial"];
 
 if ($type == "uc") {
+    echo "<script>console.log('dans uc')</script>";
     $name = $_POST["name"];
     $cpu = $_POST["cpu"];
     $ram_mb = $_POST["ram_mb"];
@@ -26,7 +27,7 @@ if ($type == "uc") {
     $building = $_POST["building"];
     $room = $_POST["room"];
     $warranty = $_POST["warranty"];
-    echo "<script>console.log($warranty)</script>";
+    echo "<script>console.log('$warranty')</script>";
 
     $sql = "UPDATE devices SET 
                 name = ?, 
@@ -46,6 +47,7 @@ if ($type == "uc") {
 }
 
 else if ($type == "monitor") {
+    echo "<script>console.log('dans monitor')</script>";
     $resolution = $_POST["resolution"];
     $connector = $_POST["connector"];
     $attachedto = $_POST["attached_to"];
