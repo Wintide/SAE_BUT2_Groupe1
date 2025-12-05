@@ -122,10 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
         let formData = new FormData(this);
         console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
+        // Création de la requête XMLHttpRequest
+        let xhr = new XMLHttpRequest();
 
-        fetch("modification_equipement.php", { method: "POST", body: formData })
-            .then(res => res.json())
-            .then(data => {
+        // Configuration de la requête
+        xhr.open("POST", "modification_equipement.php", true);
+
+        // Définir le type de réponse attendu (JSON)
+        xhr.setRequestHeader("Accept", "application/json");
+
+        // Définition de la fonction de retour pour gérer la réponse
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Traitement des données JSON retournées
+                let data = JSON.parse(xhr.responseText);
+
                 if (data.status === "success") {
                     console.log('succes');
                     const serial = formData.get("serial");
@@ -159,8 +170,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     alert("Erreur : " + data.message);
                 }
-            }).catch(err => alert("Erreur de communication avec le serveur."));
+            } else {
+                alert("Erreur de communication avec le serveur.");
+            }
+        };
+
+        // Définir une fonction de gestion des erreurs
+        xhr.onerror = function() {
+            alert("Erreur de communication avec le serveur.");
+        };
+
+        // Envoi de la requête avec les données du formulaire
+        xhr.send(formData);
     });
+
 
 
 });
