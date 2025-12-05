@@ -118,8 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Soumission du form');
         e.preventDefault();
         let formData = new FormData(this);
+        console.log(formData);
 
-        fetch("src/modification_equipement.php", { method: "POST", body: formData })
+        fetch("modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
