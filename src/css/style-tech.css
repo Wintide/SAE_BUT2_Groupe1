@@ -370,6 +370,7 @@ footer p {
 .model-content label {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 8px;
     font-size: 14px;
 }
 
@@ -391,7 +392,6 @@ footer p {
 .field-uc, .field-monitor, .form-uc, .form-monitor {
     display: none;
     margin-top: 15px;
-    padding: 10px 0;
     border-top: 1px solid #ddd;
 }
 
