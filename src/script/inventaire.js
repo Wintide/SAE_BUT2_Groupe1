@@ -117,84 +117,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SOUMISSION FORMULAIRE MODIFICATION ---
     document.getElementById("edit-form")?.addEventListener("submit", function(e) {
-        e.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
         console.log('Soumission du form');
+        e.preventDefault();
+        let formData = new FormData(this);
+        console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
-        // Créer une nouvelle instance de XMLHttpRequest
-        var xhr = new XMLHttpRequest();
 
-        // Ouvrir une requête POST vers "modification_equipement.php"
-        xhr.open("POST", "modification_equipement.php", true);
+        fetch("modification_equipement.php", { method: "POST", body: formData })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    console.log('succes');
+                    const serial = formData.get("serial");
+                    const card = document.getElementById(serial);
 
-        // Définir l'en-tête de la requête pour indiquer qu'on envoie des données de formulaire
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    if (!card) return;
 
-        // Gestion de la réponse du serveur
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) { // Lorsque la requête est terminée
-                if (xhr.status === 200) { // Si la réponse du serveur est OK
-                    try {
-                        var response = JSON.parse(xhr.responseText); // Parse la réponse JSON du serveur
-
-                        if (response.status === "success") {
-                            console.log("Modification réussie");
-
-                            // Mettre à jour l'interface utilisateur avec les nouvelles valeurs
-                            const formData = new FormData(e.target);
-                            const serial = formData.get("serial");
-                            const card = document.getElementById(serial);
-
-                            if (card) {
-                                // Mise à jour des données de la carte dans l'UI
-                                if (formData.get("type") === "uc") {
-                                    card.dataset.name = formData.get("name");
-                                    card.dataset.cpu = formData.get("cpu");
-                                    card.dataset.ram_mb = formData.get("ram_mb");
-                                    card.dataset.disk_gb = formData.get("disk_gb");
-                                    card.dataset.os = formData.get("os");
-                                    card.dataset.domain = formData.get("domain");
-                                    card.dataset.location = formData.get("location");
-                                    card.dataset.room = formData.get("room");
-                                    card.dataset.warranty = formData.get("warranty");
-                                    card.querySelector("h3").innerText = formData.get("name");
-                                }
-
-                                if (formData.get("type") === "monitor") {
-                                    card.dataset.resolution = formData.get("resolution");
-                                    card.dataset.connector = formData.get("connector");
-                                    card.dataset.attached_to = formData.get("attached_to");
-                                    card.querySelector("h3").innerText = formData.get("model");
-                                }
-                            }
-
-                            // Fermer le modèle d'édition
-                            closeModel(document.getElementById("model-edit"));
-
-                        } else {
-                            alert("Erreur : " + response.message); // Afficher un message d'erreur
-                        }
-                    } catch (error) {
-                        console.error("Erreur lors de la réponse du serveur :", error);
-                        alert("Erreur de communication avec le serveur.");
+                    if (formData.get("type") === "uc") {
+                        console.log("Dans UC JS");
+                        card.dataset.name = formData.get("name");
+                        card.dataset.cpu = formData.get("cpu");
+                        card.dataset.ram_mb = formData.get("ram_mb");
+                        card.dataset.disk_gb = formData.get("disk_gb");
+                        card.dataset.os = formData.get("os");
+                        card.dataset.domain = formData.get("domain");
+                        card.dataset.location = formData.get("location");
+                        card.dataset.room = formData.get("room");
+                        card.dataset.warranty = formData.get("warranty");
+                        card.querySelector("h3").innerText = formData.get("name");
                     }
+
+                    if (formData.get("type") === "monitor") {
+                        console.log("Dans Monitor JS");
+                        card.dataset.resolution = formData.get("resolution");
+                        card.dataset.connector = formData.get("connector");
+                        card.dataset.attached_to = formData.get("attached_to");
+                        card.querySelector("h3").innerText = formData.get("model");
+                    }
+
+                    closeModel(document.getElementById("model-edit"));
                 } else {
-                    console.error("Erreur serveur : " + xhr.status);
-                    alert("Erreur de communication avec le serveur.");
+                    alert("Erreur : " + data.message);
                 }
-            }
-        };
-
-        // Créer les paramètres à envoyer au serveur en format URL-encoded
-        var formData = new FormData(this);
-        var params = new URLSearchParams();
-        formData.forEach((value, key) => {
-            params.append(key, value);
-        });
-
-        // Envoyer la requête avec les paramètres
-        xhr.send(params.toString());
+            }).catch(err => alert("Erreur de communication avec le serveur."));
     });
-
 
 
 });
