@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
+                    console.log('succes');
                     const serial = formData.get("serial");
                     const card = document.getElementById(serial);
 
