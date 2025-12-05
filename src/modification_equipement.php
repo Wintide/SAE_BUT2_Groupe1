@@ -9,6 +9,7 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
+    echo "<script>console.log('erreur conn')</script>";
     echo json_encode(["status"=>"error","message"=>"Connexion échouée"]);
     exit;
 }
