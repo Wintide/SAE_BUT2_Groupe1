@@ -1,3 +1,12 @@
+<html>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 header("Content-Type: application/json");
