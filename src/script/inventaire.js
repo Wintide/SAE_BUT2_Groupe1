@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("edit-form")?.addEventListener("submit", function(e) {
         console.log('Soumission du form');
         e.preventDefault();
-        console.log(this);
         let formData = new FormData(this);
+        console.log(formData.entries())
 
         fetch("modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
