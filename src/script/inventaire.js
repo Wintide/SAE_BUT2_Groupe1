@@ -122,8 +122,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let formData = new FormData(this);
         console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "modification_equipement.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-        fetch("http://localhost/modification_equipement.php", { method: "POST", body: formData })
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === "success") {
+                    console.log('Success avec XML');
+                    // Traite la réponse ici
+                } else {
+                    alert("Erreur : " + response.message);
+                }
+            }
+        };
+
+
+        fetch("modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
