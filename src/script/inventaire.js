@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(this);
         let formData = new FormData(this);
 
-        fetch("src/modification_equipement.php", { method: "POST", body: formData })
+        fetch("modification_equipement.php", { method: "POST", body: formData })
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
