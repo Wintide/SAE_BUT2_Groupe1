@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SOUMISSION FORMULAIRE MODIFICATION ---
     document.getElementById("edit-form")?.addEventListener("submit", function(e) {
+        console.log('Soumission du form');
         e.preventDefault();
         let formData = new FormData(this);
 
