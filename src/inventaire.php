@@ -273,7 +273,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <input type="text" name="name" id="edit-name">
 
                 <label>CPU :</label>
-                <select name="cpu" id="edit-cpu" class="styled-select" required>
+                <select name="cpu" id="edit-cpu" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_cpu as $el): ?>
                         <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
@@ -281,7 +281,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>RAM(mb) :</label>
-                <select name="ram_mb" id="edit-ram_mb" class="styled-select" required>
+                <select name="ram_mb" id="edit-ram_mb" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_ram_mb as $el): ?>
                         <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
@@ -289,7 +289,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Espace disque(gb) :</label>
-                <select name="disk_gb" id="edit-disk_gb" class="styled-select" required>
+                <select name="disk_gb" id="edit-disk_gb" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_disk_gb as $el): ?>
                         <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
@@ -297,7 +297,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Système d'exploitation :</label>
-                <select name="os" id="edit-os" class="styled-select" required>
+                <select name="os" id="edit-os" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_os as $el): ?>
                         <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
@@ -305,7 +305,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Domaine :</label>
-                <select name="domain" id="edit-domain" class="styled-select" required>
+                <select name="domain" id="edit-domain" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_domain as $el): ?>
                         <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
@@ -314,7 +314,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
 
                 <label>Localisation :</label>
-                <select name="location" id="edit-location" class="styled-select" required>
+                <select name="location" id="edit-location" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_location as $el): ?>
                         <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
@@ -322,7 +322,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Batiment :</label>
-                <select name="building" id="edit-building" class="styled-select" required>
+                <select name="building" id="edit-building" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_building as $el): ?>
                         <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
@@ -330,7 +330,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Salle :</label>
-                <select name="room" id="edit-room" class="styled-select" required>
+                <select name="room" id="edit-room" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($devices_room as $el): ?>
                         <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
@@ -344,7 +344,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
             <!-- Moniteur -->
             <div class="form-monitor">
                 <label>Resolution :</label>
-                <select name="resolution" id="edit-resolution" class="styled-select" required>
+                <select name="resolution" id="edit-resolution" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($monitor_resolution as $el): ?>
                         <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
@@ -352,7 +352,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Connecteur :</label>
-                <select name="connector" id="edit-connector" class="styled-select" required>
+                <select name="connector" id="edit-connector" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($monitor_connector as $el): ?>
                         <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
@@ -360,7 +360,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label>Connecté à :</label>
-                <select name="attached_to" id="edit-attached_to" class="styled-select" required>
+                <select name="attached_to" id="edit-attached_to" class="styled-select">
                     <option value="">-- Sélectionner --</option>
                     <?php foreach ($monitor_attach as $el): ?>
                         <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>
