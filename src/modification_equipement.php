@@ -26,6 +26,7 @@ if ($type == "uc") {
     $building = $_POST["building"];
     $room = $_POST["room"];
     $warranty = $_POST["warranty"];
+    echo "<script>console.log($warranty)</script>";
 
     $sql = "UPDATE devices SET 
                 name = ?, 
