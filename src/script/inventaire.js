@@ -118,9 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SOUMISSION FORMULAIRE MODIFICATION ---
     document.getElementById("edit-form")?.addEventListener("submit", function(e) {
         console.log('Soumission du form');
-        e.preventDefault();
-        let formData = new FormData(this);
-        console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "modification_equipement.php", true);
@@ -138,44 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
+        var formData = new FormData(document.getElementById("edit-form"));
 
-        fetch("modification_equipement.php", { method: "POST", body: formData })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === "success") {
-                    console.log('succes');
-                    const serial = formData.get("serial");
-                    const card = document.getElementById(serial);
+// Construire la chaîne de données à envoyer (similaire à ce que fait FormData)
+        var params = new URLSearchParams();
+        formData.forEach((value, key) => {
+            params.append(key, value);
+        });
 
-                    if (!card) return;
+        xhr.send(params.toString());
 
-                    if (formData.get("type") === "uc") {
-                        console.log("Dans UC JS");
-                        card.dataset.name = formData.get("name");
-                        card.dataset.cpu = formData.get("cpu");
-                        card.dataset.ram_mb = formData.get("ram_mb");
-                        card.dataset.disk_gb = formData.get("disk_gb");
-                        card.dataset.os = formData.get("os");
-                        card.dataset.domain = formData.get("domain");
-                        card.dataset.location = formData.get("location");
-                        card.dataset.room = formData.get("room");
-                        card.dataset.warranty = formData.get("warranty");
-                        card.querySelector("h3").innerText = formData.get("name");
-                    }
 
-                    if (formData.get("type") === "monitor") {
-                        console.log("Dans Monitor JS");
-                        card.dataset.resolution = formData.get("resolution");
-                        card.dataset.connector = formData.get("connector");
-                        card.dataset.attached_to = formData.get("attached_to");
-                        card.querySelector("h3").innerText = formData.get("model");
-                    }
 
-                    closeModel(document.getElementById("model-edit"));
-                } else {
-                    alert("Erreur : " + data.message);
-                }
-            }).catch(err => alert("Erreur de communication avec le serveur."));
     });
 
 
