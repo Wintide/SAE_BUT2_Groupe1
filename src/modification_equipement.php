@@ -1,15 +1,6 @@
-<html>
-<body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-
-</body>
-</html>
-
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-header("Content-Type: application/json");
+header("Content-type:application/json");
 $host = "localhost";
 $user = "root";
 $pass = "root";
@@ -22,6 +13,12 @@ if (!$conn) {
     echo json_encode(["status"=>"error","message"=>"Connexion échouée"]);
     exit;
 }
+
+if (isset($_POST['cpu'])) {
+    $cpu = $_POST['cpu'];
+    echo "Le CPU sélectionné est : " . $cpu;
+}
+
 
 $type = $_POST["type"];
 $serial = $_POST["serial"];
