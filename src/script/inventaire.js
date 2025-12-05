@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!card) return;
 
                     if (formData.get("type") === "uc") {
+                        console.log("Dans UC JS");
                         card.dataset.name = formData.get("name");
                         card.dataset.cpu = formData.get("cpu");
                         card.dataset.ram_mb = formData.get("ram_mb");
@@ -139,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     if (formData.get("type") === "monitor") {
+                        console.log("Dans Monitor JS");
                         card.dataset.resolution = formData.get("resolution");
                         card.dataset.connector = formData.get("connector");
                         card.dataset.attached_to = formData.get("attached_to");
