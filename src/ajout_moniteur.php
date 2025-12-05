@@ -28,7 +28,8 @@ $result = mysqli_query($conn, $insert_query);
 
 if ($result) {
     //echo "<script>alert('Moniteur de numéro de série " . $serial . " ajouté avec succès');</script>";
-    header("Location: ajout_avec_formulaire.php?");
+    header("Location: ajout_avec_formulaire.php");
 } else {
     echo "Erreur : " . mysqli_error($conn);
 }
+
