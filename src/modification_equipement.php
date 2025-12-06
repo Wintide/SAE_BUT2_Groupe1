@@ -18,13 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = isset($_POST["type"]) ? $_POST["type"] : null;
     $serial = isset($_POST["serial"]) ? $_POST["serial"] : null;
 
-    // Vérification des variables de base
     if (!$type || !$serial) {
         echo json_encode(["status" => "error", "message" => "Données manquantes"]);
         exit;
     }
 
-    // Partie UC (Unité Centrale)
     if ($type == "uc") {
         $name = isset($_POST["name"]) ? $_POST["name"] : null;
         $cpu = isset($_POST["cpu"]) ? $_POST["cpu"] : null;
@@ -42,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Préparation de la requête
         $sql = "UPDATE devices SET 
                     name = ?, 
                     cpu = ?, 
@@ -59,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "sssssssssss", $name, $cpu, $ram_mb, $disk_gb, $os, $domain, $location, $building, $room, $warranty, $serial);
     }
-    // Partie Moniteur
+
     else if ($type == "monitor") {
         $resolution = isset($_POST["resolution"]) ? $_POST["resolution"] : null;
         $connector = isset($_POST["connector"]) ? $_POST["connector"] : null;
@@ -70,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Préparation de la requête
         $sql = "UPDATE monitors SET 
                     resolution = ?, 
                     connector = ?, 

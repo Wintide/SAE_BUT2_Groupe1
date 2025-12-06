@@ -120,21 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Soumission du form');
         e.preventDefault();
         let formData = new FormData(this);
-        console.log([...formData.entries()]); // Affiche toutes les paires clé/valeur envoyées
 
-        // Création de la requête XMLHttpRequest
         let xhr = new XMLHttpRequest();
 
-        // Configuration de la requête
         xhr.open("POST", "modification_equipement.php", true);
 
-        // Définir le type de réponse attendu (JSON)
         xhr.setRequestHeader("Accept", "application/json");
 
-        // Définition de la fonction de retour pour gérer la réponse
         xhr.onload = function() {
             if (xhr.status === 200) {
-                // Traitement des données JSON retournées
+
                 let data = JSON.parse(xhr.responseText);
 
                 if (data.status === "success") {
@@ -153,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.dataset.os = formData.get("os");
                         card.dataset.domain = formData.get("domain");
                         card.dataset.location = formData.get("location");
+                        card.dataset.building = formData.get("building");
                         card.dataset.room = formData.get("room");
                         card.dataset.warranty = formData.get("warranty");
                         card.querySelector("h3").innerText = formData.get("name");
@@ -175,12 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Définir une fonction de gestion des erreurs
         xhr.onerror = function() {
             alert("Erreur de communication avec le serveur.");
         };
 
-        // Envoi de la requête avec les données du formulaire
         xhr.send(formData);
     });
 
