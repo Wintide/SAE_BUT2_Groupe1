@@ -68,11 +68,6 @@ new Chart(ctx, {
         plugins: {
             legend: {
                 display: true
-            },
-            title: {
-                display: true,
-                text: 'Pourcentage de pc selon les locations',
-                fontSize: 16
             }
         }
     }
