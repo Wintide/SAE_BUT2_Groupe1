@@ -1,9 +1,3 @@
-<?php session_start();
-if (empty($_SESSION['role']) ||($_SESSION['role'] === 'administrateur_web')) {
-    header("Location: index.php");
-    exit();
-}
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
