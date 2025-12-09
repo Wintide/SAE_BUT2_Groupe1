@@ -1,10 +1,15 @@
-
+<?php session_start();
+if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Inventaire - Vines</title>
-    <link rel="stylesheet" href="css/style-tech.css">
+    <link rel="stylesheet" href="css/style-adminweb.css">
     <script src="script/chart.js"></script>
 </head>
 <body>
