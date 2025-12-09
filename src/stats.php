@@ -57,7 +57,7 @@
                 echo "<script> 
 const ctx = document.getElementById('chart1');
 new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: xValues,
         datasets: [{
