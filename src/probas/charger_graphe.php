@@ -48,6 +48,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 <?php
 $select = $_POST["stats"];
 
+echo "$select";
+
 $command = escapeshellcmd('../../sae/bin/python '.$select);
 $output = shell_exec($command);
 
