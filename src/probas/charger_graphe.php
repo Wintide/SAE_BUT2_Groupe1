@@ -64,14 +64,14 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
     ?>
     <form name="form-stats" id="form-stats" method="post" action="">
     <select name="stats" id="stats">
-        <option value="">-- Sélectionner le script --</option>
+        <option value="">Sélectionner le script</option>
         <?php foreach ($liste_scripts as $script): ?>
             <option value="<?= $script ?>"><?= $script ?></option>
         <?php endforeach; ?>
     </select>
 
     <select name="attribut" id="attribut">
-        <option value="">-- Sélectionner un attribut (si besoin) --</option>
+        <option value="">Sélectionner un attribut (si besoin)</option>
         <?php foreach ($colonnes as $col): ?>
             <option value="<?= $col ?>"><?= $col ?></option>
         <?php endforeach; ?>
