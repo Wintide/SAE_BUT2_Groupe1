@@ -9,7 +9,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 <head>
     <meta charset="UTF-8">
     <title>Inventaire - Vines</title>
-    <link rel="stylesheet" href="css/style-adminweb.css">
+    <link rel="stylesheet" href="../css/style-adminweb.css">
 </head>
 <body>
 <header>
