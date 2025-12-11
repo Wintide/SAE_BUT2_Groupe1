@@ -162,7 +162,6 @@ label {
 }
 
 input {
-    width: 100%;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -234,5 +233,33 @@ footer p {
     font-size: 13px;
     margin: 10px 0 0 0;
 }
+
+#form-stats {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#form-stats label {
+    text-align: center;
+    margin: 0 5px;
+}
+
+#form-stats select {
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+input:not([type="submit"]) {
+    width: 100%;
+}
+
 
 

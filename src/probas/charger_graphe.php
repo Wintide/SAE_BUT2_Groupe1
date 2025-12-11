@@ -70,14 +70,17 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
                 <option value="<?= $script ?>"><?= $script ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="attribut">Choix de l'attribut : </label>
-        <select name="attribut" id="attribut">
-            <option value="">Sélectionner un attribut (si besoin)</option>
-            <?php foreach ($colonnes as $col): ?>
-                <option value="<?= $col ?>"><?= $col ?></option>
-            <?php endforeach; ?>
-        </select>
+        <div id="attribut-container" style="display:none;">
+            <label for="attribut">Choix de l'attribut : </label>
+            <select name="attribut" id="attribut">
+                <option value="">Sélectionner un attribut (si besoin)</option>
+                <?php foreach ($colonnes as $col): ?>
+                    <option value="<?= $col ?>"><?= $col ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
 
+        <br>
         <input type="submit" value="Valider">
     </form>
 
@@ -95,8 +98,23 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
     $output = shell_exec($command);
 }
 ?>
+    <script>
+        document.getElementById("stats").addEventListener("change", function () {
+            const attributContainer = document.getElementById("attribut-container");
 
-<img src = "../images/graphe.png" alt="graphe" width="800" id="graphe">
+            if (this.value === "repartition_de.py") {
+                attributContainer.style.display = "block";
+            } else {
+                attributContainer.style.display = "none";
+                document.getElementById("attribut").value = ""; // reset
+            }
+        });
+    </script>
+
+    <?php if (!empty($_POST['stats'])): ?>
+        <img src="../images/graphe.png" alt="graphe" width="800" id="graphe">
+    <?php endif; ?>
+
 
 </body>
 <footer>
