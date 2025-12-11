@@ -11,7 +11,7 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-cursor.execute("SELECT MAX(duration_seconds) FROM users")
+cursor.execute("SELECT MAX(duration_seconds) FROM connexions")
 max_value = cursor.fetchone()[0]
 
 intervalles = []
@@ -46,4 +46,5 @@ plt.savefig('../../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
