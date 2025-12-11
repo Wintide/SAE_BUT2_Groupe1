@@ -6,7 +6,7 @@ PERES Thomas
 
 **Documentation** Plateforme de gestion de parc informatique
 
-![Logo](logo.jpg)
+![Logo](images/logo.jpg)
 
 **Sommaire**
 
