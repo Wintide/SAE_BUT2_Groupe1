@@ -15,7 +15,7 @@ PERES Thomas
 - [Administrateur web](#administrateur-web)
 - [Technicien](#technicien)
 - [Diagramme des cas d'utilisation (UML)](#diagramme-des-cas-dutilisation-uml)
-- [Modèle logique des données](#modèle-logique-des-donnees)
+- [Modèle logique des données](#modèle-logique-des-données)
 
 ---
 
