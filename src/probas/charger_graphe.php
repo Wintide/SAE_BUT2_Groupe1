@@ -36,36 +36,19 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
     ?>
-    <form name="form-stats" id="form-stats">
+    <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
         <select name="stats" id="stats">
             <option value="NULL">-- Sélectionner --</option>
             <?php foreach ($liste_scripts as $script): ?>
                 <option value="<?= $script ?>"><?= $script ?></option>
             <?php endforeach; ?>
         </select>
+        <input type="submit" value="Valider">
     </form>
-    <script>
-        let formulaire = document.getElementById("form-stats");
-        formulaire.addEventListener("change",(event) => {
-            let graphe = document.getElementById("graphe");
-            graphe.setAttribute("src","../images/graphe.png")
-            let select = document.querySelector("#stats")
-            let valeur = select.value;
-
-            let xhr = new XMLHttpRequest()
-            xhr.open("POST", "execute_python.php", true);
-            xhr.setRequestHeader("Accept", "application/json");
-
-            xhr.onload = function () {
-                if (xhr.status === 200){
-                    xhr.send(valeur)
-                }
-            }
-        })
-    </script>
 <?php
+$select = $_POST["stats"];
 
-$command = escapeshellcmd('../../sae/bin/python template_test.py');
+$command = escapeshellcmd('../../sae/bin/python '.$select);
 $output = shell_exec($command);
 
 ?>
