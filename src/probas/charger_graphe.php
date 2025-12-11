@@ -43,7 +43,7 @@ if (!$conn) {
     echo "<script>console.log('Connecté au serveur !');</script>";
 }
 
-// On recupère les colonnes de devices
+// On recupère les colonnes de devices pour le menu déroulant de sélection des attributs
 $columns_query = mysqli_query($conn, "SHOW COLUMNS FROM devices");
 $colonnes = [];
 while ($row = mysqli_fetch_assoc($columns_query)) {
