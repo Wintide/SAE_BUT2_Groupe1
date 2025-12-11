@@ -10,7 +10,7 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
-cursor.execute("SELECT duration_seconds FROM users")
+cursor.execute("SELECT duration_seconds FROM connexions")
 
 res = cursor.fetchall()
 
@@ -27,8 +27,9 @@ plt.boxplot(df['duration_seconds'], vert=True)
 plt.title("Boxplot des durées de connexions")
 plt.ylabel("Durée (en secondes)")
 
-plt.savefig('../../images/graphe.png')
+plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
