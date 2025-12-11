@@ -10,7 +10,7 @@ PERES Thomas
 
 **Sommaire**
 
-- [Information préalables](#informations-préalables-:)  
+- [Informations préalables](#informations-préalables) 
   - [Raspberry PI](#raspberry-pi-:)  
   - [Page d'accueil du site Web](#page-d’accueil-du-site-web-:-http://rpi10)  
   - [MariaDB](#mariadb-:)  
