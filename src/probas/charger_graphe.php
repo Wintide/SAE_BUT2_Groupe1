@@ -95,7 +95,7 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
 }
 ?>
 
-<img src = "../images/graphe.png" width="800" id="graphe">
+<img src = "../images/graphe.png" alt="graphe" width="800" id="graphe">
 
 </body>
 <footer>
