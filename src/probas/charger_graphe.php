@@ -14,15 +14,15 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 <body>
 <header>
     <div class="header-content">
-        <img src="images/logovines.png" alt="Logo Vines" class="logo">
+        <img src="../images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
-            <a href="index.php" class="center-link">Accueil</a>
-            <a href="webadmin.php" class="center-link">Admin web</a>
+            <a href="../index.php" class="center-link">Accueil</a>
+            <a href="../webadmin.php" class="center-link">Admin web</a>
 
             <div class="right-link">
                 <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
                 <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
-                    <a href="logout.php">Déconnexion</a>
+                    <a href="../logout.php">Déconnexion</a>
                 </div>
             </div>
         </nav>
@@ -40,4 +40,32 @@ $output = shell_exec($command);
 <img src = "../images/graphe.png">
 
 </body>
+<footer>
+    <div class="footer-columns">
+        <div>
+            <h4>Assistance</h4>
+            <ul>
+                <li><a href="#">Problèmes de connexion</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Informations</h4>
+            <ul>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Mentions légales</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Nos Contacts</h4>
+            <ul>
+                <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
+                <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="copyright">
+        &copy; 2025 Vines - Tous droits réservés
+    </p>
+</footer>
+<script src="../script/deconnexion.js" defer></script>
 </html>
