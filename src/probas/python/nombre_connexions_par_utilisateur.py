@@ -11,15 +11,15 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-cursor.execute("SELECT login, COUNT(*) AS connexions FROM users GROUP BY login")
+cursor.execute("SELECT login, COUNT(*) AS conn FROM connexions GROUP BY login")
 result = cursor.fetchall()
 
 cursor.close()
 
-df = pd.DataFrame(result, columns=['login', 'connexions'])
+df = pd.DataFrame(result, columns=['login', 'conn'])
 
 plt.figure(figsize=(10, 6))
-plt.bar(df['login'], df['connexions'])
+plt.bar(df['login'], df['conn'])
 plt.title("Nombre de connexions par utilisateur")
 plt.xlabel("Utilisateur")
 plt.ylabel("Connexions")
@@ -27,7 +27,7 @@ plt.xticks(rotation=45)
 
 plt.tight_layout()
 
-plt.savefig('../../images/graphe.png')
+plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
