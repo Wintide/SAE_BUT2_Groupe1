@@ -14,7 +14,7 @@ cursor = db.cursor()
 cursor.execute("SELECT COUNT(*) FROM devices")
 nb_uc = cursor.fetchone()[0]
 
-cursor.execute("SELECT COUNT(*) FROM moniteurs")
+cursor.execute("SELECT COUNT(*) FROM monitors")
 nb_moniteurs = cursor.fetchone()[0]
 
 cursor.close()
