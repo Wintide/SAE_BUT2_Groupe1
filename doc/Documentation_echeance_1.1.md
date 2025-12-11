@@ -10,20 +10,20 @@ PERES Thomas
 
 # Sommaire
 - [Informations préalables](#informations-préalables)
-  - [Raspberry PI](#raspberry-pi)
+  - [Raspberry PI](#raspberry-pi)
   - [Page d'accueil du site Web](#page-daccueil-du-site-web)
   - [MariaDB](#mariadb)
   - [Page PhpMyAdmin](#page-phpmyadmin)
 - [Utilisation](#utilisation)
   - [Fail2Ban](#fail2ban)
-  - [MariaDB - Utilisation](#mariadb-utilisation)
-  - [PhpMyAdmin](#phpmyadmin-utilisation)
+  - [MariaDB - Utilisation](#mariadb--utilisation)
+  - [PhpMyAdmin - Utilisation](#phpmyadmin--utilisation)
 - [Technique](#technique)
-  - [Raspberry PI](#raspberry-pi-technique)
-  - [Fail2Ban](#fail2ban-technique)
+  - [Raspberry PI (Technique)](#raspberry-pi-technique)
+  - [Fail2Ban (Technique)](#fail2ban-technique)
   - [Apache](#apache)
-  - [MariaDB - Installation & Configuration](#mariadb-technique)
-  - [PhpMyAdmin](#phpmyadmin-technique)
+  - [MariaDB - Installation & Configuration](#mariadb--installation--configuration)
+  - [PhpMyAdmin (Technique)](#phpmyadmin-technique)
 
 ---
 
