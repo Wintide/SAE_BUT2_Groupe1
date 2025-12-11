@@ -19,7 +19,7 @@
                         <a href="inventaire.php" class="center-link">Inventaire</a>
                     <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
                         <a href="webadmin.php" class="center-link">Admin web</a>
-                        <a href="stats.php" class="center-link">Stats</a>
+                        <a href="probas/charger_graphe.php" class="center-link">Statistique</a>
                     <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
                         <a href="webadmin.php" class="center-link">Admin systeme</a>
                     <?php endif; ?>
