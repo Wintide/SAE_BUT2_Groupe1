@@ -11,7 +11,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <title>Inventaire - Vines</title>
     <link rel="stylesheet" href="../css/style-adminweb.css">
 </head>
-<body>
 <header>
     <div class="header-content">
         <img src="../images/logovines.png" alt="Logo Vines" class="logo">
@@ -45,15 +44,28 @@ if (!$conn) {
 
 // On recupère les colonnes de devices pour le menu déroulant de sélection des attributs
 $columns_query = mysqli_query($conn, "SHOW COLUMNS FROM devices");
-$colonnes = [];
+$colonnes_devices = [];
 while ($row = mysqli_fetch_assoc($columns_query)) {
     $field = $row['Field'];
     // Il faut ignorer ces attributs car leur répartition n'est pas intéressante
     if (!in_array($field, ['name', 'serial', 'macaddr','purchase_date','warranty_end','room'])) {
-        $colonnes[] = $field;
+        $colonnes_devices[] = $field;
+    }
+}
+
+// On recupère les colonnes de monitors pour le menu déroulant de sélection des attributs
+$columns_query = mysqli_query($conn, "SHOW COLUMNS FROM monitors");
+$colonnes_monitors = [];
+while ($row = mysqli_fetch_assoc($columns_query)) {
+    $field = $row['Field'];
+    // Il faut ignorer ces attributs car leur répartition n'est pas intéressante
+    if (!in_array($field, ['serial', 'attached_to'])) {
+        $colonnes_monitors [] = $field;
     }
 }
 ?>
+
+
 <body>
     <h1> Statistique </h1>
     <?php
@@ -62,7 +74,7 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
     $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
     ?>
-    <form name="form-stats" id="form-stats" method="post" action="">
+    <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
         <label for="stats">Choix du graphe : </label>
         <select name="stats" id="stats">
             <option value="">Sélectionner le script</option>
@@ -70,11 +82,20 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
                 <option value="<?= $script ?>"><?= $script ?></option>
             <?php endforeach; ?>
         </select>
-        <div id="attribut-container" style="display:none;">
+        <div id="attribut-container-devices" style="display:none;">
             <label for="attribut">Choix de l'attribut : </label>
             <select name="attribut" id="attribut">
                 <option value="">Sélectionner un attribut (si besoin)</option>
-                <?php foreach ($colonnes as $col): ?>
+                <?php foreach ($colonnes_devices as $col): ?>
+                    <option value="<?= $col ?>"><?= $col ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div id="attribut-container-monitors" style="display:none;">
+            <label for="attribut">Choix de l'attribut : </label>
+            <select name="attribut" id="attribut">
+                <option value="">Sélectionner un attribut (si besoin)</option>
+                <?php foreach ($colonnes_monitors  as $col): ?>
                     <option value="<?= $col ?>"><?= $col ?></option>
                 <?php endforeach; ?>
             </select>
@@ -100,12 +121,20 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
 ?>
     <script>
         document.getElementById("stats").addEventListener("change", function () {
-            const attributContainer = document.getElementById("attribut-container");
+            const attributContainerDevices = document.getElementById("attribut-container-devices");
+            const attributContainerMonitors = document.getElementById("attribut-container-monitors");
 
             if (this.value === "repartition_de.py") {
-                attributContainer.style.display = "block";
-            } else {
-                attributContainer.style.display = "none";
+                attributContainerDevices.style.display = "block";
+                attributContainerMonitors.style.display = "none"
+            }
+            else if (this.value === "repartition_moniteur_de.py") {
+                attributContainerMonitors.style.display = "block"
+                attributContainerDevices.style.display = "none";
+            }
+            else {
+                attributContainerMonitors.style.display = "none"
+                attributContainerDevices.style.display = "none";
                 document.getElementById("attribut").value = ""; // reset
             }
         });
