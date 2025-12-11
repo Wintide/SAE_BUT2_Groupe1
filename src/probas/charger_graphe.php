@@ -44,7 +44,7 @@ $command = escapeshellcmd('../../sae/bin/python template_test.py');
 $output = shell_exec($command);
 
 ?>
-<img src = "../images/graphe.png">
+<img src = "../images/graphe.png" width="800">
 
 </body>
 <footer>
