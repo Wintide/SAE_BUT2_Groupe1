@@ -31,10 +31,12 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 <body>
     <h1> Statistique </h1>
     <?php
-    $repertoire = "/python";
-    echo "<script>console.log($repertoire)</script>";
+    $repertoire = "./python";
     $liste_scripts = scandir($repertoire);
-    echo "<script>console.log($liste_scripts)</script>";
+
+    foreach ($liste_scripts as $script) {
+        echo $script;
+    }
 
     ?>
     <form name="form-stats" id="form-stats">
