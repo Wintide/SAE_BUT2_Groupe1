@@ -44,14 +44,32 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
             <?php endforeach; ?>
         </select>
     </form>
-<?php
+    <script>
+        let formulaire = document.getElementById("form-stats");
+        formulaire.addEventListener("change",(event) => {
+            let graphe = document.getElementById("graphe");
+            graphe.setAttribute("src","../images/graphe.png")
+            let select = document.querySelector("#stats")
+            let valeur = select.value;
 
+            let xhr = new XMLHttpRequest()
+            xhr.open("POST", "execute_python.php", true);
+            xhr.setRequestHeader("Accept", "application/json");
+
+            xhr.onload = function () {
+                if (xhr.status === 200){
+                    xhr.send(valeur)
+                }
+            }
+        })
+    </script>
+<?php
 
 $command = escapeshellcmd('../../sae/bin/python template_test.py');
 $output = shell_exec($command);
 
 ?>
-<img src = "../images/graphe.png" width="800">
+<img src = "../images/graphe.png" width="800" id="graphe">
 
 </body>
 <footer>
