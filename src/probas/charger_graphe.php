@@ -28,6 +28,33 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         </nav>
     </div>
 </header>
+
+<?php
+// Connexion à la BD
+$host = "localhost";
+$user = "root";
+$pass = "root";
+$db = "vines";
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+if (!$conn) {
+    echo "<script>console.log('Erreur connexion serveur');</script>";
+} else {
+    echo "<script>console.log('Connecté au serveur !');</script>";
+}
+
+// On recupère les colonnes de devices
+$columns_query = mysqli_query($conn, "SHOW COLUMNS FROM devices");
+$colonnes = [];
+while ($row = mysqli_fetch_assoc($columns_query)) {
+    $field = $row['Field'];
+    // Il faut ignorer ces attributs car leur répartition n'est pas intéressante
+    if (!in_array($field, ['macaddr','purchase_date','warranty_end','room'])) {
+        $colonnes[] = $field;
+    }
+}
+?>
+
 <body>
     <h1> Statistique </h1>
     <?php
@@ -36,23 +63,39 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
     ?>
-    <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
-        <select name="stats" id="stats">
-            <option value="NULL">-- Sélectionner --</option>
-            <?php foreach ($liste_scripts as $script): ?>
-                <option value="<?= $script ?>"><?= $script ?></option>
-            <?php endforeach; ?>
-        </select>
-        <input type="submit" value="Valider">
-    </form>
+    <form name="form-stats" id="form-stats" method="post" action="">
+    <select name="stats" id="stats">
+        <option value="">-- Sélectionner le script --</option>
+        <?php foreach ($liste_scripts as $script): ?>
+            <option value="<?= $script ?>"><?= $script ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <select name="attribut" id="attribut">
+        <option value="">-- Sélectionner un attribut (si besoin) --</option>
+        <?php foreach ($colonnes as $col): ?>
+            <option value="<?= $col ?>"><?= $col ?></option>
+        <?php endforeach; ?>
+    </select>
+
+    <input type="submit" value="Valider">
+</form>
+
 <?php
-$select = $_POST["stats"];
+if (isset($_POST['stats']) && !empty($_POST['stats'])) {
+    $select = $_POST['stats'];
 
-$command = escapeshellcmd("../../sae/bin/python python/$select");
-echo $command;
-$output = shell_exec($command);
+    if (!empty($_POST['attribut'])) { // cas où une option du menu déroulant des attributs a été selectionnée
+        $attr = $_POST['attribut'];
+        $command = "../../sae/bin/python python/$select $attr";
+    } else {
+        $command = "../../sae/bin/python python/$select";
+    }
 
+    $output = shell_exec($command);
+}
 ?>
+
 <img src = "../images/graphe.png" width="800" id="graphe">
 
 </body>
