@@ -10,9 +10,9 @@ PERES Thomas
 
 # Sommaire
 - [Informations préalables](#informations-préalables)
-  - [Raspberry PI](##raspberry-pi)
-  - [Page d'accueil du site Web](##page-daccueil-du-site-web)
-  - [MariaDB](##mariadb)
+  - [Raspberry PI](#raspberry-pi)
+  - [Page d'accueil du site Web](#page-d'accueil-du-site-web)
+  - [MariaDB](#mariadb)
   - [Page PhpMyAdmin](#page-phpmyadmin)
 - [Utilisation](#utilisation)
   - [Fail2Ban](#fail2ban)
