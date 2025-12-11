@@ -49,12 +49,11 @@ $colonnes = [];
 while ($row = mysqli_fetch_assoc($columns_query)) {
     $field = $row['Field'];
     // Il faut ignorer ces attributs car leur répartition n'est pas intéressante
-    if (!in_array($field, ['macaddr','purchase_date','warranty_end','room'])) {
+    if (!in_array($field, ['name', 'serial', 'macaddr','purchase_date','warranty_end','room'])) {
         $colonnes[] = $field;
     }
 }
 ?>
-
 <body>
     <h1> Statistique </h1>
     <?php
