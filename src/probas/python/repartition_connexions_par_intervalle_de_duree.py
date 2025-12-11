@@ -23,7 +23,7 @@ while debut < max_value:
 
 counts = []
 for start, end in intervalles:
-    cursor.execute("SELECT COUNT(*) FROM users WHERE duration_seconds >= " + debut + " AND duration_seconds < " + fin)
+    cursor.execute("SELECT COUNT(*) FROM connexions WHERE duration_seconds >= " + debut + " AND duration_seconds < " + fin)
     counts.append(cursor.fetchone()[0])
 
 cursor.close()
@@ -46,6 +46,7 @@ plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
 
 
