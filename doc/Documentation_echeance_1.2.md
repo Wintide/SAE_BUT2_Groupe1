@@ -11,11 +11,11 @@ PERES Thomas
 
 ---
 # Sommaire
-- [Rappel : Méthode de connexion](#rappel--methode-de-connexion)
+- [Rappel : Méthode de connexion](#rappel--méthode-de-connexion)
 - [Administrateur web](#administrateur-web)
 - [Technicien](#technicien)
 - [Diagramme des cas d'utilisation (UML)](#diagramme-des-cas-dutilisation-uml)
-- [Modèle logique des données](#modele-logique-des-donnees)
+- [Modèle logique des données](#modèle-logique-des-donnees)
 
 ---
 
