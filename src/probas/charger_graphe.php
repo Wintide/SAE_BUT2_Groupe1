@@ -33,10 +33,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <?php
     $repertoire = "./python";
     $liste_scripts = scandir($repertoire);
-
-    foreach ($liste_scripts as $script) {
-        echo $script;
-    }
+    $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
     ?>
     <form name="form-stats" id="form-stats">
