@@ -10,7 +10,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <meta charset="UTF-8">
     <title>Inventaire - Vines</title>
     <link rel="stylesheet" href="css/style-adminweb.css">
-    <script src="script/chart.js"></script>
 </head>
 <body>
 <header>
