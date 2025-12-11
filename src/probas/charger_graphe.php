@@ -30,11 +30,17 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 </header>
 <body>
     <h1> Statistique </h1>
+    <?php
+    $repertoire = "/python/";
+    $liste_scripts = scandir($repertoire);
+
+    ?>
     <form name="form-stats" id="form-stats">
         <select name="stats" id="stats">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
+            <option value="NULL">-- Sélectionner --</option>
+            <?php foreach ($liste_scripts as $script): ?>
+                <option value="<?= $script ?>"><?= $script ?></option>
+            <?php endforeach; ?>
         </select>
     </form>
 <?php
