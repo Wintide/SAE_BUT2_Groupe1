@@ -32,6 +32,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <h1> Statistique </h1>
     <?php
     $repertoire = "probas/python";
+    echo "<script>console.log($repertoire)</script>";
     $liste_scripts = scandir($repertoire);
     echo "<script>console.log($liste_scripts)</script>";
 
