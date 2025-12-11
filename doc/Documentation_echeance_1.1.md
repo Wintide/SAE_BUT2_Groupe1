@@ -28,7 +28,7 @@ PERES Thomas
 
 ## 
 
-## **Informations préalables :**  {#informations-préalables-:}
+## **Informations préalables :**  {#informations-préalables}
 
 - ### Raspberry PI : {#raspberry-pi-:}
 
