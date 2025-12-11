@@ -29,6 +29,6 @@ plt.pie(df['nombre'], labels=df['type'], startangle=90)
 plt.title("Répartition des machines entre UC et moniteurs")
 plt.axis('equal')
 
-plt.savefig('../../images/graphe.png')
+plt.savefig('graphe.png')
 plt.show()
 plt.close()
