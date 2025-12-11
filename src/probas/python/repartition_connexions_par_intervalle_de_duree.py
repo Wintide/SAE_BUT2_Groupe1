@@ -30,7 +30,7 @@ cursor.close()
 
 labels = []
 for el in intervalles:
-    labels.append(el[0] + " - " + el[1] + "s")
+    labels.append(str(el[0]) + " - " + str(el[1]) + "s")
 
 df = pd.DataFrame({
     'categorie': labels,
@@ -46,6 +46,7 @@ plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
 
 
