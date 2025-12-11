@@ -27,7 +27,8 @@ plt.boxplot(df['duration_seconds'], vert=True)
 plt.title("Boxplot des durées de connexions")
 plt.ylabel("Durée (en secondes)")
 
-plt.savefig('../images/graphe.png')
+plt.savefig('../../images/graphe.png')
 
 plt.show()
 plt.close()
+

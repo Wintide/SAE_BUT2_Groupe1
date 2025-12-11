@@ -27,7 +27,7 @@ plt.xticks(rotation=45)
 
 plt.tight_layout()
 
-plt.savefig('../images/graphe.png')
+plt.savefig('../../images/graphe.png')
 
 plt.show()
 plt.close()
