@@ -26,7 +26,7 @@ plt.pie(df['compteur'], labels=df['location'], startangle=90)
 plt.title("Répartition des unités centrales par localisation")
 plt.axis('equal')
 
-plt.savefig('../../images/graphe.png')
+plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
