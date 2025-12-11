@@ -30,6 +30,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 </header>
 <body>
     <h1> Statistique </h1>
+    <form name="form-stats" id="form-stats">
+        <select name="stats" id="stats">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+    </form>
 <?php
 
 
