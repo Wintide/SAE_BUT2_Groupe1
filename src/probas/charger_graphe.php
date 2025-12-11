@@ -33,6 +33,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <?php
     $repertoire = "/python/";
     $liste_scripts = scandir($repertoire);
+    echo '<script>console.log('.$liste_scripts.')</script>';
 
     ?>
     <form name="form-stats" id="form-stats">
