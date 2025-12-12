@@ -94,6 +94,7 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
                     <option value="<?= $script ?>"><?= $noms_scripts[$script] ?></option>
                 <?php endforeach; ?>
             </select>
+        
             <div id="attribut-container-devices" style="display:none;">
                 <label for="attribut_device">Choix de l'attribut : </label>
                 <select name="attribut_device" id="attribut_device">
@@ -103,10 +104,21 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
                     <?php endforeach; ?>
                 </select>
             </div>
-
+        
+            <div id="attribut-container-monitors" style="display:none;">
+                <label for="attribut_monitor">Choix de l'attribut : </label>
+                <select name="attribut_monitor" id="attribut_monitor">
+                    <option value="">Sélectionner un attribut</option>
+                    <?php foreach ($colonnes_monitors as $col): ?>
+                        <option value="<?= $col ?>"><?= $col ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        
             <br>
             <input type="submit" value="Valider">
         </form>
+
     
         <?php if (!empty($_POST['stats'])): ?>
             <div id="div_graphe">
