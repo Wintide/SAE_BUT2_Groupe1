@@ -26,7 +26,6 @@ df = pd.DataFrame({
 
 plt.figure(figsize=(8, 8))
 plt.pie(df['nombre'], labels=df['type'], autopct='%1.1f%%', startangle=90)
-plt.title("Répartition des machines entre UC et moniteurs")
 plt.axis('equal')
 
 plt.savefig('../images/graphe.png')
