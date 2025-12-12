@@ -26,7 +26,6 @@ df = pd.DataFrame({
 
 plt.figure(figsize=(8, 8))
 plt.pie(df['Nombre'], labels=df['Etat'], autopct='%1.1f%%', startangle=90)
-plt.title("Répartition des moniteurs rattachés / non rattachés")
 plt.axis('equal')
 
 plt.savefig('../images/graphe.png')
