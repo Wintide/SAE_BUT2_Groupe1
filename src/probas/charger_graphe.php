@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
 ?>
 
     <main>
-        <h1> Statistique </h1>
+        <h1> Module Statistiques </h1>
         <?php
         $repertoire = "./python";
         $liste_scripts = scandir($repertoire);
