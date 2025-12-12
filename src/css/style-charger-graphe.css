@@ -14,6 +14,25 @@ header {
     padding: 10px 30px;
 }
 
+#div_graphe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #2F6A4D;
+    border-radius: 12px;
+    box-sizing: border-box;
+    max-width: 90%;
+    margin: 30px auto;
+}
+
+#graphe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
 .header-content {
     display: flex;
@@ -261,6 +280,7 @@ h1 {
 input:not([type="submit"]) {
     width: 100%;
 }
+
 
 
 
