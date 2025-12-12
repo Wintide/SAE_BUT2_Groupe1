@@ -122,8 +122,11 @@ footer p {
     margin: 10px 0 0 0;
 }
 
-#graphe{
-    display: block;
-    margin: auto;
+#div_graphe{
+    display: flex;
+    justify-content: center;
+}
+
+#div_graphe img{
     width: 50%;
 }
