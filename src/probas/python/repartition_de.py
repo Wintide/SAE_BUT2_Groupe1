@@ -27,10 +27,11 @@ for row in results:
     values.append(row[1])
 
 plt.figure(figsize=(9, 9))
-plt.pie(values, labels=labels, startangle=90)
+plt.pie(values, labels=labels, autopct='%1.0f%%', startangle=90)
 plt.axis("equal")
 
 plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
