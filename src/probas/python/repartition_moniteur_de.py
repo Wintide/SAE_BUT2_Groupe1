@@ -42,8 +42,8 @@ if len(labels) > 10:
     values = top_values
 
 plt.figure(figsize=(10, 10))
-plt.pie(values, labels=labels, startangle=90, autopct='%1.1f%%', pad=30)
-plt.title(f"Répartition des moniteurs par '{attribute}'")
+plt.pie(values, labels=labels, startangle=90, autopct='%1.1f%%')
+plt.title(f"Répartition des moniteurs par '{attribute}'", pad=30) # Pad : Plus d'espace entre titre et graphe pour affichage propre
 plt.axis("equal")
 
 plt.savefig('../images/graphe.png')
