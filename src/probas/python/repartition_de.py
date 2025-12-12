@@ -28,13 +28,14 @@ for row in results:
 
 plt.figure(figsize=(9, 9))
 plt.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
-plt.title(f"Répartition des UC par '{attribute}'", pad=30)
+plt.title(f"Répartition des UC par '{attribute}'", pad=30) # Pad : Plus d'espace entre titre et graphe pour affichage propre
 plt.axis("equal")
 
 plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
 
 
