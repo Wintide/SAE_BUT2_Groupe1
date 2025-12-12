@@ -75,13 +75,13 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
         $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
         $noms_scripts = [
+            'repartition_de.py' => 'Répartition des unités centrales selon...',
+            'repartition_moniteur_de.py' => 'Répartition des moniteurs selon...',
             'boxplot_duree_connexion.py' => "Boxplot des durées de connexion des utilisateurs",
             'courbe_machines_achetees_par_annee.py' => 'Nombre de machines achetées par année',
             'duree_total_connexion_top.py' => 'Top 10 des utilisateurs avec les durées totales de connexion les plus grandes',
             'moniteurs_rattaches.py' => 'Répartition des moniteurs selon le rattachement',
             'repartition_connexions_par_intervalle_de_duree.py' => 'Répartition des connexions par intervalle de durée',
-            'repartition_de.py' => 'Répartition des unités centrales selon...',
-            'repartition_moniteur_de.py' => 'Répartition des moniteurs selon...',
             'repartition_type_machine.py' => 'Répartition des types de machine',
         ];
         ?>
