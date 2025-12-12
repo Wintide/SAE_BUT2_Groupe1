@@ -11,22 +11,24 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
     <title>Inventaire - Vines</title>
     <link rel="stylesheet" href="../css/style-adminweb.css">
 </head>
-<header>
-    <div class="header-content">
-        <img src="../images/logovines.png" alt="Logo Vines" class="logo">
-        <nav>
-            <a href="../index.php" class="center-link">Accueil</a>
-            <a href="../webadmin.php" class="center-link">Admin web</a>
 
-            <div class="right-link">
-                <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
-                <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
-                    <a href="../logout.php">Déconnexion</a>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../images/logovines.png" alt="Logo Vines" class="logo">
+            <nav>
+                <a href="../index.php" class="center-link">Accueil</a>
+                <a href="../webadmin.php" class="center-link">Admin web</a>
+
+                <div class="right-link">
+                    <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
+                    <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
+                        <a href="../logout.php">Déconnexion</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </div>
-</header>
+            </nav>
+        </div>
+    </header>
 
 <?php
 // Connexion à la BD
@@ -65,48 +67,47 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
 }
 ?>
 
+    <main>
+        <h1> Statistique </h1>
+        <?php
+        $repertoire = "./python";
+        $liste_scripts = scandir($repertoire);
+        $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
-<body>
-    <h1> Statistique </h1>
-    <?php
-    $repertoire = "./python";
-    $liste_scripts = scandir($repertoire);
-    $liste_scripts = array_diff($liste_scripts, array('.', '..'));
-
-    ?>
-    <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
-        <label for="stats">Choix du graphe : </label>
-        <select name="stats" id="stats">
-            <option value="">Sélectionner le script</option>
-            <?php foreach ($liste_scripts as $script): ?>
-                <option value="<?= $script ?>"><?= $script ?></option>
-            <?php endforeach; ?>
-        </select>
-        <div id="attribut-container-devices" style="display:none;">
-            <label for="attribut_device">Choix de l'attribut : </label>
-            <select name="attribut_device" id="attribut_device">
-                <option value="">Sélectionner un attribut (si besoin)</option>
-                <?php foreach ($colonnes_devices as $col): ?>
-                    <option value="<?= $col ?>"><?= $col ?></option>
+        ?>
+        <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
+            <label for="stats">Choix du graphe : </label>
+            <select name="stats" id="stats">
+                <option value="">Sélectionner le script</option>
+                <?php foreach ($liste_scripts as $script): ?>
+                    <option value="<?= $script ?>"><?= $script ?></option>
                 <?php endforeach; ?>
             </select>
-        </div>
+            <div id="attribut-container-devices" style="display:none;">
+                <label for="attribut_device">Choix de l'attribut : </label>
+                <select name="attribut_device" id="attribut_device">
+                    <option value="">Sélectionner un attribut (si besoin)</option>
+                    <?php foreach ($colonnes_devices as $col): ?>
+                        <option value="<?= $col ?>"><?= $col ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <div id="attribut-container-monitors" style="display:none;">
-            <label for="attribut_monitor">Choix de l'attribut : </label>
-            <select name="attribut_monitor" id="attribut_monitor">
-                <option value="">Sélectionner un attribut (si besoin)</option>
-                <?php foreach ($colonnes_monitors as $col): ?>
-                    <option value="<?= $col ?>"><?= $col ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+            <div id="attribut-container-monitors" style="display:none;">
+                <label for="attribut_monitor">Choix de l'attribut : </label>
+                <select name="attribut_monitor" id="attribut_monitor">
+                    <option value="">Sélectionner un attribut (si besoin)</option>
+                    <?php foreach ($colonnes_monitors as $col): ?>
+                        <option value="<?= $col ?>"><?= $col ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
 
-        <br>
-        <input type="submit" value="Valider">
-    </form>
-
+            <br>
+            <input type="submit" value="Valider">
+        </form>
+    </main>
 <?php
 if (isset($_POST['stats']) && !empty($_POST['stats'])) {
     $select = $_POST['stats'];
@@ -154,34 +155,35 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
         <img src="../images/graphe.png" alt="graphe" width="800" id="graphe">
     <?php endif; ?>
 
+    <footer>
+        <div class="footer-columns">
+            <div>
+                <h4>Assistance</h4>
+                <ul>
+                    <li><a href="#">Problèmes de connexion</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Nos Contacts</h4>
+                <ul>
+                    <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
+                    <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">
+            &copy; 2025 Vines - Tous droits réservés
+        </p>
+    </footer>
 
 </body>
-<footer>
-    <div class="footer-columns">
-        <div>
-            <h4>Assistance</h4>
-            <ul>
-                <li><a href="#">Problèmes de connexion</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Informations</h4>
-            <ul>
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">Mentions légales</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Nos Contacts</h4>
-            <ul>
-                <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
-                <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
-            </ul>
-        </div>
-    </div>
-    <p class="copyright">
-        &copy; 2025 Vines - Tous droits réservés
-    </p>
-</footer>
+
 <script src="../script/deconnexion.js" defer></script>
 </html>
