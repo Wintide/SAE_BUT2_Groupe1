@@ -145,6 +145,8 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
                 document.getElementById("attribut_monitor").value = "";
             }
             else if (this.value === "repartition_moniteur_de.py") {
+                console.log("reached");
+                console.log(mon);
                 mon.style.display = "block";
                 dev.style.display = "none";
                 document.getElementById("attribut_device").value = "";
