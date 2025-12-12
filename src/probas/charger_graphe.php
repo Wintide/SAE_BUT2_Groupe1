@@ -74,13 +74,24 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
         $liste_scripts = scandir($repertoire);
         $liste_scripts = array_diff($liste_scripts, array('.', '..'));
 
+        $noms_scripts = [
+            'boxplot_duree_connexion.py' => "Boxplot des durées de connexion des utilisateurs",
+            'courbe_machines_achetees_par_annee.py' => 'Nombre de machines achetées par année',
+            'duree_total_connexion_top.py' => 'Top 10 des utilisateurs avec les durées totales de connexion les plus grandes',
+            'moniteurs_rattaches.py' => 'Répartition des moniteurs selon le rattachement',
+            'repartition_connexions_par_intervalle_de_duree.py' => 'Répartition des connexions par intervalle de durée',
+            'repartition_de.py' => 'Répartition des unités centrales selon...',
+            'repartition_moniteur_de.py' => 'Répartition des moniteurs selon...',
+            'repartition_type_machine.py' => 'Répartition des types de machine',
+        ];
         ?>
+
         <form name="form-stats" id="form-stats" method="post" action="charger_graphe.php">
             <label for="stats">Choix du graphe : </label>
             <select name="stats" id="stats">
                 <option value="">Sélectionner le script</option>
                 <?php foreach ($liste_scripts as $script): ?>
-                    <option value="<?= $script ?>"><?= $script ?></option>
+                    <option value="<?= $script ?>"><?= $noms_scripts[$script] ?></option>
                 <?php endforeach; ?>
             </select>
             <div id="attribut-container-devices" style="display:none;">
@@ -92,17 +103,6 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
                     <?php endforeach; ?>
                 </select>
             </div>
-
-            <div id="attribut-container-monitors" style="display:none;">
-                <label for="attribut_monitor">Choix de l'attribut : </label>
-                <select name="attribut_monitor" id="attribut_monitor">
-                    <option value="">Sélectionner un attribut (si besoin)</option>
-                    <?php foreach ($colonnes_monitors as $col): ?>
-                        <option value="<?= $col ?>"><?= $col ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
 
             <br>
             <input type="submit" value="Valider">
