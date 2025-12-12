@@ -28,7 +28,6 @@ top10 = df.head(10)
 plt.figure(figsize=(10, 6))
 plt.bar(top10['login'], top10['duree_totale'])
 plt.gca().invert_yaxis()
-plt.title("Top 10 utilisateurs par durée de connexion")
 plt.xlabel("Durée totale (secondes)")
 plt.tight_layout()
 
