@@ -41,7 +41,7 @@ df = pd.DataFrame({
 })
 
 plt.figure(figsize=(9, 9))
-plt.pie(df['nombre'], labels=df['categorie'], startangle=90)
+plt.pie(df['nombre'], labels=df['categorie'], autopct='%1.1f%%', startangle=90)
 plt.title("Répartition des durées de connexions par tranches de 1000 secondes")
 plt.axis('equal')
 
@@ -49,10 +49,4 @@ plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
-
-
-
-
-
-
 
