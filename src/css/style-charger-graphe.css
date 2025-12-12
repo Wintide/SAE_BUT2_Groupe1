@@ -10,8 +10,8 @@ body {
 
 header {
     background-color: #2D5A27;
-    color: red;
-    padding: 10px 200px;
+    color: white;
+    padding: 10px 30px;
 }
 
 #div_graphe {
@@ -280,6 +280,7 @@ h1 {
 input:not([type="submit"]) {
     width: 100%;
 }
+
 
 
 
