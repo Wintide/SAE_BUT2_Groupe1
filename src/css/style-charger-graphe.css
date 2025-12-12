@@ -29,7 +29,7 @@ header {
 
 #graphe {
     display: block;
-    max-width: 100%;
+    width: 1000px;
     height: auto;
     border-radius: 8px;
 }
@@ -280,6 +280,7 @@ h1 {
 input:not([type="submit"]) {
     width: 100%;
 }
+
 
 
 
