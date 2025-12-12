@@ -30,6 +30,18 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         </div>
     </header>
 
+<script>
+    fetch('../css/style-charger-graphe.css')
+        .then(response => response.text())
+        .then(data => {
+            console.log('CSS File Contents:');
+            console.log(data);  // Logs the contents of the CSS file to the console
+        })
+        .catch(error => {
+            console.error('Error fetching CSS file:', error);
+        });
+</script>
+    
 <?php
 // Connexion à la BD
 $host = "localhost";
