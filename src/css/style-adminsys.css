@@ -124,7 +124,7 @@ footer p {
 
 #div_graphe{
     display: flex;
-    justify-content: center;
+    align-content: ;
 }
 
 #div_graphe img{
