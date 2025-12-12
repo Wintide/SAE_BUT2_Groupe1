@@ -97,7 +97,7 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
             <div id="attribut-container-devices" style="display:none;">
                 <label for="attribut_device">Choix de l'attribut : </label>
                 <select name="attribut_device" id="attribut_device">
-                    <option value="">Sélectionner un attribut (si besoin)</option>
+                    <option value="">Sélectionner un attribut</option>
                     <?php foreach ($colonnes_devices as $col): ?>
                         <option value="<?= $col ?>"><?= $col ?></option>
                     <?php endforeach; ?>
