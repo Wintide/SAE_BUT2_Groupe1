@@ -45,6 +45,7 @@ plt.figure(figsize=(10, 10))
 plt.pie(values, labels=labels, startangle=90, autopct='%1.1f%%')
 plt.title(f"Répartition des moniteurs par '{attribute}'")
 plt.axis("equal")
+plt.subplots_adjust(top=1.50) #Plus d'espace entre titre et graphe pour affichage propre
 
 plt.savefig('../images/graphe.png')
 plt.show()
