@@ -46,6 +46,6 @@ plt.pie(values, labels=labels, startangle=90, autopct='%1.1f%%')
 plt.title(f"Répartition des moniteurs par {attribute}")
 plt.axis("equal")
 
-plt.savefig(f'../images/graphe.png')
+plt.savefig('../images/graphe.png')
 plt.show()
 plt.close()
