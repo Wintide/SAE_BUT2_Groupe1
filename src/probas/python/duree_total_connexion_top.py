@@ -29,6 +29,7 @@ plt.figure(figsize=(10, 6))
 plt.bar(top10['login'], top10['duree_totale'])
 plt.gca().invert_yaxis()
 plt.xlabel("Durée totale (secondes)")
+plt.title("Top 10 des utilisateurs avec les durées totales de connexion les plus grandes", pad=30)
 plt.tight_layout()
 
 plt.savefig('../images/graphe.png')
