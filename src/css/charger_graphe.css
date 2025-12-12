@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #DFF0E5;
+    color: #1F3B1F;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #2D5A27;
+    color: white;
+    padding: 10px 30px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    height: 60px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 14px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-left: 5px;
+    margin-right: 5px
+}
+
+#userButton {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav .right-link {
+    position: absolute;
+    right: 30px;
+}
+.user-overlay {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background:#fff;
+    border:1px solid #ccc;
+    padding:8px;
+    z-index:1000;
+}
+.user-overlay a { display:block; padding:4px 8px; color:#333; text-decoration:none; }
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 40px;
+}
+
+.admin-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    margin-top: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    background: #E4F2E8;
+    border-right: 3px solid #1F3B1F;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 15px;
+    background: #2D5A27;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #244a20;
+}
+
+.admin-content {
+    flex: 1;
+    padding: 20px 40px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 10px 15px;
+    background: #2D5A27;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sidebar-btn:hover {
+    background: #244a20;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2D5A27;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#form-button {
+    background-color: #2D5A27;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#form-button:hover {
+    background-color: #244a20;
+}
+
+footer {
+    background-color: #2D5A27;
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.footer-columns div {
+    min-width: 150px;
+    margin: 10px;
+}
+
+.footer-columns h4 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.footer-columns ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-columns ul li {
+    margin-bottom: 8px;
+}
+
+.footer-columns ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-columns ul li a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    text-align: center;
+    font-size: 13px;
+    margin: 10px 0 0 0;
+}
+
+#form-stats {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#form-stats label {
+    text-align: center;
+    margin: 0 5px;
+}
+
+#form-stats select {
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+input:not([type="submit"]) {
+    width: 100%;
+}
+
+
+
