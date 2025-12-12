@@ -83,23 +83,25 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
             <?php endforeach; ?>
         </select>
         <div id="attribut-container-devices" style="display:none;">
-            <label for="attribut">Choix de l'attribut : </label>
-            <select name="attribut" id="attribut">
+            <label for="attribut_device">Choix de l'attribut : </label>
+            <select name="attribut_device" id="attribut_device">
                 <option value="">Sélectionner un attribut (si besoin)</option>
                 <?php foreach ($colonnes_devices as $col): ?>
                     <option value="<?= $col ?>"><?= $col ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
+
         <div id="attribut-container-monitors" style="display:none;">
-            <label for="attribut">Choix de l'attribut : </label>
-            <select name="attribut" id="attribut">
+            <label for="attribut_monitor">Choix de l'attribut : </label>
+            <select name="attribut_monitor" id="attribut_monitor">
                 <option value="">Sélectionner un attribut (si besoin)</option>
-                <?php foreach ($colonnes_monitors  as $col): ?>
+                <?php foreach ($colonnes_monitors as $col): ?>
                     <option value="<?= $col ?>"><?= $col ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
+
 
         <br>
         <input type="submit" value="Valider">
@@ -109,10 +111,15 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
 if (isset($_POST['stats']) && !empty($_POST['stats'])) {
     $select = $_POST['stats'];
 
-    if (!empty($_POST['attribut'])) { // cas où une option du menu déroulant des attributs a été selectionnée
-        $attr = $_POST['attribut'];
+    if ($select === "repartition_de.py" && !empty($_POST['attribut_device'])) {
+        $attr = $_POST['attribut_device'];
         $command = "../../sae/bin/python python/$select $attr";
-    } else {
+    }
+    elseif ($select === "repartition_moniteur_de.py" && !empty($_POST['attribut_monitor'])) {
+        $attr = $_POST['attribut_monitor'];
+        $command = "../../sae/bin/python python/$select $attr";
+    }
+    else {
         $command = "../../sae/bin/python python/$select";
     }
 
@@ -121,21 +128,24 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
 ?>
     <script>
         document.getElementById("stats").addEventListener("change", function () {
-            const attributContainerDevices = document.getElementById("attribut-container-devices");
-            const attributContainerMonitors = document.getElementById("attribut-container-monitors");
-
+            const dev = document.getElementById("attribut-container-devices");
+            const mon = document.getElementById("attribut-container-monitors");
+        
             if (this.value === "repartition_de.py") {
-                attributContainerDevices.style.display = "block";
-                attributContainerMonitors.style.display = "none"
+                dev.style.display = "block";
+                mon.style.display = "none";
+                document.getElementById("attribut_monitor").value = "";
             }
             else if (this.value === "repartition_moniteur_de.py") {
-                attributContainerMonitors.style.display = "block"
-                attributContainerDevices.style.display = "none";
+                mon.style.display = "block";
+                dev.style.display = "none";
+                document.getElementById("attribut_device").value = "";
             }
             else {
-                attributContainerMonitors.style.display = "none"
-                attributContainerDevices.style.display = "none";
-                document.getElementById("attribut").value = ""; // reset
+                dev.style.display = "none";
+                mon.style.display = "none";
+                document.getElementById("attribut_device").value = "";
+                document.getElementById("attribut_monitor").value = "";
             }
         });
     </script>
