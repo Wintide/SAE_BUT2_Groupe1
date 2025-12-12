@@ -95,6 +95,7 @@ while ($row = mysqli_fetch_assoc($columns_query)) {
             'moniteurs_rattaches.py' => 'Répartition des moniteurs selon le rattachement',
             'repartition_connexions_par_intervalle_de_duree.py' => 'Répartition des connexions par intervalle de durée',
             'repartition_type_machine.py' => 'Répartition des types de machine',
+            'repartition_UC_selon_garantie.py' => 'Répartition des UC selon leur proximité à la date de fin de garantie'
         ];
         ?>
 
