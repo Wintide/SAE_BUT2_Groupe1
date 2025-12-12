@@ -158,13 +158,6 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
         });
     </script>
 
-    <?php if (!empty($_POST['stats'])): ?>
-        <div id="div_graphe">
-            <img src="../images/graphe.png" alt="graphe" width="800" id="graphe">
-        </div>
-    <?php endif; ?>
-
-
     <footer>
         <div class="footer-columns">
             <div>
