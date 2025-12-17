@@ -186,20 +186,20 @@ if (isset($_POST['stats']) && !empty($_POST['stats'])) {
     <footer>
         <div class="footer-columns">
             <div>
-                <h3>Assistance</h3>
+                <h2>Assistance</h2>
                 <ul>
                     <li><a href="#">Problèmes de connexion</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Informations</h3>
+                <h2>Informations</h2>
                 <ul>
                     <li><a href="#">Politique de confidentialité</a></li>
                     <li><a href="#">Mentions légales</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Nos Contacts</h3>
+                <h2>Nos Contacts</h2>
                 <ul>
                     <li><a href="https://github.com/Wintide/SAE.git" target="_blank">GitHub du projet</a></li>
                     <li><a href="mailto:vines.contact.pro@gmail.com">vines.contact.pro@gmail.com</a></li>
