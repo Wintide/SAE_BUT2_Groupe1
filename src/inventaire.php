@@ -28,7 +28,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 </header>
 <main>
     <div class="main-filtrage">
-        <h1>Filtrer : </h1><br>
+        <h1>Filtrer : </h1>
         <div class="filters">
 
             <form action="" method="post">

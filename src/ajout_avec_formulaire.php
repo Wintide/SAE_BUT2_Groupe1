@@ -204,7 +204,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
 
                         <label>Adresse MAC :>
                         <input type="text" name="macaddr">
-                        </label
+                        </label>
 
                         <label>Date d'achat :
                         <input type="date" name="purchase_date" required>
