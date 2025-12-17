@@ -45,13 +45,11 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <h2>Créer un technicien</h2>
 
                     <form action="create_technician.php" method="post">
-                        <label>Login du technicien :
-                        <input type="text" name="login" required autofocus>
-                        </label>
+                        <label for="login">Login du technicien :</label>
+                        <input type="text" id="login" name="login" required autofocus>
 
-                        <label>Mot de passe :
-                        <input type="password" name="password" required>
-                        </label>
+                        <label for="password">Mot de passe :</label>
+                        <input type="password" id="password" name="password" required>
 
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
@@ -69,7 +67,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                 echo "<p>Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
                         ?>
-                        <label>Ajouter une Information pour:
+                        <label for="add-info">Ajouter une Information pour:</label>
                         <select name="add-info" id="add-info">
                             <?php
                             $host = "localhost";
@@ -109,7 +107,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             }
                             ?>
                         </select>
-                        </label>
 
                         <label>Qu'est ce qu'il faut ajouter :
                         <input type="text" name="info" required>
