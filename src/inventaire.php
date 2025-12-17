@@ -269,7 +269,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
             <!-- UC -->
             <div class="form-uc">
-                <label>Nom :</label>
+                <label for="edit-name">Nom :</label>
                 <input type="text" name="name" id="edit-name">
 
                 <label>CPU :</label>
@@ -337,7 +337,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Fin de la garantie :</label>
+                <label for="edit-warranty">Fin de la garantie :</label>
                 <input type="date" name="warranty" id="edit-warranty">
             </div>
 
