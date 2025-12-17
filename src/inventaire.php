@@ -272,7 +272,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <label for="edit-name">Nom :</label>
                 <input type="text" name="name" id="edit-name">
 
-                <label>CPU :</label>
+                <label for="edit-cpu">CPU :</label>
                 <select name="cpu" id="edit-cpu" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_cpu as $el): ?>
@@ -280,7 +280,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>RAM(mb) :</label>
+                <label for="edit-ram_mb">RAM(mb) :</label>
                 <select name="ram_mb" id="edit-ram_mb" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_ram_mb as $el): ?>
@@ -288,7 +288,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Espace disque(gb) :</label>
+                <label for="edit-disk_gb">Espace disque(gb) :</label>
                 <select name="disk_gb" id="edit-disk_gb" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_disk_gb as $el): ?>
@@ -296,7 +296,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Système d'exploitation :</label>
+                <label for="edit-os">Système d'exploitation :</label>
                 <select name="os" id="edit-os" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_os as $el): ?>
@@ -304,7 +304,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Domaine :</label>
+                <label for="edit-domain">Domaine :</label>
                 <select name="domain" id="edit-domain" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_domain as $el): ?>
@@ -313,7 +313,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
 
-                <label>Localisation :</label>
+                <label for="edit-location">Localisation :</label>
                 <select name="location" id="edit-location" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_location as $el): ?>
@@ -321,7 +321,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Batiment :</label>
+                <label for="edit-building">Batiment :</label>
                 <select name="building" id="edit-building" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_building as $el): ?>
@@ -329,7 +329,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Salle :</label>
+                <label for="edit-room">Salle :</label>
                 <select name="room" id="edit-room" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($devices_room as $el): ?>
@@ -343,7 +343,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
             <!-- Moniteur -->
             <div class="form-monitor">
-                <label>Resolution :</label>
+                <label for="edit-resolution">Resolution :</label>
                 <select name="resolution" id="edit-resolution" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($monitor_resolution as $el): ?>
@@ -351,7 +351,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Connecteur :</label>
+                <label for="edit-connector">Connecteur :</label>
                 <select name="connector" id="edit-connector" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($monitor_connector as $el): ?>
@@ -359,7 +359,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     <?php endforeach; ?>
                 </select>
 
-                <label>Connecté à :</label>
+                <label for="edit-attached_to">Connecté à :</label>
                 <select name="attached_to" id="edit-attached_to" class="styled-select">
                     <option value="NULL">-- Sélectionner --</option>
                     <?php foreach ($monitor_attach as $el): ?>
