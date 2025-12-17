@@ -95,8 +95,9 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <h2>Créer une unité centrale</h2>
                     <form action="ajout_uc.php" method="post">
 
-                        <label>Nom :</label>
+                        <label>Nom :
                         <input type="text" name="name">
+                        </label>
 
                         <label>Numéro de série :</label>
                         <input type="text" name="serial">
