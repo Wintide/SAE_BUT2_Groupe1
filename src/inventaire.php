@@ -150,7 +150,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     </div>
 
     <div class="main-inventory rebus">
-        <h1>Inventaire de Rebut</h1>
+        <h2>Inventaire de Rebut</h2>
         <div class="inventory-grid">
             <div class="card rebus-card">
                 <img src="images/uc.png" alt="Unité centrale">
