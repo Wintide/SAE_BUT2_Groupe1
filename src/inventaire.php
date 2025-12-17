@@ -28,6 +28,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 </header>
 <main>
     <div class="main-filtrage">
+        <h1>Filtrer</h1>
         <div class="filters">
 
             <form action="" method="post">
@@ -95,7 +96,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     </div>
 
     <div class="main-inventory">
-        <h1>Inventaire Actif</h1>
+        <h2>Inventaire Actif</h2>
         <div class="inventory-grid">
 
             <?php
