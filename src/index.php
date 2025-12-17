@@ -48,7 +48,12 @@
     <section class="video-section">
         <h2>Vidéo explicative</h2>
         <video controls>
-            <source src="media/video-presentation.mp4" type="video/mp4">
+            <!-- <source src="media/video-presentation.mp4" type="video/mp4"> -->
+
+            <a href="https://www.skylinewebcams.com/fr/webcam/italia/lazio/roma/fontana-di-trevi.html" target="_blank">
+                <img src="https://embed.skylinewebcams.com/img/286.jpg" alt="【LIVE】 Fontaine de Trevi - Rome | SkylineWebcams">
+            </a>
+
             Votre navigateur ne supporte pas la lecture de la vidéo.
         </video>
     </section>

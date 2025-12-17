@@ -210,63 +210,56 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <h2>Créer un moniteur</h2>
                     <form action="ajout_moniteur.php" method="post">
 
-                        <label>Numéro de série :
-                        <input type="text" name="serial">
-                        </label>
+                        <label for="m-NS">Numéro de série :</label>
+                        <input type="text" name="serial" id="m-NS">
 
-                        <label>Connecteur :
-                        <select name="connector" class="styled-select" required>
+                        <label for="m-Connect">Connecteur :</label>
+                        <select name="connector" class="styled-select" id="m-Connect" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_connector as $el): ?>
                                 <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        </label>
 
-                        <label>Constructeur
-                        <select name="manufacturer" class="styled-select" required>
+                        <label for="m-Construct">Constructeur</label>
+                        <select name="manufacturer" class="styled-select" id="m-Construct" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_manufacturer as $el): ?>
                                 <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        </label>
 
-                        <label>Modèle :
-                        <select name="model" class="styled-select" required>
+                        <label for="m-model">Modèle :</label>
+                        <select name="model" class="styled-select" id="m-model" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_model as $el): ?>
                                 <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        </label>
 
-                        <label>Résolution :
-                        <select name="resolution" class="styled-select" required>
+                        <label for="m-resolu">Résolution :</label>
+                        <select name="resolution" class="styled-select" id="m-resolu" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_resolution as $el): ?>
                                 <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        </label>
 
-                        <label>Taille (en inch) :
-                        <select name="size_inch" class="styled-select" required>
+                        <label for="m-size">Taille (en inch) :</label>
+                        <select name="size_inch" class="styled-select" id="m-size" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_size_inch as $el): ?>
                                 <option value="<?= $el['size_inch'] ?>"><?= $el['size_inch'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        </label>
 
-                         <label>Attaché à :
-                        <select name="attached_to" class="styled-select" required>
+                         <label for="m-attached">Attaché à :</label>
+                        <select name="attached_to" class="styled-select" id="m-attached" required>
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_attached_to as $el): ?>
                                 <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                         </label>
 
                         <button id="form-button" type="submit">Créer le moniteur</button>
                     </form>
