@@ -96,7 +96,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <form action="ajout_uc.php" method="post">
 
                         <label>Nom :
-                        <input type="text" name="name">
+                        <input type="text" name="name" autofocus>
                         </label>
 
                         <label>Numéro de série :
@@ -202,9 +202,9 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
                         </label>
 
-                        <label>Adresse MAC :>
+                        <label>Adresse MAC :
                         <input type="text" name="macaddr">
-                        </label
+                        </label>
 
                         <label>Date d'achat :
                         <input type="date" name="purchase_date" required>
