@@ -45,13 +45,11 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <h2>Créer un technicien</h2>
 
                     <form action="create_technician.php" method="post">
-                        <label>Login du technicien :
+                        <label>Login du technicien :</label>
                         <input type="text" name="login" required>
-                        </label>
 
-                        <label>Mot de passe :
+                        <label>Mot de passe :</label>
                         <input type="password" name="password" required>
-                        </label>
 
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
