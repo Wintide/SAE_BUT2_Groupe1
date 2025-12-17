@@ -196,7 +196,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
     <div class="model-content">
         <span class="close">&times;</span>
 
-        <h2 id="model-title"></h2>
+        <h2 id="model-title">Titre</h2>
 
         <p><strong>Type :</strong> <span id="model-Gtype"></span></p>
         <p><strong>Numéro de série :</strong> <span id="model-serial"></span></p>
