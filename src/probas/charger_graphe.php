@@ -21,10 +21,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 <a href="../webadmin.php" class="center-link">Admin web</a>
 
                 <div class="right-link">
-                    <button id="userButton"><?= htmlspecialchars($_SESSION['login'], ENT_QUOTES, 'UTF-8') ?></button>
-                    <div id="userOverlay" class="user-overlay" role="menu" aria-hidden="true">
-                        <a href="../logout.php" role="menuitem">Déconnexion</a>
-                    </div>
+                    <a href="logout.php" role="menuitem">Déconnexion</a>
                 </div>
             </nav>
         </div>
@@ -35,7 +32,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         .then(response => response.text())
         .then(data => {
             console.log('CSS File Contents:');
-            console.log(data);  // Logs the contents of the CSS file to the console
+            console.log(data);
         })
         .catch(error => {
             console.error('Error fetching CSS file:', error);
