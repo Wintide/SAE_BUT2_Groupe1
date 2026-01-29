@@ -19,12 +19,12 @@
                         <a href="inventaire.php" class="center-link">Inventaire</a>
                     <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
                         <a href="webadmin.php" class="center-link">Admin web</a>
-                        <a href="probas/charger_graphe.php" class="center-link">Statistique</a>
                     <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
                         <a href="webadmin.php" class="center-link">Admin systeme</a>
                     <?php endif; ?>
+                    <a href="probas/charger_graphe.php" class="center-link">Statistique</a>
                 <?php endif; ?>
-                <div class="right-link">
+                <div id="userButton" class="right-link">
                     <a href="logout.php" role="menuitem">Déconnexion</a>
                 </div>
             <?php endif; ?>

@@ -18,7 +18,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         <nav>
             <a href="index.php" class="center-link">Accueil</a>
             <a href="probas/charger_graphe.php" class="center-link"> Statistique </a>
-            <div class="right-link">
+            <div id="userButton" class="right-link">
                 <a href="logout.php" role="menuitem">Déconnexion</a>
             </div>
         </nav>

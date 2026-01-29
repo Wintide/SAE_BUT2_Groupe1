@@ -1,5 +1,5 @@
 <?php session_start();
-if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
+if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web" || $_SESSION["role"]!=="technicien") {
     header("Location: index.php");
     exit();
 }
@@ -20,7 +20,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
             <a href="index.php" class="center-link">Accueil</a>
             <a href="webadmin.php" class="center-link">Admin web</a>
 
-            <div class="right-link">
+            <div id="userButton" class="right-link">
                 <a href="logout.php" role="menuitem">Déconnexion</a>
             </div>
         </nav>
