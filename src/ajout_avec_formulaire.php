@@ -93,51 +93,11 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <form action="ajout_uc.php" method="post">
 
                         <label for="uc-name">Nom :</label>
-                        <input type="text" name="name" id="uc-name" autofocus>
+                        <input type="text" name="name" id="uc-name" autofocus required>
 
 
                         <label for="uc-SN">Numéro de série :</label>
-                        <input type="text" name="serial" id="uc-SN">
-
-                        <label for="uc-bat">Bâtiment :</label>
-                        <select name="building" class="styled-select" id="uc-bat" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_building as $el): ?>
-                                <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <label for="uc-process">Processeur :</label>
-                        <select name="cpu" class="styled-select" id="uc-process" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_cpu as $el): ?>
-                                <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <label for="uc-EspDisque">Espcace disque (GB) :</label>
-                        <select name="disk_gb" class="styled-select" id="uc-EspDisque" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_disk_gb as $el): ?>
-                                <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <label for="uc-DomainName">Nom de domaine :</label>
-                        <select name="domain" class="styled-select" id="uc-DomainName" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_domain as $el): ?>
-                                <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <label for="uc-loc">Localisation :</label>
-                        <select name="location" class="styled-select" id="uc-loc" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_location as $el): ?>
-                                <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <input type="text" name="serial" id="uc-SN" required>
 
                         <label for="uc-construct">Constructeur :</label>
                         <select name="manufacturer" class="styled-select" id="uc-construct" required>
@@ -147,54 +107,102 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                             <?php endforeach; ?>
                         </select>
 
-                        <label for="uc-modele">Modèle :</label>
-                        <select name="model" class="styled-select" id="uc-modele" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_model as $el): ?>
-                                <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <div class="accordion-toggle" id="toggle-advanced">
+                            <span>Champs supplémentaires</span>
+                            <span class="arrow">▼</span>
+                        </div>
 
-                        <label for="uc-OS">Système d'exploitation :</label>
-                        <select name="os" class="styled-select" id="uc-OS" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_os as $el): ?>
-                                <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <div class="accordion-content" id="advanced-fields">
 
-                        <label for="uc-RAM">Capacité RAM (MB) :</label>
-                        <select name="ram_mb" class="styled-select" id="uc-RAM" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_ram_mb as $el): ?>
-                                <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                            <label for="uc-bat">Bâtiment :</label>
+                            <select name="building" class="styled-select" id="uc-bat">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_building as $el): ?>
+                                    <option value="<?= $el['building'] ?>"><?= $el['building'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <label for="uc-Piece">Pièce :</label>
-                        <select name="room" class="styled-select" id="uc-Piece" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_room as $el): ?>
-                                <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                            <label for="uc-process">Processeur :</label>
+                            <select name="cpu" class="styled-select" id="uc-process">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_cpu as $el): ?>
+                                    <option value="<?= $el['cpu'] ?>"><?= $el['cpu'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <label for="uc-type">Type :</label>
-                        <select name="type" class="styled-select" id="uc-type" required>
-                            <option value="">-- Sélectionner --</option>
-                            <?php foreach ($devices_type as $el): ?>
-                                <option value="<?= $el['type'] ?>"><?= $el['type'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                            <label for="uc-EspDisque">Espcace disque (GB) :</label>
+                            <select name="disk_gb" class="styled-select" id="uc-EspDisque">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_disk_gb as $el): ?>
+                                    <option value="<?= $el['disk_gb'] ?>"><?= $el['disk_gb'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <label for="uc-mac">Adresse MAC :</label>
-                        <input type="text" name="macaddr" id="uc-mac">
+                            <label for="uc-DomainName">Nom de domaine :</label>
+                            <select name="domain" class="styled-select" id="uc-DomainName">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_domain as $el): ?>
+                                    <option value="<?= $el['domain'] ?>"><?= $el['domain'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <label for="uc-date_achat">Date d'achat :</label>
-                        <input type="date" name="purchase_date" id="uc-date_achat" required>
+                            <label for="uc-loc">Localisation :</label>
+                            <select name="location" class="styled-select" id="uc-loc">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_location as $el): ?>
+                                    <option value="<?= $el['location'] ?>"><?= $el['location'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <label for="uc-date_garantie">Date de fin de garantie :</label>
-                        <input type="date" name="warranty_end" id="uc-date_garantie" required>
+                            <label for="uc-modele">Modèle :</label>
+                            <select name="model" class="styled-select" id="uc-modele">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_model as $el): ?>
+                                    <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="uc-OS">Système d'exploitation :</label>
+                            <select name="os" class="styled-select" id="uc-OS">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_os as $el): ?>
+                                    <option value="<?= $el['os'] ?>"><?= $el['os'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="uc-RAM">Capacité RAM (MB) :</label>
+                            <select name="ram_mb" class="styled-select" id="uc-RAM">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_ram_mb as $el): ?>
+                                    <option value="<?= $el['ram_mb'] ?>"><?= $el['ram_mb'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="uc-Piece">Pièce :</label>
+                            <select name="room" class="styled-select" id="uc-Piece">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_room as $el): ?>
+                                    <option value="<?= $el['room'] ?>"><?= $el['room'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="uc-type">Type :</label>
+                            <select name="type" class="styled-select" id="uc-type">
+                                <option value="">-- Sélectionner --</option>
+                                <?php foreach ($devices_type as $el): ?>
+                                    <option value="<?= $el['type'] ?>"><?= $el['type'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="uc-mac">Adresse MAC :</label>
+                            <input type="text" name="macaddr" id="uc-mac">
+
+                            <label for="uc-date_achat">Date d'achat :</label>
+                            <input type="date" name="purchase_date" id="uc-date_achat">
+
+                            <label for="uc-date_garantie">Date de fin de garantie :</label>
+                            <input type="date" name="warranty_end" id="uc-date_garantie">
+                        </div>
 
                         <button id="form-button" type="submit">Créer l’unité centrale</button>
                     </form>
@@ -208,10 +216,10 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <form action="ajout_moniteur.php" method="post">
 
                         <label for="m-NS">Numéro de série :</label>
-                        <input type="text" name="serial" id="m-NS">
+                        <input type="text" name="serial" id="m-NSr" required>
 
                         <label for="m-Connect">Connecteur :</label>
-                        <select name="connector" class="styled-select" id="m-Connect" required>
+                        <select name="connector" class="styled-select" id="m-Connect">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_connector as $el): ?>
                                 <option value="<?= $el['connector'] ?>"><?= $el['connector'] ?></option>
@@ -219,7 +227,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                         <label for="m-Construct">Constructeur</label>
-                        <select name="manufacturer" class="styled-select" id="m-Construct" required>
+                        <select name="manufacturer" class="styled-select" id="m-Construct">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_manufacturer as $el): ?>
                                 <option value="<?= $el['manufacturer'] ?>"><?= $el['manufacturer'] ?></option>
@@ -227,7 +235,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                         <label for="m-model">Modèle :</label>
-                        <select name="model" class="styled-select" id="m-model" required>
+                        <select name="model" class="styled-select" id="m-model">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_model as $el): ?>
                                 <option value="<?= $el['model'] ?>"><?= $el['model'] ?></option>
@@ -235,7 +243,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                         <label for="m-resolu">Résolution :</label>
-                        <select name="resolution" class="styled-select" id="m-resolu" required>
+                        <select name="resolution" class="styled-select" id="m-resolu">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_resolution as $el): ?>
                                 <option value="<?= $el['resolution'] ?>"><?= $el['resolution'] ?></option>
@@ -243,7 +251,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                         <label for="m-size">Taille (en inch) :</label>
-                        <select name="size_inch" class="styled-select" id="m-size" required>
+                        <select name="size_inch" class="styled-select" id="m-size">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_size_inch as $el): ?>
                                 <option value="<?= $el['size_inch'] ?>"><?= $el['size_inch'] ?></option>
@@ -251,7 +259,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                          <label for="m-attached">Attaché à :</label>
-                        <select name="attached_to" class="styled-select" id="m-attached" required>
+                        <select name="attached_to" class="styled-select" id="m-attached">
                             <option value="">-- Sélectionner --</option>
                             <?php foreach ($monitor_attached_to as $el): ?>
                                 <option value="<?= $el['name'] ?>"><?= $el['name'] ?></option>

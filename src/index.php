@@ -1,4 +1,4 @@
-<?php session_start();$_SESSION["role"] = "administrateur_web"?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
