@@ -108,7 +108,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                         </select>
 
                         <div class="accordion-toggle" id="toggle-advanced">
-                            <span>Champs supplémentaires</span>
+                            <span>Autres caractéristique</span>
                             <span class="arrow">▼</span>
                         </div>
 

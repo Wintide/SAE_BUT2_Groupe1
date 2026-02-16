@@ -12,3 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+const toggleUC = document.getElementById("toggle-advanced-uc");
+if (toggleUC) {
+    const contentUC = document.getElementById("advanced-fields-uc");
+    const arrowUC = toggleUC.querySelector(".arrow");
+
+    toggleUC.addEventListener("click", () => {
+        contentUC.classList.toggle("open");
+        arrowUC.classList.toggle("rotate");
+    });
+}
