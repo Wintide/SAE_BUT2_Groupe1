@@ -1,6 +1,6 @@
 <?php session_start();
-if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web" ||$_SESSION["role"]!=="technicien") {
-    header("Location: ./index.php");
+if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SESSION['role'] !== "technicien") {
+    header("Location: ../index.php");
     exit();
 }
 ?>
