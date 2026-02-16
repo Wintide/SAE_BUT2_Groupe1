@@ -1,5 +1,5 @@
 <?php session_start();
-if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SESSION['role'] !== "technicien") {
+if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SESSION['role'] !== "technicien" && $_SESSION['role'] !== "administrateur_systeme") {
     header("Location: ../index.php");
     exit();
 }
@@ -18,8 +18,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SE
             <img src="../images/logovines.png" alt="Logo Vines" class="logo">
             <nav>
                 <a href="../index.php" class="center-link">Accueil</a>
-                <a href="../webadmin.php" class="center-link">Admin web</a>
-
+                <?php if ($_SESSION['role'] === 'technicien'): ?>
+                    <a href="../inventaire.php" class="center-link">Inventaire</a>
+                <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
+                    <a href="../webadmin.php" class="center-link">Admin web</a>
+                <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
+                    <a href="../webadmin.php" class="center-link">Admin systeme</a>
+                <?php endif; ?>
                 <div id="userButton" class="right-link">
                     <a href="logout.php" role="menuitem">Déconnexion</a>
                 </div>
