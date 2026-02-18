@@ -30,3 +30,21 @@ if (toggleUC) {
         }
     });
 }
+
+const toggleMonitor = document.getElementById("toggle-monitor");
+
+if (toggleMonitor) {
+    toggleMonitor.addEventListener("click", function () {
+
+        const body = document.getElementById("advanced-monitor");
+        const arrow = document.getElementById("arrow-monitor");
+
+        if (body.style.display === "block") {
+            body.style.display = "none";
+            arrow.textContent = "▼";
+        } else {
+            body.style.display = "block";
+            arrow.textContent = "▲";
+        }
+    });
+}
