@@ -9,15 +9,23 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
-    die("Erreur connexion BDD : " . mysqli_connect_error());
+    die("Erreur connexion BD : " . mysqli_connect_error());
 }
-$serial = isset($_POST["serial"]) ? $_POST["serial"] : null;
-$manufacturer = isset($_POST["manufacturer"]) ? $_POST["manufacturer"] : null;
-$model = isset($_POST["model"]) ? $_POST["model"] : null;
-$size_inch = isset($_POST["size_inch"]) ? $_POST["size_inch"] : null;
-$resolution = isset($_POST["resolution"]) ? $_POST["resolution"] : null;
-$connector = isset($_POST["connector"]) ? $_POST["connector"] : null;
-$attached_to = isset($_POST["attached_to"]) ? $_POST["attached_to"] : null;
+
+function post_or_null($key) {
+    return (isset($_POST[$key]) && $_POST[$key] !== "") ? $_POST[$key] : null;
+}
+
+$serial = post_or_null("serial");
+$manufacturer = post_or_null("manufacturer");
+$model = post_or_null("model");
+
+$size_inch = post_or_null("size_inch");
+$size_inch = is_null($size_inch) ? null : (int)$size_inch;
+$resolution = post_or_null("resolution");
+$connector = post_or_null("connector");
+$attached_to = post_or_null("attached_to");
+
 
 $stmt = mysqli_prepare($conn, "
     INSERT INTO monitors

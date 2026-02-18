@@ -9,26 +9,34 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
-    die("Erreur connexion BDD : " . mysqli_connect_error());
+    die("Erreur connexion BD : " . mysqli_connect_error());
 }
 
-$name = isset($_POST["name"]) ? $_POST["name"] : null;
-$name = isset($_POST["name"]) ? $_POST["name"] : null;
-$serial = isset($_POST["serial"]) ? $_POST["serial"] : null;
-$manufacturer = isset($_POST["manufacturer"]) ? $_POST["manufacturer"] : null;
-$model = isset($_POST["model"]) ? $_POST["model"] : null;
-$type = isset($_POST["type"]) ? $_POST["type"] : null;
-$cpu = isset($_POST["cpu"]) ? $_POST["cpu"] : null;
-$ram_mb = isset($_POST["ram_mb"]) ? $_POST["ram_mb"] : null;
-$disk_gb = isset($_POST["disk_gb"]) ? $_POST["disk_gb"] : null;
-$os = isset($_POST["os"]) ? $_POST["os"] : null;
-$domain = isset($_POST["domain"]) ? $_POST["domain"] : null;
-$location = isset($_POST["location"]) ? $_POST["location"] : null;
-$building = isset($_POST["building"]) ? $_POST["building"] : null;
-$room = isset($_POST["room"]) ? $_POST["room"] : null;
-$purchase_date = isset($_POST["purchase_date"]) ? $_POST["purchase_date"] : null;
-$macaddr = isset($_POST["macaddr"]) ? $_POST["macaddr"] : null;
-$warranty_end = isset($_POST["warranty_end"]) ? $_POST["warranty_end"] : null;
+function post_or_null($key) {
+    return (isset($_POST[$key]) && $_POST[$key] !== "") ? $_POST[$key] : null;
+}
+
+$name = post_or_null("name");
+$serial = post_or_null("serial");
+$manufacturer = post_or_null("manufacturer");
+$model = post_or_null("model");
+$type = post_or_null("type");
+$cpu = post_or_null("cpu");
+
+$ram_mb = post_or_null("ram_mb");
+$ram_mb = is_null($ram_mb) ? null : (int)$ram_mb;
+
+$disk_gb = post_or_null("disk_gb");
+$disk_gb = is_null($disk_gb) ? null : (int)$disk_gb;
+
+$os = post_or_null("os");
+$domain = post_or_null("domain");
+$location = post_or_null("location");
+$building = post_or_null("building");
+$room = post_or_null("room");
+$purchase_date = post_or_null("purchase_date");
+$macaddr = post_or_null("macaddr");
+$warranty_end = post_or_null("warranty_end");
 
 
 $stmt = mysqli_prepare($conn, "
