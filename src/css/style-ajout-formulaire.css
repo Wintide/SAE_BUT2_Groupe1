@@ -242,37 +242,22 @@ footer p {
     margin: 10px 0 0 0;
 }
 
-.accordion-toggle {
-    background: #2D5A27;
+.accordion-header {
+    background-color: #2D5A27;
     color: white;
     padding: 12px;
     border-radius: 6px;
     cursor: pointer;
+    margin: 20px 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0 10px 0;
-    transition: 0.3s;
 }
 
-.accordion-toggle:hover {
-    background: #244a20;
+.accordion-header:hover {
+    background-color: #244a20;
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-.accordion-content.open {
-    max-height: 2000px; /* assez grand pour ton formulaire */
-}
-
-.arrow {
-    transition: transform 0.3s ease;
-}
-
-.arrow.rotate {
-    transform: rotate(180deg);
+.accordion-body {
+    display: none;
 }

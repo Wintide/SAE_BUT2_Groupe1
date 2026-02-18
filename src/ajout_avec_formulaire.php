@@ -107,12 +107,12 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                             <?php endforeach; ?>
                         </select>
 
-                        <div class="accordion-toggle" id="toggle-advanced">
-                            <span>Autres caractéristique</span>
-                            <span class="arrow">▼</span>
+                        <div class="accordion-header" id="toggle-uc">
+                            <span>Options avancées</span>
+                            <span id="arrow-uc">▼</span>
                         </div>
 
-                        <div class="accordion-content" id="advanced-fields">
+                        <div class="accordion-body" id="advanced-uc">
 
                             <label for="uc-bat">Bâtiment :</label>
                             <select name="building" class="styled-select" id="uc-bat">

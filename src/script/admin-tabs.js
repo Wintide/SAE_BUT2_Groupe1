@@ -13,13 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const toggleUC = document.getElementById("toggle-advanced-uc");
-if (toggleUC) {
-    const contentUC = document.getElementById("advanced-fields-uc");
-    const arrowUC = toggleUC.querySelector(".arrow");
+const toggleUC = document.getElementById("toggle-uc");
 
-    toggleUC.addEventListener("click", () => {
-        contentUC.classList.toggle("open");
-        arrowUC.classList.toggle("rotate");
+if (toggleUC) {
+    toggleUC.addEventListener("click", function () {
+
+        const body = document.getElementById("advanced-uc");
+        const arrow = document.getElementById("arrow-uc");
+
+        if (body.style.display === "block") {
+            body.style.display = "none";
+            arrow.textContent = "▼";
+        } else {
+            body.style.display = "block";
+            arrow.textContent = "▲";
+        }
     });
 }
