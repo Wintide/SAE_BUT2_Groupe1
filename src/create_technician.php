@@ -9,6 +9,10 @@ if (empty($_SESSION['role']) || $_SESSION['role'] !== "administrateur_web") {
 $login = $_POST['login'];
 $password = $_POST['password'];
 
+if (!$login || !$password) {
+    die("Champs manquants");
+}
+
 $hashed = md5($password);
 
 $host = "localhost";
@@ -23,17 +27,30 @@ if (!$conn) {
     exit;
 }
 
+$check = $conn->prepare("SELECT id FROM users WHERE login = ?");
+$check->bind_param("s", $login);
+$check->execute();
+$check->store_result();
+
+if ($check->num_rows > 0) {
+    $check->close();
+    mysqli_close($conn);
+
+    header("Location: webadmin.php?error=user_exists");
+    exit();
+}
+
+$check->close();
+
 $stmt = $conn->prepare("INSERT INTO users (login, password, role) VALUES (?, ?, ?)");
 $role = "technicien";
 $stmt->bind_param("sss", $login, $hashed, $role);
 
 if ($stmt->execute()) {
-    echo "Utilisateur ajouté avec succès !";
+    echo "<script>console.log('Utilisateur ajouté avec succès !');</script>";
     header("Location: index.php");
 } else {
     echo "Erreur : " . $stmt->error;
 }
 
 $stmt->close();
-
-

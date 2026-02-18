@@ -31,17 +31,63 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         <aside class="sidebar">
             <ul>
                 <li><button class="sidebar-btn" data-target="form-technicien">Ajouter un technicien</button></li>
-                <li><button class="sidebar-btn" data-target="form-information">Ajouter une information</button></li>
+                <li><button class="sidebar-btn" data-target="form-information">Ajouter une caractéristique</button></li>
             </ul>
         </aside>
 
         <div class="admin-content">
 
             <section id="form-technicien" class="content-section active">
+                <h2>Liste des techniciens</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Login</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $host = "localhost";
+                    $user = "root";
+                    $pass = "root";
+                    $db = "vines";
+                    $conn = mysqli_connect($host, $user, $pass, $db);
+
+                    if (!$conn) {
+                        echo "<script>console.log('Erreur connexion serveur');</script>";
+                    }
+                    else {
+                        echo "<script>console.log('Connecté au serveur !');</script>";
+                        $base = mysqli_select_db($conn, $db);
+                        if (!$base) {
+                            echo "<script>console.log('Erreur connexion BD');</script>";
+                        } else {
+                            echo "<script>console.log('Connecté à la BD !');</script>";
+                            $sql = "SELECT id, login FROM users WHERE role='technicien'";
+                            $result = mysqli_query($conn, $sql);
+
+                            if ($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['login'] . "</td></tr>";
+                                }
+                            } else {
+                                echo "<script>console.log('Erreur requête : " . mysqli_error($conn) . "');</script>";
+                            }
+                        }
+                    }
+                    mysqli_close($conn);
+                    ?>
                 <div class="form-container">
                     <h2>Créer un technicien</h2>
 
                     <form action="create_technician.php" method="post">
+                        <?php
+                            if ($_GET['error']=="user_exists") {
+                                echo "<script>console.log('Erreur : utilisateur déjà existant');</script>";
+                                echo "<p>Erreur : un utilisateur avec ce login existe déjà.</p>";
+                            }
+                        ?>
                         <label for="login">Login du technicien :</label>
                         <input type="text" id="login" name="login" required autofocus>
 
