@@ -129,13 +129,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                 $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
                             }
                         }
-                        if ($first_filter) {
+                        if ($first_filter && $_POST['filter-type'] == "all") {
                             charge_all($conn);
                         } else {
-
+                            $req = $req . ";";
                             charge_from_req($conn, $req);
                         }
-                        $req = $req . ";";
+
                 }
 
             }
