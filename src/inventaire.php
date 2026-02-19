@@ -114,9 +114,9 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                         } else {
                             $req = "select * from ";
                             $first_filter = true;
-                            if(in_array($_POST['filter-type'], ['devices', 'monitors'])){
+                            if(in_array($_POST['filter-type'], ['devices', 'monitors']) && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all"){
                                 $req = $req . $_POST['filter-type'];
-                            } else if($_POST['filter-local'] != "all" && $_POST['filter-date'] != "all"){
+                            } else if($_POST['filter-local'] != "all" || $_POST['filter-date'] != "all"){
                                 $req = $req . " devices";
                             }
                             if($_POST['filter-local'] != "all"){
