@@ -38,6 +38,8 @@ df_dispositifs['categorie_garantie'] = df_dispositifs['jours_restant'].apply(cat
 compter_garantie = df_dispositifs['categorie_garantie'].value_counts()
 
 plt.figure(figsize=(8, 8))
+plt.style.use('tableau-colorblind10')
+
 plt.pie(compter_garantie, labels=compter_garantie.index, autopct='%1.1f%%', startangle=90)
 plt.title("Proximité à la date de fin de garantie des unités centrales")
 plt.axis('equal')
@@ -46,3 +48,4 @@ plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+

@@ -23,6 +23,8 @@ cursor.close()
 df = pd.DataFrame({'duration_seconds': durations})
 
 plt.figure(figsize=(8, 6))
+plt.style.use('tableau-colorblind10')
+
 plt.boxplot(df['duration_seconds'], vert=True)
 plt.title("Boxplot des durées de connexions")
 plt.ylabel("Durée (en secondes)")
@@ -31,5 +33,6 @@ plt.savefig('../images/graphe.png')
 
 plt.show()
 plt.close()
+
 
 

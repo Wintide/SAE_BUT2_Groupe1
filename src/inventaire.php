@@ -33,8 +33,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <label for="filter-type">Type :</label>
                 <select id="filter-type" name="filter-type">
                     <option value="all">Tous</option>
-                    <option value="uc">Unités centrales</option>
-                    <option value="moniteur">Moniteurs</option>
+                    <option value="devices">Unités centrales</option>
+                    <option value="monitors">Moniteurs</option>
                 </select>
 
                 <label for="filter-local">Localisation :</label>
@@ -109,31 +109,38 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
-
-                        $req = "select * from ";
-                        $first_filter = true;
-                        if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
-                            $req = $req . $_POST['filter-type'];
-                        }
-                        if($_POST['filter-local'] != "all") {
-                            $req = $req . " devices";
-                            $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
-                            $first_filter = false;
-                        }
-                        if($_POST['filter-date'] != "all") {
-                            if($first_filter){
-                                $req = $req . " devices";
-                                $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
-                                $first_filter = false;
-                            } else {
-                                $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
-                            }
-                        }
-                        if ($first_filter && $_POST['filter-type'] == "all") {
+                        if(empty($_POST['filter-type']) && empty($_POST['filter-local']) && empty($_POST['filter-date'])) {
                             charge_all($conn);
                         } else {
-                            $req = $req . ";";
-                            charge_from_req($conn, $req);
+                            $req = "select * from ";
+                            $first_filter = true;
+                            if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
+                                $req = $req . $_POST['filter-type'];
+                            }
+                            if(in_array($_POST['filter-local'], ['devices', 'monitors'])){
+                                $req = $req . " devices";
+                                $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
+                                $first_filter = false;
+                            }
+                            if($_POST['filter-date'] != "all") {
+                                if($first_filter){
+                                    $req = $req . " devices";
+                                    $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
+                                    $first_filter = false;
+                                } else {
+                                    $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
+                                }
+                            }
+                            if ($first_filter && $_POST['filter-type'] == "all") {
+                                charge_all($conn);
+                            } else {
+                                $req = $req . ";";
+                                if($_POST['filter-type'] == "monitors"){
+                                    charge_monitors_from_req($conn, $req);
+                                } else {
+                                    charge_devices_from_req($conn, $req);
+                                }
+                            }
                         }
 
                 }

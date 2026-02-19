@@ -118,8 +118,7 @@ function charge_devices($conn){
     }
 }
 
-function charge_from_req($conn, $req){
-    echo "<script>console.log('yup right here')</script>";
+function charge_devices_from_req($conn, $req){
     var_dump($req);
     $resultat_uc = mysqli_query($conn, $req);
     if (mysqli_num_rows($resultat_uc) > 0) {
@@ -146,6 +145,28 @@ function charge_from_req($conn, $req){
         echo "<p>$serial</p>";
         echo "<div class='actions'><button class='btn-view'>Consulter</button><button class='btn-edit'>Modifier</button></div></div>";
     }
+    }
+    echo "<script>console.log('ending')</script>";
+}
+
+function charge_monitors_from_req($conn, $req){
+    var_dump($req);
+    $resultat_uc = mysqli_query($conn, $req);
+    if (mysqli_num_rows($resultat_uc) > 0) {
+        while ($row = mysqli_fetch_assoc($resultat_uc)) {
+            $serial = $row['serial'];
+            $manufacturer = $row['manufacturer'];
+            $model = $row['model'];
+            $size_inch = $row['size_inch'];
+            $resolution = $row['resolution'];
+            $connector = $row['connector'];
+            $attached_to = $row['attached_to'];
+            echo "<div class='card monitor' id='$serial' data-serial='$serial' data-manu='$manufacturer' data-modele='$model' data-size='$size_inch' data-resolution='$resolution' data-connector='$connector' data-attached_to='$attached_to'>";
+            echo "<img src='images/monitor.png' alt='Moniteur'>";
+            echo "<h3>$serial</h3>";
+            echo "<p>$model</p>";
+            echo "<div class='actions'><button class='btn-view'>Consulter</button><button class='btn-edit'>Modifier</button></div></div>";
+        }
     }
     echo "<script>console.log('ending')</script>";
 }
