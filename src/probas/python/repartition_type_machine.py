@@ -25,6 +25,8 @@ df = pd.DataFrame({
 })
 
 plt.figure(figsize=(8, 8))
+plt.style.use('tableau-colorblind10')
+
 plt.pie(df['nombre'], labels=df['type'], autopct='%1.1f%%', startangle=90)
 plt.title("Répartition des types de machine", pad=30)
 plt.axis('equal')
