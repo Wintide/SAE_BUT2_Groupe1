@@ -27,7 +27,7 @@ if (!$conn) {
     exit;
 }
 
-$check = $conn->prepare("SELECT id FROM users WHERE login = ?");
+$check = $conn->prepare("SELECT * FROM users WHERE login = ?");
 $check->bind_param("s", $login);
 $check->execute();
 $check->store_result();
@@ -48,7 +48,7 @@ $stmt->bind_param("sss", $login, $hashed, $role);
 
 if ($stmt->execute()) {
     echo "<script>console.log('Utilisateur ajouté avec succès !');</script>";
-    header("Location: index.php");
+    header("Location: webadmin.php");
 } else {
     echo "Erreur : " . $stmt->error;
 }

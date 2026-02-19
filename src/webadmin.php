@@ -30,7 +30,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
         <aside class="sidebar">
             <ul>
-                <li><button class="sidebar-btn" data-target="form-technicien">Ajouter un technicien</button></li>
+                <li><button class="sidebar-btn" data-target="form-technicien">Gérer les techniciens</button></li>
                 <li><button class="sidebar-btn" data-target="form-information">Ajouter une caractéristique</button></li>
             </ul>
         </aside>
@@ -83,12 +83,14 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 <div class="form-container">
                     <h2>Créer un technicien</h2>
 
-                    <form action="create_technician.php" method="post">
+                    <form action="creer_technicien.php" method="post">
                         <?php
+                        if (isset($_GET['error'])) {
                             if ($_GET['error']=="user_exists") {
                                 echo "<script>console.log('Erreur : utilisateur déjà existant');</script>";
                                 echo "<p>Erreur : un utilisateur avec ce login existe déjà.</p>";
                             }
+                        }
                         ?>
                         <label for="login">Login du technicien :</label>
                         <input type="text" id="login" name="login" required autofocus>
@@ -99,18 +101,38 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
                 </div>
+                <div class="form-container">
+                    <h2>Supprimer un technicien</h2>
+
+                    <form action="supprimer_technicien.php" method="post">
+                        <?php
+                        if (isset($_GET['error'])) {
+                            if ($_GET['error']=="user_dont_exist") {
+                                echo "<script>console.log('Erreur : utilisateur inexistant');</script>";
+                                echo "<p>Erreur : L'utilisateur avec ce login n'existe pas.</p>";
+                            }
+                        }
+                        ?>
+                        <label for="login">Login du technicien :</label>
+                        <input type="text" id="login" name="login" required autofocus>
+
+                        <button id="form-button" type="submit">Supprimer</button>
+                    </form>
+                </div>
             </section>
 
             <section id="form-information" class="content-section">
                 <div class="form-container">
                     <h2>Ajouter une information</h2>
 
-                    <form action="create_information.php" method="post">
+                    <form action="creer_information.php" method="post">
                         <?php
+                        if (isset($_GET['err'])) {
                             if ($_GET['err']==1) {
                                 echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
                                 echo "<p>Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
+                        }
                         ?>
                         <label for="add-info">Ajouter une Information pour:</label>
                         <select name="add-info" id="add-info">

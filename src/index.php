@@ -49,9 +49,9 @@
             Votre navigateur ne supporte pas la lecture de la vidéo.
         </video>-->
 
-        <a href="https://www.skylinewebcams.com/fr/webcam/italia/lazio/roma/fontana-di-trevi.html" target="_blank" autofocus>
+        <!--<a href="https://www.skylinewebcams.com/fr/webcam/italia/lazio/roma/fontana-di-trevi.html" target="_blank" autofocus>
             <img src="https://embed.skylinewebcams.com/img/286.jpg" alt="【LIVE】 Fontaine de Trevi - Rome | SkylineWebcams">
-        </a>
+        </a>-->
     </section>
 </main>
 
