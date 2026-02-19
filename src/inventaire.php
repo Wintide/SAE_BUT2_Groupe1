@@ -109,38 +109,31 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
-                    if (isset($_POST['filter-type'])) {
-                        "<script>console.log('isser : works');</script>";
-                        $type = $_POST['filter-type'];
-                        $element_par_page = 12; // nombre d’éléments par page
-                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                        if ($page < 1) $page = 1;
-                        $offset = ($page - 1) * $element_par_page;
-
-                        switch ($type) {
-                            case "all":
-                                charge_all($conn, $element_par_page, $offset);
-
-                                break;
-
-                            case "uc":
-                                charge_devices($conn, $element_par_page, $offset);
-                                break;
-
-                            case "moniteur":
-                                charge_monitor($conn, $element_par_page, $offset);
-                                break;
-                        }
-                    } else if(isset($_POST['filter-local'])) {
-                        $local = $_POST['filter-local'];
-                        $element_par_page = 12; // nombre d’éléments par page
-                        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                        if ($page < 1) $page = 1;
-                        $offset = ($page - 1) * $element_par_page;
-                        charge_local($conn, $element_par_page, $offset, $local);
-                    } else {
-                        charge_all($conn, 12, 0);
+                    $req = "select * from ";
+                    $first_filter = true;
+                    if(isset($_POST['filter-type']) && empty($_POST['filter-local']) && empty($_POST['filter-date'])) {
+                        $req = $req . $_POST['filter-type'];
                     }
+                    if(isset($_POST['filter-local'])){
+                        $req = $req . " devices";
+                        $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
+                        $first_filter = false;
+                    }
+                    if(isset($_POST['filter-date'])){
+                        if($first_filter){
+                            $req = $req . " devices";
+                            $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
+                        } else {
+                            $req = $req . " AND " . $_POST['filter-date'];
+                        }
+                    }
+                    if ($first_filter) {
+                        charge_all($conn);
+                    } else {
+
+                        charge_from_req($conn, $req);
+                    }
+                    $req = $req . ";";
                 }
             }
             ?>
