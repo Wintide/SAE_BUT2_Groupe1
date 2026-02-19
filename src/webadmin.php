@@ -101,7 +101,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         ?>
 
                         <label for="login">Login du technicien :</label>
-                        <input type="text" id="login" name="login" required>
+                        <input type="text" id="login" name="login" required autofocus>
 
                         <label for="password">Mot de passe :</label>
                         <input type="password" id="password" name="password" required>
@@ -129,7 +129,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         }
                         ?>
                         <label for="login">Login du technicien :</label>
-                        <input type="text" id="login" name="login" required autofocus>
+                        <input type="text" id="login" name="login" required>
 
                         <button id="form-button" type="submit">Supprimer</button>
                     </form>
