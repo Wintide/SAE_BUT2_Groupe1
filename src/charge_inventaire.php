@@ -120,7 +120,6 @@ function charge_devices($conn){
 
 function charge_from_req($conn, $req){
     echo "<script>console.log('yup right here')</script>";
-    echo "<script>console.log('".$req. "')</script>";
     $resultat_uc = mysqli_query($conn, $req);
     if (mysqli_num_rows($resultat_uc) > 0) {
     while ($row = mysqli_fetch_assoc($resultat_uc)) {
@@ -147,6 +146,6 @@ function charge_from_req($conn, $req){
         echo "<div class='actions'><button class='btn-view'>Consulter</button><button class='btn-edit'>Modifier</button></div></div>";
     }
     }
-
+    echo "<script>console.log('ending')</script>";
 }
 ?>

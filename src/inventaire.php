@@ -124,7 +124,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             $req = $req . " devices";
                             $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
                         } else {
-                            $req = $req . " AND " . $_POST['filter-date'];
+                            $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
                         }
                     }
                     if ($first_filter) {
