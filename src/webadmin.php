@@ -42,8 +42,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Login</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -64,12 +64,12 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             echo "<script>console.log('Erreur connexion BD');</script>";
                         } else {
                             echo "<script>console.log('Connecté à la BD !');</script>";
-                            $sql = "SELECT id, login FROM users WHERE role='technicien'";
+                            $sql = "SELECT login FROM users WHERE role='technicien'";
                             $result = mysqli_query($conn, $sql);
 
                             if ($result) {
                                 while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['login'] . "</td></tr>";
+                                    echo "<tr><td>" . $row['login'] . "</td></tr>";
                                 }
                             } else {
                                 echo "<script>console.log('Erreur requête : " . mysqli_error($conn) . "');</script>";
