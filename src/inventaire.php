@@ -111,15 +111,15 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Connecté à la BD !');</script>";
                     $req = "select * from ";
                     $first_filter = true;
-                    if(isset($_POST['filter-type']) && empty($_POST['filter-local']) && empty($_POST['filter-date'])) {
+                    if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
                         $req = $req . $_POST['filter-type'];
                     }
-                    if(isset($_POST['filter-local'])){
+                    if($_POST['filter-local'] != "all") {
                         $req = $req . " devices";
                         $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
                         $first_filter = false;
                     }
-                    if(isset($_POST['filter-date'])){
+                    if($_POST['filter-date'] != "all") {
                         if($first_filter){
                             $req = $req . " devices";
                             $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
