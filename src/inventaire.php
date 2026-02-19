@@ -109,7 +109,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
-                    if(isset($_POST['filter-type'], $_POST['filter-local'], $_POST['filter-date'])) {
+
                         $req = "select * from ";
                         $first_filter = true;
                         if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
@@ -136,9 +136,6 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             charge_from_req($conn, $req);
                         }
                         $req = $req . ";";
-                    } else{
-                        charge_all($conn);
-                    }
                 }
 
             }
