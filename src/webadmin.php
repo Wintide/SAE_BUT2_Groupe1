@@ -83,22 +83,30 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 <div class="form-container">
                     <h2>Créer un technicien</h2>
 
-                    <form action="creer_technicien.php" method="post">
+                    <form action="creer_technicien.php" method="post" id="create-tech-form">
+
                         <?php
                         if (isset($_GET['error'])) {
-                            if ($_GET['error']=="user_exists") {
-                                echo "<script>console.log('Erreur : utilisateur déjà existant');</script>";
+
+                            if ($_GET['error'] == "user_exists") {
                                 echo "<p>Erreur : un utilisateur avec ce login existe déjà.</p>";
+                            }
+                            elseif ($_GET['error'] == "pwd_too_short") {
+                                echo "<p>Erreur : le mot de passe doit contenir au moins 8 caractères.</p>";
+                            }
+                            elseif ($_GET['error'] == "pwd_mismatch") {
+                                echo "<p>Erreur : les mots de passe ne correspondent pas.</p>";
                             }
                         }
                         ?>
+
                         <label for="login">Login du technicien :</label>
-                        <input type="text" id="login" name="login" required autofocus>
+                        <input type="text" id="login" name="login" required>
 
                         <label for="password">Mot de passe :</label>
-                        <input type="password" id="password" name="password" min="6" required>
+                        <input type="password" id="password" name="password" required>
 
-                        <label for="password_confirm">Confirmer le Mot de passe :</label>
+                        <label for="password_confirm">Confirmer le mot de passe :</label>
                         <input type="password" id="password_confirm" name="password_confirm" required>
 
                         <button id="form-button" type="submit">Créer le technicien</button>
@@ -269,6 +277,26 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         &copy; 2025 Vines - Tous droits réservés
     </p>
 </footer>
+<script>
+    document.getElementById("create-tech-form")
+        .addEventListener("submit", function(e) {
+
+            const pwd = document.getElementById("password").value;
+            const confirm = document.getElementById("password_confirm").value;
+            const minLength = 8;
+
+            if (pwd.length < minLength) {
+                alert("Le mot de passe doit contenir au minimum " + minLength + " caractères.");
+                e.preventDefault();
+                return;
+            }
+
+            if (pwd !== confirm) {
+                alert("Les mots de passe ne correspondent pas.");
+                e.preventDefault();
+            }
+        });
+</script>
 <script src="script/deconnexion.js" defer></script>
 <script src="script/admin-tabs.js" defer></script>
 </body>
