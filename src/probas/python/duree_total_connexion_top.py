@@ -26,6 +26,8 @@ df = pd.DataFrame(data, columns=['login', 'duree_totale'])
 top10 = df.head(10)
 
 plt.figure(figsize=(10, 6))
+plt.style.use('tableau-colorblind10')
+
 plt.bar(top10['login'], top10['duree_totale'])
 plt.gca().invert_yaxis()
 plt.xlabel("Durée totale (secondes)")
