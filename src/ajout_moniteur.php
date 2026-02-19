@@ -17,6 +17,12 @@ function post_or_null($key) {
 }
 
 $serial = post_or_null("serial");
+
+if ($serial == null) {
+    header("Location: ajout_avec_formulaire.php?error_obligatory");
+    exit();
+}
+
 $manufacturer = post_or_null("manufacturer");
 $model = post_or_null("model");
 
