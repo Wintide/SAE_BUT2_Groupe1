@@ -202,7 +202,26 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <button id="form-button" type="submit">Ajouter</button>
                     </form>
                     <div id="table-content">
-                        
+                        <script>
+                            const select = document.getElementById("add-info");
+                            const content = document.getElementById("table-content");
+
+                            function loadTable(table) {
+                                fetch("afficher_table.php?table=" + table)
+                                    .then(response => response.text())
+                                    .then(data => {
+                                        content.innerHTML = data;
+                                    });
+                            }
+
+                            select.addEventListener("change", function() {
+                                loadTable(this.value);
+                            });
+
+                            window.addEventListener("DOMContentLoaded", function() {
+                                loadTable(select.value);
+                            });
+                        </script>
 
 
 
