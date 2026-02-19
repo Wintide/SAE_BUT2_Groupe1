@@ -24,6 +24,8 @@ cursor.close()
 df = pd.DataFrame(result, columns=['annee', 'compteur'])
 
 plt.figure(figsize=(10, 6))
+plt.style.use('tableau-colorblind10')
+
 plt.plot(df['annee'], df['compteur'], marker='o')
 plt.title("Nombre d'unités centrales achetées par année")
 plt.xlabel("Année")
