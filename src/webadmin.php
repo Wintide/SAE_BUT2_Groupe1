@@ -143,6 +143,26 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             $db = "vines";
                             $conn = mysqli_connect($host, $user, $pass);
 
+                            $nom = [
+                                    "devices_building" => "Batiment (UC)",
+                                    "devices_cpu" => "CPU (UC)",
+                                    "devices_disk_gb" => "Capacité disque GB (UC)",
+                                    "devices_domain" => "Domaine (UC)",
+                                    "devices_location" => "Localisation (UC)",
+                                    "devices_manufacturer" => "Fabricant (UC)",
+                                    "devices_model" => "Model (UC)",
+                                    "devices_os" => "Système d'exploitation (UC)",
+                                    "devices_ram_mb" => "RAM MB (UC)",
+                                    "devices_room" => "Salle (UC)",
+                                    "devices_type" => "Type (UC)",
+                                    "monitors_connector" => "Connecteur (Moniteur)",
+                                    "monitors_manufacturer" => "Fabricant (Moniteur)",
+                                    "monitors_model" => "Model (Moniteur)",
+                                    "monitors_resolution" => "Résolution (Moniteur)",
+                                    "monitors_size_inch" => "Taille (Moniteur)",
+
+                            ];
+
                             if (!$conn) {
                                 echo "<script>console.log('Erreur connexion serveur');</script>";
                             }
@@ -162,13 +182,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                     while ($row = mysqli_fetch_array($result_devices)) {
 
                                         $info = $row[0];
-                                        echo "<option value='$info'>$info</option>";
+                                        echo "<option value='$info'>$nom[$info]</option>";
                                     }
 
                                     while ($row = mysqli_fetch_array($result_monitors)) {
 
                                         $info = $row[0];
-                                        echo "<option value='$info'>$info</option>";
+                                        echo "<option value='$info'>$nom[$info]</option>";
                                     }
                                 }
                             }
@@ -181,6 +201,32 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                         <button id="form-button" type="submit">Ajouter</button>
                     </form>
+                    <div id="table-content">
+                        <script>
+                            const select = document.getElementById("add-info");
+                            const content = document.getElementById("table-content");
+
+                            function loadTable(table) {
+                                fetch("afficher_table.php?table=" + table)
+                                    .then(response => response.text())
+                                    .then(data => {
+                                        content.innerHTML = data;
+                                    });
+                            }
+
+                            select.addEventListener("change", function() {
+                                loadTable(this.value);
+                            });
+
+                            window.addEventListener("DOMContentLoaded", function() {
+                                loadTable(select.value);
+                            });
+                        </script>
+
+
+
+                    </div>
+
                 </div>
             </section>
         </div>
