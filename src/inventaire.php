@@ -33,8 +33,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 <label for="filter-type">Type :</label>
                 <select id="filter-type" name="filter-type">
                     <option value="all">Tous</option>
-                    <option value="uc">Unités centrales</option>
-                    <option value="moniteur">Moniteurs</option>
+                    <option value="devices">Unités centrales</option>
+                    <option value="monitors">Moniteurs</option>
                 </select>
 
                 <label for="filter-local">Localisation :</label>
@@ -115,7 +115,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                         if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
                             $req = $req . $_POST['filter-type'];
                         }
-                        if($_POST['filter-local'] != "all") {
+                        if(in_array($_POST['filter-local'], ['devices', 'monitors'])){
                             $req = $req . " devices";
                             $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
                             $first_filter = false;
