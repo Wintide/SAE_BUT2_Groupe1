@@ -12,6 +12,11 @@ if (!$login) {
     die("Champs manquants");
 }
 
+if($login=="tech1"){
+    header("Location: webadmin.php?error=tech1");
+    exit();
+}
+
 $host = "localhost";
 $user = "root";
 $pass = "root";

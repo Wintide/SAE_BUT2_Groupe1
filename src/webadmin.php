@@ -111,6 +111,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                 echo "<script>console.log('Erreur : utilisateur inexistant');</script>";
                                 echo "<p>Erreur : L'utilisateur avec ce login n'existe pas.</p>";
                             }
+                            elseif ($_GET['error']=="tech1") {
+                                echo "<script>console.log('Erreur : Suppression de tech1 impossible');</script>";
+                                echo "<p>Erreur : Suppression de tech1 impossible.</p>";
+                            }
                         }
                         ?>
                         <label for="login">Login du technicien :</label>
@@ -123,7 +127,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
             <section id="form-information" class="content-section">
                 <div class="form-container">
-                    <h2>Ajouter une information</h2>
+                    <h2>Ajouter une caractéristique</h2>
 
                     <form action="creer_information.php" method="post">
                         <?php
@@ -134,7 +138,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             }
                         }
                         ?>
-                        <label for="add-info">Ajouter une Information pour:</label>
+                        <label for="add-info">Ajouter une caratéristique pour:</label>
                         <select name="add-info" id="add-info">
                             <?php
                             $host = "localhost";
@@ -195,7 +199,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             ?>
                         </select>
 
-                        <label>Qu'est ce qu'il faut ajouter :
+                        <label>Caractéristique à ajouter :
                         <input type="text" name="info" required>
                         </label>
 
