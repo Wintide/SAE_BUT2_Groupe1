@@ -109,32 +109,36 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                     echo "<script>console.log('Erreur connexion BD');</script>";
                 } else {
                     echo "<script>console.log('Connecté à la BD !');</script>";
-                    $req = "select * from ";
-                    $first_filter = true;
-                    if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
-                        $req = $req . $_POST['filter-type'];
-                    }
-                    if($_POST['filter-local'] != "all") {
-                        $req = $req . " devices";
-                        $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
-                        $first_filter = false;
-                    }
-                    if($_POST['filter-date'] != "all") {
-                        if($first_filter){
-                            $req = $req . " devices";
-                            $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
-                        } else {
-                            $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
+                    if(isset($_POST['filter-type'], $_POST['filter-local'], $_POST['filter-date'], $_POST['filter-search'])) {
+                        $req = "select * from ";
+                        $first_filter = true;
+                        if($_POST['filter-type'] != "all" && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all") {
+                            $req = $req . $_POST['filter-type'];
                         }
-                    }
-                    if ($first_filter) {
-                        charge_all($conn);
-                    } else {
+                        if($_POST['filter-local'] != "all") {
+                            $req = $req . " devices";
+                            $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
+                            $first_filter = false;
+                        }
+                        if($_POST['filter-date'] != "all") {
+                            if($first_filter){
+                                $req = $req . " devices";
+                                $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
+                                $first_filter = false;
+                            } else {
+                                $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
+                            }
+                        }
+                        if ($first_filter) {
+                            charge_all($conn);
+                        } else {
 
-                        charge_from_req($conn, $req);
+                            charge_from_req($conn, $req);
+                        }
+                        $req = $req . ";";
                     }
-                    $req = $req . ";";
                 }
+
             }
             ?>
 
