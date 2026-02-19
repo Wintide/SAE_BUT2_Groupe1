@@ -96,7 +96,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <input type="text" id="login" name="login" required autofocus>
 
                         <label for="password">Mot de passe :</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" min="6" required>
+
+                        <label for="password_confirm">Confirmer le Mot de passe :</label>
+                        <input type="password" id="password_confirm" name="password_confirm" required>
 
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
