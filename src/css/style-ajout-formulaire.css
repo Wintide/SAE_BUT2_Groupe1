@@ -61,7 +61,7 @@ nav .right-link {
     padding:8px;
     z-index:1000;
 }
-.user-overlay a { display:block; padding:4px 8px; color:#333; text-decoration:none; }
+.user-overlay a { display:block; padding:4px 8px; color:#333; text-decoration:none;}
 
 main {
     flex: 1;
