@@ -114,10 +114,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                         } else {
                             $req = "select * from ";
                             $first_filter = true;
+                            $table = null;
                             if(in_array($_POST['filter-type'], ['devices', 'monitors']) && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all"){
                                 $req = $req . $_POST['filter-type'];
+                                $table = $_POST['filter-type'];
                             } else if($_POST['filter-local'] != "all" || $_POST['filter-date'] != "all"){
                                 $req = $req . " devices";
+                                $table = "devices";
                             }
                             if($_POST['filter-local'] != "all"){
                                 $req = $req . " WHERE location = '" . $_POST['filter-local']."'";
@@ -136,7 +139,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                 charge_all($conn);
                             } else {
                                 $req = $req . ";";
-                                if($_POST['filter-type'] == "monitors"){
+                                if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
                                 } else {
                                     charge_devices_from_req($conn, $req);
