@@ -54,6 +54,7 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
         <img src="images/logovines.png" alt="Logo Vines" class="logo">
         <nav>
             <a href="index.php" class="center-link">Accueil</a>
+            <a href="probas/charger_graphe.php" class="center-link">Statistique</a>
             <div id="userButton" class="right-link">
                 <a href="logout.php" role="menuitem">Déconnexion</a>
             </div>
