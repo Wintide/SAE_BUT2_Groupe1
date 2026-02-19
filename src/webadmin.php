@@ -78,6 +78,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     }
                     mysqli_close($conn);
                     ?>
+                    </tbody>
+                </table>
                 <div class="form-container">
                     <h2>Créer un technicien</h2>
 
