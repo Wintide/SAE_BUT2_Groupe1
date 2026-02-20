@@ -137,16 +137,16 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             if(isset($_POST['filter-search'])){
                                 if($first_filter){
                                     if($table=="devices"){
-                                        $req = $req . " WHERE name LIKE " . $_POST['filter-search'] . " OR serial LIKE " . $_POST['filter-search'];
+                                        $req = $req . " WHERE name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%";
                                     } else if($table=="monitors"){
-                                        $req = $req . " WHERE serial LIKE " . $_POST['filter-search'];
+                                        $req = $req . " WHERE serial LIKE %" . $_POST['filter-search'] . "%";
                                     }
                                     $first_filter = false;
                                 } else{
                                     if($table=="devices"){
-                                        $req = $req . " AND (name LIKE " . $_POST['filter-search'] . " OR serial LIKE " . $_POST['filter-search'] . ")";
+                                        $req = $req . " AND (name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%)";
                                     } else if($table=="monitors"){
-                                        $req = $req . " AND (serial LIKE " . $_POST['filter-search'] . ")";
+                                        $req = $req . " AND (serial LIKE %" . $_POST['filter-search'] . "%)";
                                     }
                                 }
                             }
@@ -154,6 +154,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             if ($first_filter && $_POST['filter-type'] == "all") {
                                 charge_all($conn);
                             } else {
+                                var_dump($first_filter);
                                 $req = $req . ";";
                                 if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
