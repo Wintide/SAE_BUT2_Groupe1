@@ -275,14 +275,6 @@ td {
     color: #333;
 }
 
-tr:nth-child(even) td {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #DFF0E5;
-}
-
 caption {
     font-size: 18px;
     color: #2D5A27;
