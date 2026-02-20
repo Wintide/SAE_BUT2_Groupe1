@@ -19,6 +19,12 @@ function post_or_null($key) {
 $name = post_or_null("name");
 $serial = post_or_null("serial");
 $manufacturer = post_or_null("manufacturer");
+
+if ($name == null || $serial == null || $manufacturer == null) {
+    header("Location: ajout_avec_formulaire.php?error_obligatory");
+    exit();
+}
+
 $model = post_or_null("model");
 $type = post_or_null("type");
 $cpu = post_or_null("cpu");

@@ -6,14 +6,28 @@ if (empty($_SESSION['role']) || $_SESSION['role'] !== "administrateur_web") {
     exit();
 }
 
-$login = $_POST['login'];
-$password = $_POST['password'];
-
-if (!$login || !$password) {
+if (!isset($_POST['login'], $_POST['password'], $_POST['password_confirm'])) {
     die("Champs manquants");
 }
 
+$login = $_POST['login'];
+$password = $_POST['password'];
+$password_confirm = $_POST['password_confirm'];
+
+$minLength = 8;
+
+if (strlen($password) < $minLength) {
+    header("Location: webadmin.php?error=pwd_too_short");
+    exit();
+}
+
+if ($password !== $password_confirm) {
+    header("Location: webadmin.php?error=pwd_mismatch");
+    exit();
+}
+
 $hashed = md5($password);
+$hashed_confirm = md5($password_confirm);
 
 $host = "localhost";
 $user = "root";

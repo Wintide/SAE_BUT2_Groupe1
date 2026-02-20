@@ -93,6 +93,13 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                     <h2>Créer une unité centrale</h2>
                     <form action="ajout_uc.php" method="post">
 
+                        <?php
+                        if (isset($_GET['error_obligatory'])) {
+                            echo "<p class='error-message'>Veuillez remplir tous les champs obligatoires.</p>";
+                        } elseif (isset($_GET['success']) && $_GET['success'] === "uc") {
+                            echo "<p class='success-message'>Unité centrale créée avec succès !</p>";
+                        }?>
+
                         <label for="uc-name">Nom :</label>
                         <input type="text" name="name" id="uc-name" autofocus required>
 
@@ -215,6 +222,13 @@ $monitor_attached_to = mysqli_query($conn, "SELECT name FROM devices");
                 <div class="form-container">
                     <h2>Créer un moniteur</h2>
                     <form action="ajout_moniteur.php" method="post">
+
+                        <?php
+                        if (isset($_GET['error_obligatory'])) {
+                            echo "<p class='error-message'>Veuillez remplir tous les champs obligatoires.</p>";
+                        } elseif (isset($_GET['success']) && $_GET['success'] === "uc") {
+                            echo "<p class='success-message'>Moniteur créée avec succès !</p>";
+                        }?>
 
                         <label for="m-NS">Numéro de série :</label>
                         <input type="text" name="serial" id="m-NSr" required>
