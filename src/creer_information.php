@@ -8,6 +8,10 @@ $conn = mysqli_connect($host, $user, $pass, $db);
 $databases = $_POST["add-info"];
 $info = $_POST["info"];
 
+if(empty($info)){
+    header("Location: webadmin.php?error=empty");
+}
+
 error_reporting(E_ALL ^ E_NOTICE);
 
 if (!($conn)) {
@@ -32,6 +36,6 @@ if (!($conn)) {
         echo "<script>console.log('Information ajoutée avec succès');</script>";
         header("Location: webadmin.php");
     } else {
-        header("Location: webadmin.php?err=1");
+        header("Location: webadmin.php?error=1");
     }
 }
