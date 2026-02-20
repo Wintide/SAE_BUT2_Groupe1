@@ -119,7 +119,6 @@ function charge_devices($conn){
 }
 
 function charge_devices_from_req($conn, $req){
-    var_dump($req);
     $resultat_uc = mysqli_query($conn, $req);
     if (mysqli_num_rows($resultat_uc) > 0) {
     while ($row = mysqli_fetch_assoc($resultat_uc)) {
