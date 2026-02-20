@@ -252,6 +252,9 @@ input:not([type="submit"]) {
     width: 100%;
 }
 
+table,th,td{
+    border-collapse: collapse;
+}
 
 
 
