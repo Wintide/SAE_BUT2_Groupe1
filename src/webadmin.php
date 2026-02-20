@@ -153,15 +153,15 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         if (isset($_GET['error'])) {
                             if ($_GET['error']=="exec") {
                                 echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
-                                echo "<p style='color: #B71C1C'>Une erreur est survenue lors de l'ajout de l'information.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
                             if ($_GET['error']=="empty") {
                                 echo "<script>console.log('Erreur champ vide');</script>";
-                                echo "<p style='color: #B71C1C'>Veuillez remplir le formulaire.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : Le champ du formulaire est vide.</p>";
                             }
                             if ($_GET['error']=="exist") {
                                 echo "<script>console.log('Erreur champ existe déja');</script>";
-                                echo "<p style='color: #B71C1C'>Le champ est déjà présent dans la base de données.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : Le champ est déjà présent dans la base de données.</p>";
                             }
                         }
                         ?>
