@@ -149,7 +149,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             }
                             if ($_GET['error']=="empty") {
                                 echo "<script>console.log('Erreur champ vide');</script>";
-                                echo "<p>Veuillez remplir le formulaire.</p>";
+                                echo "<p style='color: #B71C1C'>Veuillez remplir le formulaire.</p>";
                             }
                         }
                         ?>
