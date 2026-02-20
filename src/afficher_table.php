@@ -27,19 +27,19 @@ if(!in_array($table, $allowed)){
 
 $result = mysqli_query($conn, "SELECT * FROM $table");
 
-echo "<table style='border: 1px solid black; border-collapse: collapse;'>";
+echo "<table>";
 echo "<tr>";
 
 $fields = mysqli_fetch_fields($result);
 foreach($fields as $field){
-    echo "<th style='border: 1px solid black; border-collapse: collapse;'>{$field->name}</th>";
+    echo "<th>{$field->name}</th>";
 }
 echo "</tr>";
 
 while($row = mysqli_fetch_assoc($result)){
     echo "<tr>";
     foreach($row as $cell){
-        echo "<td style='border: 1px solid black; border-collapse: collapse;'>$cell</td>";
+        echo "<td>$cell</td>";
     }
     echo "</tr>";
 }
