@@ -89,13 +89,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         if (isset($_GET['error'])) {
 
                             if ($_GET['error'] == "user_exists") {
-                                echo "<p>Erreur : un utilisateur avec ce login existe déjà.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : un utilisateur avec ce login existe déjà.</p>";
                             }
                             elseif ($_GET['error'] == "pwd_too_short") {
-                                echo "<p>Erreur : le mot de passe doit contenir au moins 8 caractères.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : le mot de passe doit contenir au moins 8 caractères.</p>";
                             }
                             elseif ($_GET['error'] == "pwd_mismatch") {
-                                echo "<p>Erreur : les mots de passe ne correspondent pas.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : les mots de passe ne correspondent pas.</p>";
                             }
                         }
                         ?>
@@ -120,11 +120,11 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         if (isset($_GET['error'])) {
                             if ($_GET['error']=="user_dont_exist") {
                                 echo "<script>console.log('Erreur : utilisateur inexistant');</script>";
-                                echo "<p>Erreur : L'utilisateur avec ce login n'existe pas.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : L'utilisateur avec ce login n'existe pas.</p>";
                             }
                             elseif ($_GET['error']=="tech1") {
                                 echo "<script>console.log('Erreur : Suppression de tech1 impossible');</script>";
-                                echo "<p>Erreur : Suppression de tech1 impossible.</p>";
+                                echo "<p style='color: #B71C1C'>Erreur : Suppression de tech1 impossible.</p>";
                             }
                         }
                         ?>
@@ -145,7 +145,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         if (isset($_GET['error'])) {
                             if ($_GET['error']==1) {
                                 echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
-                                echo "<p>Une erreur est survenue lors de l'ajout de l'information.</p>";
+                                echo "<p style='color: #B71C1C'>Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
                             if ($_GET['error']=="empty") {
                                 echo "<script>console.log('Erreur champ vide');</script>";
