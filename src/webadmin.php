@@ -44,6 +44,16 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
             <section id="form-technicien" class="content-section <?php echo (!$has_information_error && !$has_technicien_error) || $has_technicien_error ? 'active' : ''; ?>">
                 <h2>Liste des techniciens</h2>
+                <?php
+                if (isset($_GET['success'])) {
+                    if ($_GET['success'] == "ajout") {
+                        echo "<p style='color: green'>Confirmation : Ajout de l'utilisateur avec succes.</p>";
+                    }
+                    if ($_GET['success'] == "suppression") {
+                        echo "<p style='color: green'>Confirmation : Suppression de l'utilisateur avec succes.</p>";
+                    }
+                }
+                ?>
                 <table>
                     <thead>
                         <tr>
@@ -111,7 +121,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <label for="login">Login du technicien :</label>
                         <input type="text" id="login" name="login" required autofocus>
 
-                        <label for="password">Mot de passe :</label>
+                        <label for="password">Mot de passe (minimum 8 caratère) :</label>
                         <input type="password" id="password" name="password" required>
 
                         <label for="password_confirm">Confirmer le mot de passe :</label>
@@ -119,13 +129,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
-                    <?php
-                    if (isset($_GET['success'])) {
-                        if ($_GET['success'] == "ajout") {
-                            echo "<p style='color: green'>Confirmation : Ajout de l'utilisateur avec succes.</p>";
-                        }
-                    }
-                    ?>
+
                 </div>
                 <div class="form-container">
                     <h2>Supprimer un technicien</h2>

@@ -49,7 +49,7 @@ $stmt->bind_param("s", $login);
 
 if ($stmt->execute()) {
     echo "<script>console.log('Utilisateur supprimer avec succès !');</script>";
-    header("Location: webadmin.php");
+    header("Location: webadmin.php?success=suppression");
 } else {
     echo "Erreur : " . $stmt->error;
 }
