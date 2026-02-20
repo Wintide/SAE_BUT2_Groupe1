@@ -97,8 +97,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
         <h2>Inventaire Actif</h2>
 
         <?php
-        if (isset($_POST['filter-type']) && $_POST['filter-type']=='monitors' && $_POST['filter-local'] != 'all' && $_POST['filter-date'] != 'all') {
-            echo "<p> Les moniteurs n'on pas d'information, donc ne peuvent pas être trier</p>";
+        if (isset($_POST['filter-type']) && $_POST['filter-type']=='monitors' && ($_POST['filter-local'] != 'all' || $_POST['filter-date'] != 'all')) {
+            echo "<p class='error'> Les moniteurs n'ont pas d'information, donc ne peuvent pas être trier</p>";
         }
 
 
