@@ -158,7 +158,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
             <section id="form-information" class="content-section <?php echo $has_information_error ? 'active' : ''; ?>">
                 <div class="form-container">
                     <h2>Ajouter une caractéristique</h2>
-
+                    <?php
+                    if (isset($_GET['success'])) {
+                        if ($_GET['success'] == "ajout_info") {
+                            echo "<p style='color: green'>Confirmation : Ajout de la caratéristique avec succes.</p>";
+                        }
+                    }
+                    ?>
                     <form action="creer_information.php" method="post">
                         <?php
                         if (isset($_GET['error'])) {
