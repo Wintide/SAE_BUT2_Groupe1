@@ -111,7 +111,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                         <label for="login">Login du technicien :</label>
                         <input type="text" id="login" name="login" required autofocus>
 
-                        <label for="password">Mot de passe (minimum 8 caratère) :</label>
+                        <label for="password">Mot de passe (minimum 8 caratères) :</label>
                         <input type="password" id="password" name="password" required>
 
                         <label for="password_confirm">Confirmer le mot de passe :</label>
@@ -122,7 +122,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <?php
                     if (isset($_GET['success'])) {
                         if ($_GET['success'] == "ajout") {
-                            echo "<p style='color: green'>Confirmation : Ajout de l'utilisateur avec succes.</p>";
+                            echo "<p style='color: green'>Confirmation : Ajout de l'utilisateur avec succès.</p>";
                         }
                     }
                     ?>
