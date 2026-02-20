@@ -134,7 +134,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                     $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
                                 }
                             }
-                            if(isset($POST['filter-search'])){
+                            if(isset($_POST['filter-search'])){
                                 if($first_filter){
                                     if($table=="devices"){
                                         $req = $req . " WHERE name LIKE " . $_POST['filter-search'] . " OR serial LIKE " . $_POST['filter-search'];
