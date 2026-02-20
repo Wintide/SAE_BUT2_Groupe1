@@ -23,18 +23,28 @@ if (!($conn)) {
         $databases_cut = str_replace("monitors_", "", $databases);
     }
 
-    $verif = $conn->query("SELECT * FROM $databases WHERE $databases_cut");
-    foreach($verif as $row){
-        if ($info == $row[$databases_cut]){
-            header("Location: webadmin.php?error=exist");
-        }
-    }
+    $verif = $conn->prepare("SELECT * FROM $databases WHERE $databases_cut = ?");
 
     if($databases=="devices_ram_mb"||$databases=="devices_disk_gb"||$databases=="monitors_size_inch"){
+
+        $verif->bind_param("i", $info);
+        $verif->execute();
+        if ($verif->fetch() > 0) {
+            header("Location: webadmin.php?error=exist");
+        }
+
         $stmt = $conn->prepare("INSERT INTO $databases($databases_cut) VALUES (?)");
         $stmt->bind_param("i",$info);
         echo "<script>console.log(typeof($info));</script>";
     } else{
+
+        $verif->bind_param("s", $info);
+        $verif->execute();
+        if ($verif->fetch() > 0) {
+            header("Location: webadmin.php?error=exist");
+        }
+
+
         $stmt = $conn->prepare("INSERT INTO $databases($databases_cut) VALUES (?)");
         $stmt->bind_param("s", $info);
         echo "<script>console.log(typeof($info));</script>";
