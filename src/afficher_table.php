@@ -27,7 +27,7 @@ if(!in_array($table, $allowed)){
 
 $result = mysqli_query($conn, "SELECT * FROM $table");
 
-echo "<table border='1'>";
+echo "<table style='border: 1px solid black; border-collapse: collapse;'>";
 echo "<tr>";
 
 $fields = mysqli_fetch_fields($result);
