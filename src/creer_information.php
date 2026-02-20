@@ -36,6 +36,6 @@ if (!($conn)) {
         echo "<script>console.log('Information ajoutée avec succès');</script>";
         header("Location: webadmin.php");
     } else {
-        header("Location: webadmin.php?error=1");
+        header("Location: webadmin.php?error=exec");
     }
 }

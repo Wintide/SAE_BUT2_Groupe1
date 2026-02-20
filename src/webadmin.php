@@ -143,7 +143,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                     <form action="creer_information.php" method="post">
                         <?php
                         if (isset($_GET['error'])) {
-                            if ($_GET['error']==1) {
+                            if ($_GET['error']=="exec") {
                                 echo "<script>console.log('Erreur lors de l\'ajout de l\'information');</script>";
                                 echo "<p style='color: #B71C1C'>Une erreur est survenue lors de l'ajout de l'information.</p>";
                             }
