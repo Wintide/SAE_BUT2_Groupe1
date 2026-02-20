@@ -113,6 +113,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             charge_all($conn);
                         } else {
                             $req = "select * from ";
+                            $req2 = null;
                             $first_filter = true;
                             $table = null;
                             if(in_array($_POST['filter-type'], ['devices', 'monitors']) && $_POST['filter-local'] == "all" && $_POST['filter-date'] == "all"){
@@ -140,6 +141,9 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                         $req = $req . " WHERE name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%";
                                     } else if($table=="monitors"){
                                         $req = $req . " WHERE serial LIKE %" . $_POST['filter-search'] . "%";
+                                    } else {
+                                        $req = $req . "devices WHERE name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%";
+                                        $req2 = $req . "monitors WHERE serial LIKE %" . $_POST['filter-search'] . "%";
                                     }
                                     $first_filter = false;
                                 } else{
@@ -154,11 +158,16 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             if ($first_filter && $_POST['filter-type'] == "all") {
                                 charge_all($conn);
                             } else {
-                                var_dump($first_filter);
+                                var_dump($_POST['filter-type']);
+                                var_dump($table);
                                 $req = $req . ";";
                                 if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
-                                } else {
+                                } else if ($_POST['filter-type'] == "all"){
+                                    charge_devices_from_req($conn, $req);
+                                    charge_monitors_from_req($conn, $req2);
+                                }
+                                else{
                                     charge_devices_from_req($conn, $req);
                                 }
                             }
