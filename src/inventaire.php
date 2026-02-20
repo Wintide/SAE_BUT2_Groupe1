@@ -158,7 +158,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             if ($first_filter && $_POST['filter-type'] == "all") {
                                 charge_all($conn);
                             } else {
-                                var_dump($first_filter);
+                                var_dump($_POST['filter-type']);
+                                var_dump($table);
                                 $req = $req . ";";
                                 if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
