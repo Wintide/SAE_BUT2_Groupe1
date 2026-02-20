@@ -21,6 +21,11 @@ if (strlen($password) < $minLength) {
     exit();
 }
 
+if (strlen($login) < 1) {
+    header("Location: webadmin.php?error=empty_login");
+    exit();
+}
+
 if ($password !== $password_confirm) {
     header("Location: webadmin.php?error=pwd_mismatch");
     exit();
