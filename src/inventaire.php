@@ -162,7 +162,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                 $req = $req . ";";
                                 if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
-                                } else if ($table == "all"){
+                                } else if ($table == null){
                                     charge_devices_from_req($conn, $req);
                                     charge_monitors_from_req($conn, $req2);
                                 }
