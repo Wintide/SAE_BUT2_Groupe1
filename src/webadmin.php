@@ -40,9 +40,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
             <?php
             $has_technicien_error = isset($_GET['error']) && in_array($_GET['error'], ['user_exists', 'empty_login', 'pwd_too_short', 'pwd_mismatch', 'user_dont_exist', 'tech1']);
             $has_information_error = isset($_GET['error']) && in_array($_GET['error'], ['exec', 'empty', 'exist']);
+            $has_information_success = isset($_GET['success']) && in_array($_GET['success'], ['ajout_info']);
             ?>
 
-            <section id="form-technicien" class="content-section <?php echo (!$has_information_error && !$has_technicien_error) || $has_technicien_error ? 'active' : ''; ?>">
+            <section id="form-technicien" class="content-section <?php echo (!$has_information_error && !$has_technicien_error && !$has_information_success) || $has_technicien_error ? 'active' : ''; ?>">
                 <h2>Liste des techniciens</h2>
                 <?php
                 if (isset($_GET['success'])) {
@@ -155,10 +156,16 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                 </div>
             </section>
 
-            <section id="form-information" class="content-section <?php echo $has_information_error ? 'active' : ''; ?>">
+            <section id="form-information" class="content-section <?php echo ($has_information_error || $has_information_success) ? 'active' : ''; ?>">
                 <div class="form-container">
                     <h2>Ajouter une caractéristique</h2>
-
+                    <?php
+                    if (isset($_GET['success'])) {
+                        if ($_GET['success'] == "ajout_info") {
+                            echo "<p style='color: green'>Confirmation : Ajout de la caratéristique avec succes.</p>";
+                        }
+                    }
+                    ?>
                     <form action="creer_information.php" method="post">
                         <?php
                         if (isset($_GET['error'])) {

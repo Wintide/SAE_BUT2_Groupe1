@@ -52,7 +52,7 @@ if (!($conn)) {
 
     if ($stmt->execute()) {
         echo "<script>console.log('Information ajoutée avec succès');</script>";
-        header("Location: webadmin.php");
+        header("Location: webadmin.php?success=ajout_info");
     } else {
         header("Location: webadmin.php?error=exec");
     }
