@@ -38,7 +38,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
         <div class="admin-content">
 
             <?php
-            $has_technicien_error = isset($_GET['error']) && in_array($_GET['error'], ['user_exists', 'empty_login', 'pwd_too_short', 'pwd_mismatch']);
+            $has_technicien_error = isset($_GET['error']) && in_array($_GET['error'], ['user_exists', 'empty_login', 'pwd_too_short', 'pwd_mismatch', 'user_dont_exist', 'tech1']);
             $has_information_error = isset($_GET['error']) && in_array($_GET['error'], ['exec', 'empty', 'exist']);
             ?>
 
