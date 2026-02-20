@@ -95,6 +95,14 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
 
     <div class="main-inventory">
         <h2>Inventaire Actif</h2>
+
+        <?php
+        if (isset($_POST['filter-type']) && $_POST['filter-type']=='monitors' && $_POST['filter-local'] != 'all' && $_POST['filter-date'] != 'all') {
+            echo "<p> Les moniteurs n'on pas d'information, donc ne peuvent pas être trier</p>";
+        }
+
+
+        ?>
         <div class="inventory-grid">
 
             <?php
@@ -135,38 +143,38 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                                     $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
                                 }
                             }
-                            if(isset($_POST['filter-search']) && $_POST['filter-search'] != ""){
+                            // normalement cette partie marche c'est charger l'inventaire qui marche pas
+                            /* TODO if(isset($_POST['filter-search']) && $_POST['filter-search'] != ""){
                                 if($first_filter){
                                     if($table=="devices"){
-                                        $req = $req . " WHERE name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%";
+                                        $req = $req . " WHERE name LIKE '%" . $_POST['filter-search'] . "%' OR serial LIKE '%" . $_POST['filter-search'] . "%'";
                                     } else if($table=="monitors"){
-                                        $req = $req . " WHERE serial LIKE %" . $_POST['filter-search'] . "%";
+                                        $req = $req . " WHERE serial LIKE '%" . $_POST['filter-search'] . "%'";
                                     } else {
-                                        $req = $req . "devices WHERE name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%";
-                                        $req2 = $req . "monitors WHERE serial LIKE %" . $_POST['filter-search'] . "%";
+                                        $req = $req . "devices WHERE name LIKE '%" . $_POST['filter-search'] . "%' OR serial LIKE '%" . $_POST['filter-search'] . "%'";
+                                        $req2 = $req . "monitors WHERE serial LIKE '%" . $_POST['filter-search'] . "%'";
                                     }
                                     $first_filter = false;
                                 } else{
                                     if($table=="devices"){
-                                        $req = $req . " AND (name LIKE %" . $_POST['filter-search'] . "% OR serial LIKE %" . $_POST['filter-search'] . "%)";
+                                        $req = $req . " AND (name LIKE '%" . $_POST['filter-search'] . "%' OR serial LIKE '%" . $_POST['filter-search'] . "%')";
                                     } else if($table=="monitors"){
-                                        $req = $req . " AND (serial LIKE %" . $_POST['filter-search'] . "%)";
+                                        $req = $req . " AND (serial LIKE '%" . $_POST['filter-search'] . "%')";
                                     }
                                 }
-                            }
+                            }*/
 
                             if ($first_filter && $_POST['filter-type'] == "all") {
                                 charge_all($conn);
                             } else {
-                                var_dump($_POST['filter-type']);
-                                var_dump($table == "all");
                                 $req = $req . ";";
                                 if($table == "monitors"){
                                     charge_monitors_from_req($conn, $req);
-                                } else if ($table == "all"){
+                                }
+                                /*TODO else if ($table == "all"){
                                     charge_devices_from_req($conn, $req);
                                     charge_monitors_from_req($conn, $req2);
-                                }
+                                } */
                                 else{
                                     charge_devices_from_req($conn, $req);
                                 }
