@@ -82,7 +82,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                 </select>
 
                 <label for="filter-search">Recherche :</label>
-                <input type="text" id="filter-search" placeholder="Rechercher un modèle, ID...">
+                <input type="text" id="filter-search" name="filter-search" placeholder="Rechercher un modèle, ID...">
 
                 <button type="submit">Filtrer</button>
             </form>
@@ -128,13 +128,29 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "technicien") {
                             }
                             if($_POST['filter-date'] != "all") {
                                 if($first_filter){
-                                    $req = $req . " devices";
                                     $req = $req . " WHERE YEAR(purchase_date) = " . $_POST['filter-date'];
                                     $first_filter = false;
                                 } else {
                                     $req = $req . " AND YEAR(purchase_date) = " . $_POST['filter-date'];
                                 }
                             }
+                            if(isset($POST['filter-search'])){
+                                if($first_filter){
+                                    if($table=="devices"){
+                                        $req = $req . " WHERE name LIKE " . $_POST['filter-search'] . " OR serial LIKE " . $_POST['filter-search'];
+                                    } else if($table=="monitors"){
+                                        $req = $req . " WHERE serial LIKE " . $_POST['filter-search'];
+                                    }
+                                    $first_filter = false;
+                                } else{
+                                    if($table=="devices"){
+                                        $req = $req . " AND (name LIKE " . $_POST['filter-search'] . " OR serial LIKE " . $_POST['filter-search'] . ")";
+                                    } else if($table=="monitors"){
+                                        $req = $req . " AND (serial LIKE " . $_POST['filter-search'] . ")";
+                                    }
+                                }
+                            }
+
                             if ($first_filter && $_POST['filter-type'] == "all") {
                                 charge_all($conn);
                             } else {
