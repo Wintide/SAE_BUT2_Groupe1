@@ -67,7 +67,7 @@ $stmt->bind_param("sss", $login, $hashed, $role);
 
 if ($stmt->execute()) {
     echo "<script>console.log('Utilisateur ajouté avec succès !');</script>";
-    header("Location: webadmin.php");
+    header("Location: webadmin.php?success=ajout");
 } else {
     echo "Erreur : " . $stmt->error;
 }

@@ -119,6 +119,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
 
                         <button id="form-button" type="submit">Créer le technicien</button>
                     </form>
+                    <?php
+                    if (isset($_GET['success'])) {
+                        if ($_GET['success'] == "ajout") {
+                            echo "<p style='color: green'>Confirmation : Ajout de l'utilisateur avec succes.</p>";
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="form-container">
                     <h2>Supprimer un technicien</h2>
