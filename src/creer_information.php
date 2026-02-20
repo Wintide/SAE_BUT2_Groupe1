@@ -22,6 +22,14 @@ if (!($conn)) {
     } elseif (strpos($databases, "monitors_") === 0) {
         $databases_cut = str_replace("monitors_", "", $databases);
     }
+
+    $verif = $conn->query("SELECT * FROM $databases WHERE $databases_cut");
+    foreach($verif as $row){
+        if ($info == $row[$databases_cut]){
+            header("Location: webadmin.php?error=exist");
+        }
+    }
+
     if($databases=="devices_ram_mb"||$databases=="devices_disk_gb"||$databases=="monitors_size_inch"){
         $stmt = $conn->prepare("INSERT INTO $databases($databases_cut) VALUES (?)");
         $stmt->bind_param("i",$info);

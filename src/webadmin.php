@@ -154,6 +154,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                                 echo "<script>console.log('Erreur champ vide');</script>";
                                 echo "<p style='color: #B71C1C'>Veuillez remplir le formulaire.</p>";
                             }
+                            if ($_GET['error']=="exist") {
+                                echo "<script>console.log('Erreur champ existe déja');</script>";
+                                echo "<p style='color: #B71C1C'>Le champ est déjà présent dans la base de données.</p>";
+                            }
                         }
                         ?>
                         <label for="add-info">Ajouter une caratéristique pour:</label>
