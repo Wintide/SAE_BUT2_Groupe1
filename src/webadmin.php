@@ -42,7 +42,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
             $has_information_error = isset($_GET['error']) && in_array($_GET['error'], ['exec', 'empty', 'exist']);
             ?>
 
-            <section id="form-technicien" class="content-section <?php echo !$has_information_error && !$has_technicien_error ? 'active' : ''; ?>">
+            <section id="form-technicien" class="content-section <?php echo (!$has_information_error && !$has_technicien_error) || $has_technicien_error ? 'active' : ''; ?>">
                 <h2>Liste des techniciens</h2>
                 <table>
                     <thead>
