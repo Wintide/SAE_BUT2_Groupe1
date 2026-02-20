@@ -91,7 +91,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_web") {
                             if ($_GET['error'] == "user_exists") {
                                 echo "<p style='color: #B71C1C'>Erreur : un utilisateur avec ce login existe déjà.</p>";
                             }
-                                if ($_GET['error'] == "empty_login") {
+                            elseif ($_GET['error'] == "empty_login") {
                                 echo "<p style='color: #B71C1C'>Erreur : le login ne peut pas être vide.</p>";
                             }
                             elseif ($_GET['error'] == "pwd_too_short") {
