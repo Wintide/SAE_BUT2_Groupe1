@@ -34,8 +34,6 @@ if (!$conn) {
                 $command = escapeshellcmd('python crypto/chacha20.py '.$password);
                 $output = shell_exec($command);
 
-                echo $output;
-
                 echo '<script>console.log("'.$output.'");</script>';
 
                 if ($login == $row["login"] && $output == $row["password"]) {
@@ -64,6 +62,8 @@ if ($valid) {
 
 }
 else{
+    echo '<p> ERREUR </p>';
+    echo $output;
     //header("location: login.php?err=1");
 }
 
