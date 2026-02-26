@@ -33,7 +33,10 @@ if (!$conn) {
 
                 $command = escapeshellcmd('python crypto/chacha20.py '.$password);
                 $output = shell_exec($command);
+                echo '<p> debut </p>';
                 echo $row['password'];
+                echo '<br>';
+                echo strlen($row['password']);
                 echo '<br>';
                 echo '<script>console.log("'.$output.'");</script>';
 
