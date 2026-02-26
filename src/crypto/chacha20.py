@@ -134,7 +134,7 @@ def chiffrer_chacha20(
 
     return bytes(resultat)
 
-def ajout():
+def codage():
     argument = sys.argv[2]
 
     cle = bytes(range(32))
@@ -145,23 +145,11 @@ def ajout():
 
     return chiffre.hex()
 
-def connexion():
-    argument = sys.argv[2]
-
-    cle = bytes(range(32))
-    nonce = b"123456789012"  # 12 octets
-    message = bytes.fromhex(argument)
-
-    chiffre = chiffrer_chacha20(cle, nonce, message)
-
-    return chiffre.decode("utf-8")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python chacha20.py <argument>")
     else:
-        if sys.argv[1] == "ajout":
-            print(ajout())
-        elif sys.argv[1] == "connexion":
-            print(connexion())
+        print(codage())
+
 
