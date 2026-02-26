@@ -34,7 +34,7 @@ if (!$conn) {
                 $command = escapeshellcmd('python crypto/chacha20.py '.$password);
                 $output = shell_exec($command);
 
-                echo '<p> $output </p>';
+                echo $output;
 
                 echo '<script>console.log("'.$output.'");</script>';
 
@@ -64,7 +64,7 @@ if ($valid) {
 
 }
 else{
-    header("location: login.php?err=1");
+    //header("location: login.php?err=1");
 }
 
 ?>
