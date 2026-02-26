@@ -1,4 +1,4 @@
-o<?php
+<?php
 
 $login = $_POST['login'];
 $password = $_POST['password'];
@@ -33,12 +33,6 @@ if (!$conn) {
 
                 $command = escapeshellcmd('python crypto/chacha20.py '.$password);
                 $output = trim(shell_exec($command));
-                echo '<p> debut </p>';
-                echo $row['password'];
-                echo '<br>';
-                echo strlen($row['password']);
-                echo '<br>';
-                echo '<script>console.log("'.$output.'");</script>';
 
                 if ($login == $row["login"] && $output == $row["password"]) {
 
@@ -66,13 +60,7 @@ if ($valid) {
 
 }
 else{
-    echo '<p> ERREUR </p>';
-    echo $output;
-    echo '<br>';
-    echo strlen($output);
-    echo gettype($output);
-    echo gettype($password);
-    //header("location: login.php?err=1");
+    header("location: login.php?err=1");
 }
 
 ?>
