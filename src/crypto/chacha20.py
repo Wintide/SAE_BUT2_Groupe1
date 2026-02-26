@@ -142,7 +142,8 @@ def run():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return chiffre.decode()
+    retour = chiffre.decode("utf-8")
+    return retour
 
 if __name__ == "__main__":
 
