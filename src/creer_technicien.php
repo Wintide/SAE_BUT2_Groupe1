@@ -61,10 +61,8 @@ if ($check->num_rows > 0) {
 
 $check->close();
 
-$command = escapeshellcmd('../sae/bin/python crypto/chacha20.py run '.$password);
+$command = escapeshellcmd('python crypto/chacha20.py '.$password);
 $output = shell_exec($command);
-
-
 
 $stmt = $conn->prepare("INSERT INTO users (login, password, role) VALUES (?, ?, ?)");
 $role = "technicien";
