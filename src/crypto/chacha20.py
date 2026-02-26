@@ -143,7 +143,7 @@ def run():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    s =bytes.fromhex(chiffrer.hex()).decode("utf-8")
+    s =bytes.fromhex(chiffre.hex()).decode("utf-8")
 
 
     return (s)
