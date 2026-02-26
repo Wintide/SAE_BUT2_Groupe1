@@ -31,7 +31,10 @@ if (!$conn) {
 
             while ($row = mysqli_fetch_assoc($result)) {
 
-                if ($login == $row["login"] && md5($password) == $row["password"]) {
+                $command = escapeshellcmd('python crypto/chacha20.py connexion '.$password);
+                $output = shell_exec($command);
+
+                if ($login == $row["login"] && $output == $row["password"]) {
 
                     $valid = true;
                     $role = $row["role"];
