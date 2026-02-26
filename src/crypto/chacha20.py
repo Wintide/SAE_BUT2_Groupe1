@@ -143,14 +143,14 @@ def codage():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return chiffre.hex()
+    return chiffre.hex().strip()
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2 :
         print("Usage: python chacha20.py <argument>")
     else:
-        print(codage().strip())
-        print(len(codage()))
+        print(codage())
+        
 
 
