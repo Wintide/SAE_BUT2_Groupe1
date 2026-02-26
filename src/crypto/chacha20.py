@@ -132,6 +132,17 @@ def chiffrer_chacha20(
 
     return bytes(resultat)
 
+def run():
+    argument = sys.argv[3]
+
+    cle = bytes(range(32))
+    nonce = b"123456789012"  # 12 octets
+    message = argument.encode()
+
+    chiffre = chiffrer_chacha20(cle, nonce, message)
+
+    return chiffre
+
 if __name__ == "__main__":
 
     argument = sys.argv[2]
@@ -147,4 +158,4 @@ if __name__ == "__main__":
     #print("Message clair :", message)
     #print("Chiffré (hex) :", chiffre.hex())
     #print("Déchiffré     :", dechiffre)
-    return chiffre
+

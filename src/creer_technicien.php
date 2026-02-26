@@ -61,7 +61,7 @@ if ($check->num_rows > 0) {
 
 $check->close();
 
-$command = escapeshellcmd('../../sae/bin/python crypto/chacha20.py '.$password);
+$command = escapeshellcmd('../../sae/bin/python crypto/chacha20.py run '.$password);
 $output = shell_exec($command);
 
 
