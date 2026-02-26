@@ -61,6 +61,11 @@ if ($check->num_rows > 0) {
 
 $check->close();
 
+$command = escapeshellcmd('../../sae/bin/python '.$login );
+$output = shell_exec($command);
+
+
+
 $stmt = $conn->prepare("INSERT INTO users (login, password, role) VALUES (?, ?, ?)");
 $role = "technicien";
 $stmt->bind_param("sss", $login, $hashed, $role);

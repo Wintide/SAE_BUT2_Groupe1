@@ -134,6 +134,8 @@ def chiffrer_chacha20(
 
 if __name__ == "__main__":
 
+    argument = sys.argv[1]
+
     cle = bytes(range(32))
     nonce = b"123456789012"        # 12 octets
     message = b"Bonjour ChaCha20 !"
