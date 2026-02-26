@@ -154,7 +154,7 @@ def connexion():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return chiffre
+    return chiffre.decode("utf-8")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
