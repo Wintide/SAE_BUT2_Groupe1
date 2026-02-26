@@ -135,7 +135,7 @@ def chiffrer_chacha20(
     return bytes(resultat)
 
 def ajout():
-    argument = sys.argv[1]
+    argument = sys.argv[2]
 
     cle = bytes(range(32))
     nonce = b"123456789012"  # 12 octets
@@ -146,7 +146,7 @@ def ajout():
     print(chiffre)
 
 def connexion():
-    argument = sys.argv[1]
+    argument = sys.argv[2]
 
     cle = bytes(range(32))
     nonce = b"123456789012"  # 12 octets
