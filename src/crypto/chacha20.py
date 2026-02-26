@@ -143,7 +143,7 @@ def ajout():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    print(chiffre)
+    return chiffre
 
 def connexion():
     argument = sys.argv[2]
@@ -154,7 +154,14 @@ def connexion():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    print(chiffre)
+    return chiffre
 
-
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python chacha20.py <argument>")
+    else:
+        if sys.argv[1] == "ajout":
+            print(ajout())
+        elif sys.argv[1] == "connexion":
+            print(connexion())
 
