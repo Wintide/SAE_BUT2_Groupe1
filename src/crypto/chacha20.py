@@ -138,7 +138,7 @@ def run():
 
     cle = bytes(range(32))
     nonce = b"123456789012"  # 12 octets
-    message = argument.encode()
+    message = argument.encode("utf-8")
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
