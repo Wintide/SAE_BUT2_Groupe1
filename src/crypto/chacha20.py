@@ -143,7 +143,7 @@ def codage():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return str(chiffre.hex())
+    return str(chiffre.hex()).strip()
 
 
 if __name__ == "__main__":
