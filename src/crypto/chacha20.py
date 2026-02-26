@@ -1,5 +1,6 @@
 from typing import List
 import struct
+import sys
 
 def rotation_gauche_32(valeur: int, decalage: int) -> int:
     """
