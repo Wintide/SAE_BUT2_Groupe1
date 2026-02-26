@@ -135,7 +135,7 @@ def chiffrer_chacha20(
     return bytes(resultat)
 
 def codage():
-    argument = sys.argv[2]
+    argument = sys.argv[1]
 
     cle = bytes(range(32))
     nonce = b"123456789012"  # 12 octets
