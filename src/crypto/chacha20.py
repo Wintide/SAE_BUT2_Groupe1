@@ -156,22 +156,5 @@ def connexion():
 
     print(chiffre)
 
-#if __name__ == "__main__":
 
-    print(run())
-    """
-    argument = sys.argv[2]
-
-    cle = bytes(range(32))
-    nonce = b"123456789012"        # 12 octets
-    message = argument.encode()
-
-
-    chiffre = chiffrer_chacha20(cle, nonce, message)
-    dechiffre = chiffrer_chacha20(cle, nonce, chiffre)
-
-    print("Message clair :", message)
-    print("Chiffré (hex) :", chiffre.hex())
-    print("Déchiffré     :", dechiffre)
-    """
 
