@@ -1,6 +1,7 @@
 from typing import List
 import struct
 import sys
+import base64
 
 def rotation_gauche_32(valeur: int, decalage: int) -> int:
     """
@@ -142,8 +143,10 @@ def run():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
+    s =bytes.fromhex(chiffrer.hex()).decode("utf-8")
 
-    return (message, chiffre)
+
+    return (s)
 
 if __name__ == "__main__":
 
