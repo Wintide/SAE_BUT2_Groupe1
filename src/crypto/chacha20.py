@@ -143,14 +143,14 @@ def ajout():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return chiffre
+    return chiffre.hex()
 
 def connexion():
     argument = sys.argv[2]
 
     cle = bytes(range(32))
     nonce = b"123456789012"  # 12 octets
-    message = argument
+    message = bytes.fromhex(argument)
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
