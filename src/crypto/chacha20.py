@@ -151,5 +151,6 @@ if __name__ == "__main__":
         print("Usage: python chacha20.py <argument>")
     else:
         print(codage())
+        print(len(codage()))
 
 
