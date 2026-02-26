@@ -32,7 +32,7 @@ if (!$conn) {
             while ($row = mysqli_fetch_assoc($result)) {
 
                 $command = escapeshellcmd('python crypto/chacha20.py '.$password);
-                $output = shell_exec($command);
+                $output = trim(shell_exec($command));
                 echo '<p> debut </p>';
                 echo $row['password'];
                 echo '<br>';
