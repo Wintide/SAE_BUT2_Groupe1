@@ -142,7 +142,7 @@ def run():
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
 
-    return chiffre
+    print(chiffrer)
 
 if __name__ == "__main__":
 
