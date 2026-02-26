@@ -61,14 +61,14 @@ if ($check->num_rows > 0) {
 
 $check->close();
 
-$command = escapeshellcmd('../../sae/bin/python '.$login );
+$command = escapeshellcmd('../../sae/bin/python crypto/chacha20.py '.$password);
 $output = shell_exec($command);
 
 
 
 $stmt = $conn->prepare("INSERT INTO users (login, password, role) VALUES (?, ?, ?)");
 $role = "technicien";
-$stmt->bind_param("sss", $login, $hashed, $role);
+$stmt->bind_param("sss", $login, $output, $role);
 
 if ($stmt->execute()) {
     echo "<script>console.log('Utilisateur ajouté avec succès !');</script>";
