@@ -64,6 +64,8 @@ if ($valid) {
 else{
     echo '<p> ERREUR </p>';
     echo $output;
+    echo gettype($output);
+    echo gettype($password);
     //header("location: login.php?err=1");
 }
 
