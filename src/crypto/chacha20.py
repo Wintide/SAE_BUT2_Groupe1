@@ -146,6 +146,8 @@ def run():
 
 if __name__ == "__main__":
 
+    run()
+    """
     argument = sys.argv[2]
 
     cle = bytes(range(32))
@@ -154,9 +156,10 @@ if __name__ == "__main__":
 
 
     chiffre = chiffrer_chacha20(cle, nonce, message)
-    #dechiffre = chiffrer_chacha20(cle, nonce, chiffre)
+    dechiffre = chiffrer_chacha20(cle, nonce, chiffre)
 
-    #print("Message clair :", message)
-    #print("Chiffré (hex) :", chiffre.hex())
-    #print("Déchiffré     :", dechiffre)
+    print("Message clair :", message)
+    print("Chiffré (hex) :", chiffre.hex())
+    print("Déchiffré     :", dechiffre)
+    """
 
