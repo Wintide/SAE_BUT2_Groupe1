@@ -24,7 +24,7 @@
         <h1>Connexions réussies</h1>
         <?php
         $logFile = 'logs/connexions_reussies.json';
-        $limite = 2;
+        $limite = 20;
         $actual_s = 1;
         if (file_exists($logFile)) {
             $log = file_get_contents($logFile);
