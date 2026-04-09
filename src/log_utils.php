@@ -2,15 +2,18 @@
 
 function ecrireLogJson($chemin, $input){
 
-    $content = file.file_get_contents($chemin);
+if (file_exists($chemin)) {
+    $content = file_get_contents($chemin);
     $logs = json_decode($content, true);
+} else {
+    $logs = [];
+}
 
-    // Si aucun log
-    if (!is_array($logs)) {
-        $logs = [];
-    }
+if (!is_array($logs)) {
+    $logs = [];
+}
 
-    $logs[] = $input; // AJOUT
+$logs[] = $input;
 
-    file_put_contents($chemin, json_encode($logs, JSON_PRETTY_PRINT));
+file_put_contents($chemin, json_encode($logs, JSON_PRETTY_PRINT));
 }

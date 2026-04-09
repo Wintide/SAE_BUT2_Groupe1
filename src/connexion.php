@@ -61,7 +61,7 @@ if ($valid) {
         "role" => $role
     ];
 
-    ecrireLogJson("logs/connexions_reussies.json", $nouveau);
+    ecrireLogJson(__DIR__ . "logs/connexions_reussies.json", $nouveau);
 
     $_SESSION['role'] = $role;
     $_SESSION['login'] = $login;
@@ -76,7 +76,7 @@ else{
         "login" => $login,
     ];
 
-    ecrireLogJson("logs/connexions_echouees.json", $nouveau);
+    ecrireLogJson(__DIR__ . "logs/connexions_echouees.json", $nouveau);
     
     header("location: login.php?err=1");
 }
