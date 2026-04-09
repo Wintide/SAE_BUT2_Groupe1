@@ -124,8 +124,9 @@
 
         $reussi = explode("\n",$output_reussi);
         $echec = explode("\n",$output_rate);
-        echo '<p>'.$reussi[0].'</p>';
+
         foreach ($reussi as $ligne) {
+            $ligne = explode(" ",$ligne);
             $nouveau = [
                     "status" => "réussi",
                     "date" => $ligne[0],
@@ -136,6 +137,7 @@
         }
 
         foreach ($echec as $ligne) {
+            $ligne = explode(" ",$ligne);
             $nouveau = [
                     "status" => "échec",
                     "date" => $ligne[0],
