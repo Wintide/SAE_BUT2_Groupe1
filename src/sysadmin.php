@@ -109,12 +109,10 @@
         $output_reussi = shell_exec($command_reussi.' | grep Accepted');
         $output_rate = shell_exec($command_rate.' | grep Failed');
 
+        $reussi = explode("\n",$output_reussi);
+        $echec = explode("\n",$output_rate);
 
-
-        $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
-        $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
-        echo '<p>'.htmlspecialchars($output_reussi).'</p>';
-        foreach ($output_reussi as $ligne) {
+        foreach ($reussi as $ligne) {
             $nouveau = [
                     "status" => "réussi",
                     "date" => $ligne[0],
@@ -124,7 +122,7 @@
             ecrireLogJson('logs/connexion_ssh.json',$nouveau);
         }
 
-        foreach ($output_rate as $ligne) {
+        foreach ($echec as $ligne) {
             $nouveau = [
                     "status" => "échec",
                     "date" => $ligne[0],
