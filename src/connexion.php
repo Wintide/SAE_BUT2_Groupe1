@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes/log_utils.php';
+require_once 'log_utils.php';
 
 $login = $_POST['login'];
 $password = $_POST['password'];
