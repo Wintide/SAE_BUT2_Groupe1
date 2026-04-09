@@ -133,7 +133,7 @@
                     "ip" => $ligne[8],
                     "port" => $ligne[10]
             ];
-            ecrireLogJson('logs/connexion_ssh.json',$nouveau);
+            ecrireLogJson('logs/connexions_ssh.json',$nouveau);
         }
 
         foreach ($echec as $ligne) {
@@ -144,7 +144,7 @@
                     "ip" => $ligne[8],
                     "port" => $ligne[10]
             ];
-            ecrireLogJson('logs/connexion_ssh.json',$nouveau);
+            ecrireLogJson('logs/connexions_ssh.json',$nouveau);
         }
         $logFile = 'logs/connexions_ssh.json';
         if (file_exists($logFile)) {
