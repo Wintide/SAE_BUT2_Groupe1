@@ -124,7 +124,7 @@
 
         $reussi = explode("\n",$output_reussi);
         $echec = explode("\n",$output_rate);
-        echo '<p>'.$reussi.'</p>';
+        echo '<p>'.$reussi[0].'</p>';
         foreach ($reussi as $ligne) {
             $nouveau = [
                     "status" => "réussi",
