@@ -71,12 +71,13 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         <h1>Connexion SSH</h1>
         <?php
         require_once 'log_utils.php';
+        $test = escapeshellcmd('cat /var/log/auth.log');
         $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted');
         $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
         echo '<p>ALLO</p>';
-        echo '<p>'.$output_reussi.'</p>';
+        echo '<p>'.$test.'</p>';
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
