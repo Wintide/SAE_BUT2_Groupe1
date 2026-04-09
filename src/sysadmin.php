@@ -187,7 +187,7 @@
             if (is_array($logs) && count($logs) > 0) {
                 echo '<ul>';
                 foreach ($logs as $entry) {
-                    echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . '-' . htmlspecialchars($entry['port']) . '</li>';
+                    echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . ' - ' . htmlspecialchars($entry['port']) . '</li>';
                 }
                 echo '</ul>';
             } else{
