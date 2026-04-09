@@ -53,10 +53,10 @@
                 }
                 echo '</ul>';
             } else{
-                echo '<p>Aucune connexion réussit.</p>';
+                echo '<p>Aucune connexions réussies.</p>';
             }
         } else {
-            echo '<p>Aucune log de connexion trouvé.</p>';
+            echo '<p>Aucun logs de connexion trouvés.</p>';
         }
         ?>
     </section>
