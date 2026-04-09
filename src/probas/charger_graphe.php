@@ -8,7 +8,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SE
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Inventaire - Vines</title>
+    <title>Statistiques - Vines</title>
     <link rel="stylesheet" href="../css/style-charger-graphe.css">
 </head>
 
@@ -21,9 +21,9 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SE
                 <?php if ($_SESSION['role'] === 'technicien'): ?>
                     <a href="../inventaire.php" class="center-link">Inventaire</a>
                 <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
-                    <a href="../webadmin.php" class="center-link">Admin web</a>
+                    <a href="../webadmin.php" class="center-link">Admin Web</a>
                 <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
-                    <a href="../webadmin.php" class="center-link">Admin systeme</a>
+                    <a href="../webadmin.php" class="center-link">Admin Systeme</a>
                 <?php endif; ?>
                 <div id="userButton" class="right-link">
                     <a href="logout.php" role="menuitem">Déconnexion</a>
