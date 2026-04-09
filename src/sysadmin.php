@@ -69,6 +69,24 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     </section>
     <section class="log-connexion-ssh">
         <h1>Connexion SSH</h1>
+        <?php
+        $logFile = 'logs/connexions_ssh.json';
+        if (file_exists($logFile)) {
+            $log = file_get_contents($logFile);
+            $logs = json_decode($log, true);
+            if (is_array($logs) && count($logs) > 0) {
+                echo '<ul>';
+                foreach ($logs as $entry) {
+                    echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . '-' . htmlspecialchars($entry['port']) . '</li>';
+                }
+                echo '</ul>';
+            } else{
+                echo '<p>Aucun connexion échouée.</p>';
+            }
+        } else {
+            echo '<p>Aucun log de connexion trouvé.</p>';
+        }
+        ?>
     </section>
 </main>
 <footer>
