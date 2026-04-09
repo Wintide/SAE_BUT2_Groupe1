@@ -128,9 +128,24 @@
         foreach ($reussi as $ligne) {
             $ligne = explode(" ",$ligne);
             if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
+
+                $dateObj = new DateTime(($ligne[0]));
+                $date = $dateObj->format('l d F Y H:i:s');
+                $jours = [
+                        'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                        'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                ];
+                $mois = [
+                        'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                        'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                        'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                        'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                ];
+                $date = strtr($date, $jours);
+                $date = strtr($date, $mois);
                 $nouveau = [
                         "status" => "réussi",
-                        "date" => $ligne[0],
+                        "date" => $date,
                         "ip" => $ligne[8],
                         "port" => $ligne[10]
                 ];
@@ -142,9 +157,23 @@
         foreach ($echec as $ligne) {
             $ligne = explode(" ",$ligne);
             if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
+                $dateObj = new DateTime(($ligne[0]));
+                $date = $dateObj->format('l d F Y H:i:s');
+                $jours = [
+                        'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                        'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                ];
+                $mois = [
+                        'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                        'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                        'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                        'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                ];
+                $date = strtr($date, $jours);
+                $date = strtr($date, $mois);
                 $nouveau = [
                         "status" => "échec",
-                        "date" => $ligne[0],
+                        "date" => $date,
                         "ip" => $ligne[8],
                         "port" => $ligne[10]
                 ];
