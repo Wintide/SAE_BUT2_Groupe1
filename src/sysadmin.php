@@ -127,24 +127,29 @@
 
         foreach ($reussi as $ligne) {
             $ligne = explode(" ",$ligne);
-            $nouveau = [
-                    "status" => "réussi",
-                    "date" => $ligne[0],
-                    "ip" => $ligne[8],
-                    "port" => $ligne[10]
-            ];
-            ecrireLogJson('logs/connexions_ssh.json',$nouveau);
+            if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
+                $nouveau = [
+                        "status" => "réussi",
+                        "date" => $ligne[0],
+                        "ip" => $ligne[8],
+                        "port" => $ligne[10]
+                ];
+                ecrireLogJson('logs/connexions_ssh.json',$nouveau);
+            }
+
         }
 
         foreach ($echec as $ligne) {
             $ligne = explode(" ",$ligne);
-            $nouveau = [
-                    "status" => "échec",
-                    "date" => $ligne[0],
-                    "ip" => $ligne[8],
-                    "port" => $ligne[10]
-            ];
-            ecrireLogJson('logs/connexions_ssh.json',$nouveau);
+            if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
+                $nouveau = [
+                        "status" => "échec",
+                        "date" => $ligne[0],
+                        "ip" => $ligne[8],
+                        "port" => $ligne[10]
+                ];
+                ecrireLogJson('logs/connexions_ssh.json',$nouveau);
+            }
         }
         $logFile = 'logs/connexions_ssh.json';
         if (file_exists($logFile)) {
