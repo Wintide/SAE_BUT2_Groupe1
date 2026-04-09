@@ -25,7 +25,7 @@
         <?php
         $logFile = 'logs/connexions_reussies.json';
         $limite = 6;
-        $actual = 1;
+        $actual_s = 1;
         if (file_exists($logFile)) {
             $log = file_get_contents($logFile);
             $logs = json_decode($log, true);
@@ -35,7 +35,7 @@
                 });
                 echo '<ul>';
                 foreach ($logs as $entry) {
-                    if ($actual <= $limite) {
+                    if ($actual_s <= $limite) {
                         $dateObj = new DateTime($entry['date']);
                         $date = $dateObj->format('l d F Y H:i:s');
                         $jours = [
@@ -56,7 +56,7 @@
                                 . ' - ' . htmlspecialchars($entry['login'])
                                 . ' (' . htmlspecialchars($entry['role']) . ')'
                                 . '</li>';
-                        $actual++;
+                        $actual_s++;
                     }
                 }
                 echo '</ul>';
@@ -72,6 +72,7 @@
         <h1>Connexions échouées</h1>
         <?php
             $logFile = 'logs/connexions_echouees.json';
+            $actual_f=1;
             if (file_exists($logFile)) {
                 $log = file_get_contents($logFile);
                 $logs = json_decode($log, true);
@@ -81,7 +82,7 @@
                     });
                     echo '<ul>';
                     foreach ($logs as $entry) {
-                        if ($actual <= $limite) {
+                        if ($actual_f <= $limite) {
                             $dateObj = new DateTime($entry['date']);
                             $date = $dateObj->format('l d F Y H:i:s');
                             $jours = [
@@ -101,6 +102,7 @@
                                     . htmlspecialchars($date)
                                     . ' - ' . htmlspecialchars($entry['login'])
                                     . '</li>';
+                            $actual_++;
                         }
                     }
                     echo '</ul>';
