@@ -75,6 +75,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         $command_rate = escapeshellcmd('cat ../../../../log/auth.log | grep Failed');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
+        echo '<p>ALLO</p>';
         echo '<p>'.$output_reussi.'</p>';
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
