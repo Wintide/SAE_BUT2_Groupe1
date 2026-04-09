@@ -82,6 +82,11 @@ main section {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 footer {
     background-color: #2D5A27;
     color: white;

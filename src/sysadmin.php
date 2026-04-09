@@ -1,9 +1,4 @@
-<?php session_start();
-if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
-    header("Location: index.php");
-    exit();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,14 +30,33 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
             if (is_array($logs) && count($logs) > 0) {
                 echo '<ul>';
                 foreach ($logs as $entry) {
-                    echo '<li>' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['login']) . ' (' . htmlspecialchars($entry['role']) . ')</li>';
+                    $dateObj = new DateTime($entry['date']);
+                    $date = $dateObj->format('l d F Y H:i:s');
+                    $jours = [
+                            'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                            'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                    ];
+                    $mois = [
+                            'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                            'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                            'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                            'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                    ];
+                    $date = strtr($date, $jours);
+                    $date = strtr($date, $mois);
+
+                    echo '<li>'
+                        . htmlspecialchars($date)
+                        . ' - ' . htmlspecialchars($entry['login'])
+                        . ' (' . htmlspecialchars($entry['role']) . ')'
+                        . '</li>';
                 }
                 echo '</ul>';
             } else{
-                echo '<p>Aucun connexion réussit.</p>';
+                echo '<p>Aucune connexion réussit.</p>';
             }
         } else {
-            echo '<p>Aucun log de connexion trouvé.</p>';
+            echo '<p>Aucune log de connexion trouvé.</p>';
         }
         ?>
     </section>
@@ -56,14 +70,32 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
                 if (is_array($logs) && count($logs) > 0) {
                     echo '<ul>';
                     foreach ($logs as $entry) {
-                        echo '<li>' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['login']) . ' (' . htmlspecialchars($entry['role']) . ')</li>';
+                        $dateObj = new DateTime($entry['date']);
+                        $date = $dateObj->format('l d F Y H:i:s');
+                        $jours = [
+                                'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                                'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                        ];
+                        $mois = [
+                                'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                                'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                                'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                                'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                        ];
+                        $date = strtr($date, $jours);
+                        $date = strtr($date, $mois);
+
+                        echo '<li>'
+                                . htmlspecialchars($date)
+                                . ' - ' . htmlspecialchars($entry['login'])
+                                . '</li>';
                     }
                     echo '</ul>';
                 } else{
-                    echo '<p>Aucun connexion échouée.</p>';
+                    echo '<p>Aucune connexion échouée.</p>';
                 }
             } else {
-                echo '<p>Aucun log de connexion trouvé.</p>';
+                echo '<p>Aucune log de connexion trouvé.</p>';
             }
         ?>
     </section>
@@ -122,10 +154,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
                 }
                 echo '</ul>';
             } else{
-                echo '<p>Aucun connexion ssh.</p>';
+                echo '<p>Aucune connexion ssh.</p>';
             }
         } else {
-            echo '<p>Aucun log de connexion trouvé.</p>';
+            echo '<p>Aucune log de connexion trouvé.</p>';
         }
         ?>
     </section>
