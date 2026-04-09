@@ -24,52 +24,18 @@
         <h1>Connexions réussies</h1>
         <?php
         $logFile = 'logs/connexions_reussies.json';
+        $limite = 6;
+        $actual = 1;
         if (file_exists($logFile)) {
             $log = file_get_contents($logFile);
             $logs = json_decode($log, true);
             if (is_array($logs) && count($logs) > 0) {
+                usort($logs, function($a, $b) {
+                    return strtotime($b['date']) - strtotime($a['date']);
+                });
                 echo '<ul>';
                 foreach ($logs as $entry) {
-                    $dateObj = new DateTime($entry['date']);
-                    $date = $dateObj->format('l d F Y H:i:s');
-                    $jours = [
-                            'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
-                            'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
-                    ];
-                    $mois = [
-                            'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
-                            'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
-                            'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
-                            'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
-                    ];
-                    $date = strtr($date, $jours);
-                    $date = strtr($date, $mois);
-
-                    echo '<li>'
-                        . htmlspecialchars($date)
-                        . ' - ' . htmlspecialchars($entry['login'])
-                        . ' (' . htmlspecialchars($entry['role']) . ')'
-                        . '</li>';
-                }
-                echo '</ul>';
-            } else{
-                echo '<p>Aucune connexion réussit.</p>';
-            }
-        } else {
-            echo '<p>Aucune log de connexion trouvé.</p>';
-        }
-        ?>
-    </section>
-    <section class="log-connexion-failure">
-        <h1>Connexions échouées</h1>
-        <?php
-            $logFile = 'logs/connexions_echouees.json';
-            if (file_exists($logFile)) {
-                $log = file_get_contents($logFile);
-                $logs = json_decode($log, true);
-                if (is_array($logs) && count($logs) > 0) {
-                    echo '<ul>';
-                    foreach ($logs as $entry) {
+                    if ($actual <= $limite) {
                         $dateObj = new DateTime($entry['date']);
                         $date = $dateObj->format('l d F Y H:i:s');
                         $jours = [
@@ -88,7 +54,54 @@
                         echo '<li>'
                                 . htmlspecialchars($date)
                                 . ' - ' . htmlspecialchars($entry['login'])
+                                . ' (' . htmlspecialchars($entry['role']) . ')'
                                 . '</li>';
+                        $actual++;
+                    }
+                }
+                echo '</ul>';
+            } else{
+                echo '<p>Aucune connexions réussies.</p>';
+            }
+        } else {
+            echo '<p>Aucun logs de connexion trouvés.</p>';
+        }
+        ?>
+    </section>
+    <section class="log-connexion-failure">
+        <h1>Connexions échouées</h1>
+        <?php
+            $logFile = 'logs/connexions_echouees.json';
+            if (file_exists($logFile)) {
+                $log = file_get_contents($logFile);
+                $logs = json_decode($log, true);
+                if (is_array($logs) && count($logs) > 0) {
+                    usort($logs, function($a, $b) {
+                        return strtotime($b['date']) - strtotime($a['date']);
+                    });
+                    echo '<ul>';
+                    foreach ($logs as $entry) {
+                        if ($actual <= $limite) {
+                            $dateObj = new DateTime($entry['date']);
+                            $date = $dateObj->format('l d F Y H:i:s');
+                            $jours = [
+                                    'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                                    'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                            ];
+                            $mois = [
+                                    'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                                    'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                                    'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                                    'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                            ];
+                            $date = strtr($date, $jours);
+                            $date = strtr($date, $mois);
+
+                            echo '<li>'
+                                    . htmlspecialchars($date)
+                                    . ' - ' . htmlspecialchars($entry['login'])
+                                    . '</li>';
+                        }
                     }
                     echo '</ul>';
                 } else{
