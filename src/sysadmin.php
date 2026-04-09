@@ -104,10 +104,10 @@
         <?php
         require_once 'log_utils.php';
 
-        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted');
-        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed');
-        $output_reussi = shell_exec($command_reussi);
-        $output_rate = shell_exec($command_rate);
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log');
+        $command_rate = escapeshellcmd('cat /var/log/auth.log');
+        $output_reussi = shell_exec($command_reussi.' | grep Accepted');
+        $output_rate = shell_exec($command_rate.' | grep Failed');
 
         echo '<p>'.htmlspecialchars($output_reussi).'</p>';
 
