@@ -1,5 +1,7 @@
 <?php
 
+require_once 'includes/log_utils.php';
+
 $login = $_POST['login'];
 $password = $_POST['password'];
 
@@ -10,7 +12,7 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass);
 
 $role = null;
-$logfile = 'logs/connexion.log';
+
 if (!$conn) {
     echo "<script>console.log('Erreur connexion serveur');</script>";
 } else {
@@ -51,10 +53,15 @@ if (!$conn) {
 
 if ($valid) {
 
-    $logEntry = date('Y-m-d H:i:s') . " Connexion réussie: " . $login . " (" . $role . ")\n";
-    file_put_contents($logfile, $logEntry, FILE_APPEND);
-
     session_start();
+
+    $nouveau = [
+        "date" => date("Y-m-d H:i:s"),
+        "login" => $login,
+        "role" => $role
+    ];
+
+    ecrireLogJson("logs/connexions_reussies.json", $nouveau);
 
     $_SESSION['role'] = $role;
     $_SESSION['login'] = $login;
@@ -63,9 +70,14 @@ if ($valid) {
 
 }
 else{
-    $logEntry = date('Y-m-d H:i:s') . " Connexion échouée: " . $login ." (".$role.")\n";
-    file_put_contents($logfile, $logEntry, FILE_APPEND);
 
+    $nouveau = [
+        "date" => date("Y-m-d H:i:s"),
+        "login" => $login,
+    ];
+
+    ecrireLogJson("logs/connexions_echouees.json", $nouveau);
+    
     header("location: login.php?err=1");
 }
 
