@@ -72,14 +72,22 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         <?php
         require_once 'log_utils.php';
 
-        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted');
-        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed');
-        $output_reussi = shell_exec($command_reussi . ' > reussi.txt');
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted > logs/reussi.txt');
+        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed > logs/echec.txt');
+        $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
         $c = escapeshellcmd('cat /var/log/auth.log');
         $test = shell_exec($c);
-        echo '<p>ALLO</p>';
-        echo '<p>'.$test.'</p>';
+
+        $handle = fopen("logs/reussi.txt", "r");
+        if ($handle) {
+            while (($line = fgets($handle)) !== false) {
+                echo '<p>'.$line.'</p>';
+            }
+
+            fclose($handle);
+        }
+
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
