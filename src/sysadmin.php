@@ -28,16 +28,19 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     <section class="log-connexion-success">
         <h1>Connexion Réussit</h1>
         <?php
-        $logFile = 'logs/connexion.log';
+        $logFile = 'logs/connexions_reussies.json';
         if (file_exists($logFile)) {
-            $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            echo '<ul>';
-            foreach ($logs as $log) {
-                if (strpos($log, 'Connexion réussie') !== false) {
-                    echo '<li>' . htmlspecialchars($log) . '</li>';
+            $log = file_get_contents($logFile);
+            $logs = json_decode($log, true);
+            if (is_array($logs) && count($logs) > 0) {
+                echo '<ul>';
+                foreach ($logs as $entry) {
+                    echo '<li>' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['login']) . ' (' . htmlspecialchars($entry['role']) . ')</li>';
                 }
+                echo '</ul>';
+            } else{
+                echo '<p>Aucun connexion réussit.</p>';
             }
-            echo '</ul>';
         } else {
             echo '<p>Aucun log de connexion trouvé.</p>';
         }
@@ -46,18 +49,22 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     <section class="log-connexion-failure">
         <h1>Connexion Echouée</h1>
         <?php
-        if (file_exists($logFile)) {
-            $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            echo '<ul>';
-            foreach ($logs as $log) {
-                if (strpos($log, 'Connexion échouée') !== false) {
-                    echo '<li>' . htmlspecialchars($log) . '</li>';
+            $logFile = 'logs/connexions_echouees.json';
+            if (file_exists($logFile)) {
+                $log = file_get_contents($logFile);
+                $logs = json_decode($log, true);
+                if (is_array($logs) && count($logs) > 0) {
+                    echo '<ul>';
+                    foreach ($logs as $entry) {
+                        echo '<li>' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['login']) . ' (' . htmlspecialchars($entry['role']) . ')</li>';
+                    }
+                    echo '</ul>';
+                } else{
+                    echo '<p>Aucun connexion échouée.</p>';
                 }
+            } else {
+                echo '<p>Aucun log de connexion trouvé.</p>';
             }
-            echo '</ul>';
-        } else {
-            echo '<p>Aucun log de connexion trouvé.</p>';
-        }
         ?>
     </section>
     <section class="log-connexion-ssh">
