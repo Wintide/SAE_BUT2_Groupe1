@@ -104,7 +104,7 @@
         <?php
         require_once 'log_utils.php';
 
-        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted > logs/reussi.txt');
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log');
         $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed > logs/echec.txt');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
