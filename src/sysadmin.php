@@ -26,7 +26,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
 </header>
 <main>
     <section class="log-connexion-success">
-        <h1>Connexion Réussit</h1>
+        <h1>Connexions réussies</h1>
         <?php
         $logFile = 'logs/connexions_reussies.json';
         if (file_exists($logFile)) {
@@ -47,7 +47,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         ?>
     </section>
     <section class="log-connexion-failure">
-        <h1>Connexion Echouée</h1>
+        <h1>Connexions échouées</h1>
         <?php
             $logFile = 'logs/connexions_echouees.json';
             if (file_exists($logFile)) {
@@ -68,7 +68,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         ?>
     </section>
     <section class="log-connexion-ssh">
-        <h1>Connexion SSH</h1>
+        <h1>Connexions SSH</h1>
         <?php
         require_once 'log_utils.php';
 
