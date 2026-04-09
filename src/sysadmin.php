@@ -104,21 +104,10 @@
         <?php
         require_once 'log_utils.php';
 
-        $command_reussi = escapeshellcmd('cat /var/log/auth.log');
-        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed > logs/echec.txt');
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted');
+        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
-        echo '<p>'.$output_reussi.'</p>';
-
-        $handle = fopen("logs/reussi.txt", "r");
-        if ($handle) {
-            while (($line = fgets($handle)) !== false) {
-                echo '<p>'.$line.'</p>';
-            }
-
-            fclose($handle);
-        }
-
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
