@@ -109,11 +109,11 @@
         $output_reussi = shell_exec($command_reussi.' | grep Accepted');
         $output_rate = shell_exec($command_rate.' | grep Failed');
 
-        echo '<p>'.htmlspecialchars($output_reussi).'</p>';
+
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
-
+        echo '<p>'.htmlspecialchars($output_reussi).'</p>';
         foreach ($output_reussi as $ligne) {
             $nouveau = [
                     "status" => "réussi",
