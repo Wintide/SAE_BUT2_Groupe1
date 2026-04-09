@@ -183,13 +183,20 @@
             }
         }
         $logFile = 'logs/connexions_ssh.json';
+        $actual_ssh = 1;
         if (file_exists($logFile)) {
             $log = file_get_contents($logFile);
             $logs = json_decode($log, true);
             if (is_array($logs) && count($logs) > 0) {
+                usort($logs, function($a, $b) {
+                    return strtotime($b['date']) - strtotime($a['date']);
+                });
                 echo '<ul>';
                 foreach ($logs as $entry) {
-                    echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . ' - ' . htmlspecialchars($entry['port']) . '</li>';
+                    if ($actual_ssh <= $limite) {
+                        echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . ' - ' . htmlspecialchars($entry['port']) . '</li>';
+                        $actual_++;
+                    }
                 }
                 echo '</ul>';
             } else{
