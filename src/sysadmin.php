@@ -71,8 +71,8 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         <h1>Connexion SSH</h1>
         <?php
         require_once 'log_utils.php';
-        $command_reussi = escapeshellcmd('cat ../../../log/auth.log | grep Accepted');
-        $command_rate = escapeshellcmd('cat ../../../log/auth.log | grep Failed');
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted');
+        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
         echo '<p>ALLO</p>';
