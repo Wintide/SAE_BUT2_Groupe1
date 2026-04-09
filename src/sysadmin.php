@@ -108,8 +108,7 @@
         $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed > logs/echec.txt');
         $output_reussi = shell_exec($command_reussi);
         $output_rate = shell_exec($command_rate);
-        $c = escapeshellcmd('cat /var/log/auth.log');
-        $test = shell_exec($c);
+        echo '<p>'.$output_reussi.'</p>';
 
         $handle = fopen("logs/reussi.txt", "r");
         if ($handle) {
