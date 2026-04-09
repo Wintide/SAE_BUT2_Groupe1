@@ -9,7 +9,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
 <head>
     <meta charset="UTF-8">
     <title>Admin Système - Vines</title>
-    <link rel="stylesheet" href="css/style-adminweb.css">
+    <link rel="stylesheet" href="css/style-sysadmin.css">
 </head>
 <body>
 <header>
@@ -25,7 +25,28 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     </div>
 </header>
 <main>
-
+    <section class="log-connexion-success">
+        <h1>Connexion Réussit</h1>
+        <?php
+        $logFile = 'logs/connexion.log';
+        if (file_exists($logFile)) {
+            $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            echo '<ul>';
+            foreach ($logs as $log) {
+                echo '<li>' . htmlspecialchars($log) . '</li>';
+            }
+            echo '</ul>';
+        } else {
+            echo '<p>Aucun log de connexion trouvé.</p>';
+        }
+        ?>
+    </section>
+    <section class="log-connexion-failure">
+        <h1>Connexion Echouée</h1>
+    </section>
+    <section class="log-connexion-ssh">
+        <h1>Connexion SSH</h1>
+    </section>
 </main>
 <footer>
     <div class="footer-columns">
