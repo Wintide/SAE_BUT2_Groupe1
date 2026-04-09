@@ -121,7 +121,7 @@
         $command_rate = escapeshellcmd('cat /var/log/auth.log');
         $output_reussi = shell_exec($command_reussi.' | grep Accepted');
         $output_rate = shell_exec($command_rate.' | grep Failed');
-
+        file_put_contents("logs/connexions_ssh.json", json_encode("[]", JSON_PRETTY_PRINT));
         $reussi = explode("\n",$output_reussi);
         $echec = explode("\n",$output_rate);
 
