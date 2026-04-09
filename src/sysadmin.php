@@ -24,7 +24,7 @@
         <h1>Connexions réussies</h1>
         <?php
         $logFile = 'logs/connexions_reussies.json';
-        $limite = 6;
+        $limite = 2;
         $actual_s = 1;
         if (file_exists($logFile)) {
             $log = file_get_contents($logFile);
@@ -130,24 +130,9 @@
         foreach ($reussi as $ligne) {
             $ligne = explode(" ",$ligne);
             if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
-
-                $dateObj = new DateTime(($ligne[0]));
-                $date = $dateObj->format('l d F Y H:i:s');
-                $jours = [
-                        'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
-                        'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
-                ];
-                $mois = [
-                        'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
-                        'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
-                        'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
-                        'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
-                ];
-                $date = strtr($date, $jours);
-                $date = strtr($date, $mois);
                 $nouveau = [
                         "status" => "réussi",
-                        "date" => $date,
+                        "date" => $ligne[0],
                         "ip" => $ligne[8],
                         "port" => $ligne[10]
                 ];
@@ -159,23 +144,9 @@
         foreach ($echec as $ligne) {
             $ligne = explode(" ",$ligne);
             if($ligne[0]!="" && $ligne[8]!=null && $ligne[10]!=null){
-                $dateObj = new DateTime(($ligne[0]));
-                $date = $dateObj->format('l d F Y H:i:s');
-                $jours = [
-                        'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
-                        'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
-                ];
-                $mois = [
-                        'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
-                        'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
-                        'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
-                        'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
-                ];
-                $date = strtr($date, $jours);
-                $date = strtr($date, $mois);
                 $nouveau = [
                         "status" => "échec",
-                        "date" => $date,
+                        "date" => $ligne[0],
                         "ip" => $ligne[8],
                         "port" => $ligne[10]
                 ];
@@ -194,8 +165,22 @@
                 echo '<ul>';
                 foreach ($logs as $entry) {
                     if ($actual_ssh <= $limite) {
+                        $dateObj = new DateTime(($entry['date']));
+                        $date = $dateObj->format('l d F Y H:i:s');
+                        $jours = [
+                                'Monday' => 'Lundi', 'Tuesday' => 'Mardi', 'Wednesday' => 'Mercredi',
+                                'Thursday' => 'Jeudi', 'Friday' => 'Vendredi', 'Saturday' => 'Samedi', 'Sunday' => 'Dimanche'
+                        ];
+                        $mois = [
+                                'January' => 'janvier', 'February' => 'février', 'March' => 'mars',
+                                'April' => 'avril', 'May' => 'mai', 'June' => 'juin',
+                                'July' => 'juillet', 'August' => 'août', 'September' => 'septembre',
+                                'October' => 'octobre', 'November' => 'novembre', 'December' => 'décembre'
+                        ];
+                        $date = strtr($date, $jours);
+                        $date = strtr($date, $mois);
                         echo '<li>' . htmlspecialchars($entry['status']) . ' - '
-                                . htmlspecialchars($entry['date']) . ' - '
+                                . htmlspecialchars($date) . ' - '
                                 . htmlspecialchars($entry['ip']) . ' - '
                                 . htmlspecialchars($entry['port']) . '</li>';
                         $actual_ssh++;
