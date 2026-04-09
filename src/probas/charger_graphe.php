@@ -23,10 +23,10 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] != "administrateur_web" && $_SE
                 <?php elseif ($_SESSION['role'] === 'administrateur_web'): ?>
                     <a href="../webadmin.php" class="center-link">Admin Web</a>
                 <?php elseif ($_SESSION['role'] === 'administrateur_systeme'): ?>
-                    <a href="../webadmin.php" class="center-link">Admin Systeme</a>
+                    <a href="../sysadmin.php" class="center-link">Admin Systeme</a>
                 <?php endif; ?>
                 <div id="userButton" class="right-link">
-                    <a href="logout.php" role="menuitem">Déconnexion</a>
+                    <a href="../logout.php" role="menuitem">Déconnexion</a>
                 </div>
             </nav>
         </div>
