@@ -33,7 +33,9 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
             $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
             echo '<ul>';
             foreach ($logs as $log) {
-                echo '<li>' . htmlspecialchars($log) . '</li>';
+                if (strpos($log, 'Connexion réussie') !== false) {
+                    echo '<li>' . htmlspecialchars($log) . '</li>';
+                }
             }
             echo '</ul>';
         } else {
@@ -43,6 +45,20 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     </section>
     <section class="log-connexion-failure">
         <h1>Connexion Echouée</h1>
+        <?php
+        if (file_exists($logFile)) {
+            $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            echo '<ul>';
+            foreach ($logs as $log) {
+                if (strpos($log, 'Connexion échouée') !== false) {
+                    echo '<li>' . htmlspecialchars($log) . '</li>';
+                }
+            }
+            echo '</ul>';
+        } else {
+            echo '<p>Aucun log de connexion trouvé.</p>';
+        }
+        ?>
     </section>
     <section class="log-connexion-ssh">
         <h1>Connexion SSH</h1>

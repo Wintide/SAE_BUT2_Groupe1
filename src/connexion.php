@@ -10,7 +10,7 @@ $db = "vines";
 $conn = mysqli_connect($host, $user, $pass);
 
 $role = null;
-
+$logfile = 'logs/connexion.log';
 if (!$conn) {
     echo "<script>console.log('Erreur connexion serveur');</script>";
 } else {
@@ -51,6 +51,9 @@ if (!$conn) {
 
 if ($valid) {
 
+    $logEntry = date('Y-m-d H:i:s') . " Connexion réussie: " . $login . " (" . $role . ")\n";
+    file_put_contents($logfile, $logEntry, FILE_APPEND);
+
     session_start();
 
     $_SESSION['role'] = $role;
@@ -60,6 +63,9 @@ if ($valid) {
 
 }
 else{
+    $logEntry = date('Y-m-d H:i:s') . " Connexion échouée: " . $login ." (".$role.")\n";
+    file_put_contents($logfile, $logEntry, FILE_APPEND);
+
     header("location: login.php?err=1");
 }
 
