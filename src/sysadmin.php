@@ -61,10 +61,10 @@
                 }
                 echo '</ul>';
             } else{
-                echo '<p>Aucune connexion réussit.</p>';
+                echo '<p>Aucune connexions réussies.</p>';
             }
         } else {
-            echo '<p>Aucune log de connexion trouvé.</p>';
+            echo '<p>Aucun logs de connexion trouvés.</p>';
         }
         ?>
     </section>
@@ -117,26 +117,16 @@
         <?php
         require_once 'log_utils.php';
 
-        $command_reussi = escapeshellcmd('cat /var/log/auth.log | grep Accepted > logs/reussi.txt');
-        $command_rate = escapeshellcmd('cat /var/log/auth.log | grep Failed > logs/echec.txt');
-        $output_reussi = shell_exec($command_reussi);
-        $output_rate = shell_exec($command_rate);
-        $c = escapeshellcmd('cat /var/log/auth.log');
-        $test = shell_exec($c);
+        $command_reussi = escapeshellcmd('cat /var/log/auth.log');
+        $command_rate = escapeshellcmd('cat /var/log/auth.log');
+        $output_reussi = shell_exec($command_reussi.' | grep Accepted');
+        $output_rate = shell_exec($command_rate.' | grep Failed');
 
-        $handle = fopen("logs/reussi.txt", "r");
-        if ($handle) {
-            while (($line = fgets($handle)) !== false) {
-                echo '<p>'.$line.'</p>';
-            }
-
-            fclose($handle);
-        }
 
 
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
-
+        echo '<p>'.htmlspecialchars($output_reussi).'</p>';
         foreach ($output_reussi as $ligne) {
             $nouveau = [
                     "status" => "réussi",
