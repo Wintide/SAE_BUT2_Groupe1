@@ -102,7 +102,7 @@
                                     . htmlspecialchars($date)
                                     . ' - ' . htmlspecialchars($entry['login'])
                                     . '</li>';
-                            $actual_++;
+                            $actual_f++;
                         }
                     }
                     echo '</ul>';
@@ -194,8 +194,11 @@
                 echo '<ul>';
                 foreach ($logs as $entry) {
                     if ($actual_ssh <= $limite) {
-                        echo '<li>' . htmlspecialchars($entry['status']) . ' - ' . htmlspecialchars($entry['date']) . ' - ' . htmlspecialchars($entry['ip']) . ' - ' . htmlspecialchars($entry['port']) . '</li>';
-                        $actual_++;
+                        echo '<li>' . htmlspecialchars($entry['status']) . ' - '
+                                . htmlspecialchars($entry['date']) . ' - '
+                                . htmlspecialchars($entry['ip']) . ' - '
+                                . htmlspecialchars($entry['port']) . '</li>';
+                        $actual_ssh++;
                     }
                 }
                 echo '</ul>';
