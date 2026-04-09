@@ -75,7 +75,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
         $command_rate = escapeshellcmd('cat ../../../../log/auth.log | grep Failed');
         $output_reussi = trim(shell_exec($command_reussi));
         $output_rate = trim(shell_exec($command_rate));
-
+        echo $output_reussi;
         $output_reussi = str_replace(array("\r", "\n"), '', $output_reussi);
         $output_rate = str_replace(array("\r", "\n"), '', $output_rate);
 
@@ -109,7 +109,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
                 }
                 echo '</ul>';
             } else{
-                echo '<p>Aucun connexion échouée.</p>';
+                echo '<p>Aucun connexion ssh.</p>';
             }
         } else {
             echo '<p>Aucun log de connexion trouvé.</p>';
