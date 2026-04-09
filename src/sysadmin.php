@@ -25,24 +25,7 @@ if (empty($_SESSION['role']) ||$_SESSION['role'] !== "administrateur_systeme") {
     </div>
 </header>
 <main>
-    <section class="presentation">
-        <h1>Bienvenue sur la page d'administration système</h1>
-        <p>
-            Cette section est dédiée à la gestion des aspects techniques et systèmes de la plateforme Vines.
-            En tant qu'administrateur système, vous avez accès à des outils avancés pour assurer le bon fonctionnement
-            de l'infrastructure informatique, gérer les serveurs, les réseaux et les configurations système.
-        </p>
-    </section>
 
-    <section class="admin-tools">
-        <h2>Outils d'administration système</h2>
-        <ul>
-            <li><a href="sysadmin_tools/server_management.php">Gestion des serveurs</a></li>
-            <li><a href="sysadmin_tools/network_configuration.php">Configuration réseau</a></li>
-            <li><a href="sysadmin_tools/system_monitoring.php">Surveillance du système</a></li>
-            <li><a href="sysadmin_tools/user_management.php">Gestion des utilisateurs</a></li>
-        </ul>
-    </section>
 </main>
 <footer>
     <div class="footer-columns">
